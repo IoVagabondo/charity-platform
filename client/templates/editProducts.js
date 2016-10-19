@@ -17,9 +17,9 @@ Template.editProducts.events({
         e.preventDefault();
         var form = e.target,
             user = Meteor.user(),
-            _this = this; // we need this to reference the slug in the callback
+            _this = this;
 
-        // Edit the initiative
+        // Insert the product in the initiative
         if(this._id) {
             Initiatives.update(this._id, {$push: { 
                 products:       {title: form.title.value, description: form.description.value, productValue: form.productValue.value}
@@ -31,6 +31,7 @@ Template.editProducts.events({
                     console.log('edit Products with ID');
                 } else {
                     // Show confirmation
+                    form.reset();
                 }
             });
 
@@ -39,11 +40,6 @@ Template.editProducts.events({
         } 
     },
 
-    // 'click button.addProduct': function(e, template){
-    //     console.log('addProduct button pressed');
-
-        // Werte aus Form in neuem Array Eintrag spreichern und danach die Form leeren
-  // }
 
     
 });
