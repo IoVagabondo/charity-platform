@@ -1,8 +1,21 @@
 <template name="home">
 	
-	{{#each postsList}}
-	  {{> postInList}}
-	{{/each}}
+	{{#if currentUser}}
+	    <a href="/create-post" class="createNewPost">Create new post</a>
+	{{/if}}
+
+	
+	{{#if currentUser}}
+		{{#each postsList}}
+	  		{{> postInList}}
+		{{/each}}
+	{{else}}
+		<h1>Oi! Melde dich an wenn du mehr machen willst ;)</h1>	
+	{{/if}}
+
+
+	{{#if currentUser}}
 	<button class="lazyload">Load more</button>
+	{{/if}}
 	
 </template>

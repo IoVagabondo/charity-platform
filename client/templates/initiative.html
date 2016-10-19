@@ -1,0 +1,24 @@
+<template name="initiative">
+	<div class="row">
+		<h1>Title: {{title}}</h1>
+		<small>
+			Posted {{formatTime timeCreated "fromNow"}} by {{author}}
+			{{#if currentUser.roles.admin}}
+		        | <a href="/edit-initiative/{{slug}}">Edit initiative</a>
+		        | <a href="/initiatives/{{slug}}/edit-products">Edit products</a>
+		        | <a href="#" id="delete" >Delete initiative</a>
+		    {{/if}} 
+		</small>
+		<hr>	
+		<h3>Description: {{description}}</h3>
+		<hr>
+	</div>
+	<div class="row">
+		<headText for="purposeText">Purpose:</headText>
+		<p id="purposeText">{{purpose}}</p>
+	</div>
+	<div class="row">
+		<headText for="founderText">Founder:</headText>
+		<p id="founderText">{{founder}}</p>
+	</div>
+</template>

@@ -1,14 +1,25 @@
 <template name="post">
-	<h1>{{title}}</h1>
-	<h2>{{description}}</h2>
+	<div class="row">
+		<h1>Title: {{title}}</h1> <small>Access link: http://localhost:3000/posts/{{slug}} | <a href="#" id="copyAccessLink"> Copy Link</a></small>
+		<br>
+			<small>
+				Posted {{formatTime timeCreated "fromNow"}} by {{author}}
 
-	<small>
-		Posted {{formatTime timeCreated "fromNow"}} by {{author}}
-	</small>
-	
-	<div class="postContent">
-		{{#markdown}}
-			{{text}}
-		{{/markdown}}	
+				{{#if currentUser}}
+			        | <a href="/edit-post/{{slug}}">Edit post</a>
+			        | <a href="#" id="delete" >Delete post</a>
+			    {{/if}} 
+			</small>
+		<hr>	
+	</div>
+	<div class="row">
+		<headText for="descriptionText">Description:</headText>
+		<p id="descriptionText">{{description}}</p>
+		
+	</div>
+	<hr>
+	<div class="row">
+			<headText for="descriptionText">Invitation:</headText>
+			<p id="initationText">{{text}}</p>
 	</div>
 </template>

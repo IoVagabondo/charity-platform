@@ -1,15 +1,15 @@
-Template.home.created = function(){
-  console.log('Created the home template');
-};
-Template.home.rendered = function(){
-  console.log('Rendered the home template');
-  // Replace the all p-Tag in template home created by markdown block helper
-  // this.$('p').html('We just replaced that text! DAMM');
-};
+// Template.home.created = function(){
+//   console.log('Created the home template');
+// };
+// Template.home.rendered = function(){
+//   console.log('Rendered the home template');
+//   // Replace the all p-Tag in template home created by markdown block helper
+//   // this.$('p').html('We just replaced that text! DAMM');
+// };
 
-Template.home.destroyed = function(){
-  console.log('Destroyed the home template');
-}; 
+// Template.home.destroyed = function(){
+//   console.log('Destroyed the home template');
+// }; 
 
 
 // Template.home.helpers({
@@ -41,9 +41,8 @@ Template.home.helpers({
 
 Template.home.events({
   'click button.lazyload': function(e, template){
-  var currentLimit = Session.get('lazyloadLimit');
-
-  Session.set('lazyloadLimit', currentLimit + 2);
+	  var currentLimit = Session.get('lazyloadLimit');
+	  Session.set('lazyloadLimit', currentLimit + 2);
   }
 });
 
