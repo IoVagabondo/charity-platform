@@ -1,6 +1,7 @@
 // #Storing Data -> Setup a collection
 Posts = new Mongo.Collection('posts');
 Initiatives = new Mongo.Collection('initiatives');
+Files = new Mongo.Collection('files');
 
 
 // #Security with allow and deny rules -> Restricting database updates

@@ -1,15 +1,17 @@
 <template name="initiativeInList">
-  <div class="postListItem">
-    <div class="row">
-		<div class="col-md-3">
-			PICTURE
-		</div>
-		<div class="col-md-9">
-			<h2><a href="initiatives/{{slug}}"> {{title}}</a></h2>
-			<p>Vision: {{vision}} </p>
-			<p>How it helps: {{howithelps}} </p>
-			<p>What it needs: {{whatitneeds}} </p>
-		</div>
+    <div class="postListItem">
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <div class="thumbnail">
+                    <img src={{imageURL}} alt="{{title}}">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h2><a href="initiatives/{{slug}}"> {{title}}</a></h2>
+                <p>Vision: {{vision}} </p>
+                <p>How it helps: {{howithelps}} </p>
+                <p>What it needs: {{whatitneeds}} </p>
+            </div>
+        </div>
     </div>
-    </div>
-</template> 
+</template>

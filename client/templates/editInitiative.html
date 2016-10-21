@@ -46,4 +46,19 @@
 			<button type="submit" class="save">{{saveButtonText}}</button>
 		</form>
 	</div>
+	{{#if hasId}}
+	<hr>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="upload-area">
+				<form id="upload">
+					<p class="alert alert-success text-center">
+						<span>Click or Drag a Image Here to Upload</span>
+				    	<input type="file">
+				    </p>
+			    </form>
+			</div>
+		</div>
+	</div>
+	{{/if}}
 </template>

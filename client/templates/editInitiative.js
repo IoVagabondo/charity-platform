@@ -86,5 +86,27 @@ Template.editInitiative.events({
         }
     },
 
+    'change input[type="file"]' (event, template) {
+        file = Modules.client.uploadToAmazonS3({ event: event, template: template, id: this._id}, function(id, url){
+            if (url) {
+                // console.log(url);
+                console.log(id);
+                if(id){
+                    Initiatives.update(id, {$set: { 
+                        imageURL: url
+            
+            }}, function(error) {
+                if(error) {
+                    Bert.alert(error.reason, "warning");
+                } else {
+                    // TODO                    
+                }
+            });
+
+                }
+
+            }
+        });
+    }
     
 });

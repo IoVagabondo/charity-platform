@@ -21,16 +21,26 @@
 		<div class="row">
 			<form>
 				<div class="form-group">
-						<label for="title">Title</label>
-						<input type="text" class="form-control" id="title" name="title" placeholder="Awesome title">
+					<label for="title">Title</label>
+					<input type="text" class="form-control" id="title" name="title" placeholder="Awesome title">
 				</div>
 				<div class="form-group">
-						<label for="description">Description</label>
-						<textarea id="description" name="description" class="form-control" placeholder="Short description displayed in posts list" rows="3"></textarea>
+					<label for="description">Description</label>
+					<textarea id="description" name="description" class="form-control" placeholder="Short description displayed in posts list" rows="3"></textarea>
 				</div>
 				<div class="form-group">
-						<label for="productValue">Value</label>
-						<input type="number" class="form-control" id="productValue" name="productValue" placeholder="Awesome title">
+					<label for="productValue">Value</label>
+					<input type="number" class="form-control" id="productValue" name="productValue" placeholder="Awesome title">
+				</div>
+				<div>
+					<div class="upload-area">
+						<form id="upload">
+							<p class="alert alert-success text-center">
+								<span>Click or Drag a Image Here to Upload</span>
+						    	<input type="file">
+						    </p>
+					    </form>
+					</div>
 				</div>
 
 				<button type="submit" class="save">Hinzufügen</button>
