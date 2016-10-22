@@ -54,6 +54,10 @@ Router.map(function() {
         template: 'about'
     });
 
+    this.route('Login', {
+        path: '/login',
+        template: 'login'
+    });
 
     this.route('Register', {
         path: '/register',
