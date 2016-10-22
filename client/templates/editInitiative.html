@@ -1,64 +1,69 @@
 <template name="editInitiative">
-	<div class="editPost">
-		<form>
-			<div class="form-group">
-				<label for="title">Title</label>
-				<input type="text" class="form-control" id="title" name="title" placeholder="Awesome title" value="{{title}}">
-			</div>
-			<hr>
-			<div class="form-group">
-				<label for="vision">Vision</label>
-				<input type="text" class="form-control" id="vision" name="vision" value="{{vision}}">
-			</div>
-			<div class="form-group">
-				<label for="howithelps">How it helps</label>
-				<input type="text" class="form-control" id="howithelps" name="howithelps" value="{{howithelps}}">
-			</div>
-			<div class="form-group">
-				<label for="whatitneeds">What it needs</label>
-				<input type="text" class="form-control" id="whatitneeds" name="whatitneeds" value="{{whatitneeds}}">
-			</div>
-			<div class="form-group">
-				<label for="website">Link to website</label>
-				<input type="text" class="form-control" id="website" name="website" value="{{website}}">
-			</div>
-			<hr>
-			<div class="form-group">
-				<label for="description">Complete description</label>
-				<textarea name="description" class="form-control" id="description" placeholder="Short description" rows="3">{{description}}</textarea>
-			</div>
-			<div class="form-group">
-				<label for="website">Cause</label>
-				<input type="text" class="form-control" id="cause" name="cause" value="{{cause}}">
-			</div>
-			<div class="form-group">
-				<label for="website">Location</label>
-				<input type="text" class="form-control" id="location" name="location" value="{{location}}">
-			</div>
-			<div class="form-group">
-				<label for="website">Contact person</label>
-				<input type="text" class="form-control" id="contactperson" name="contactperson" value="{{contactperson}}">
-			</div>
-			<div class="form-group">
-				<label for="website">Founding year</label>
-				<input type="text" class="form-control" id="foundingyear" name="foundingyear" value="{{foundingyear}}">
-			</div>
-			<button type="submit" class="save">{{saveButtonText}}</button>
-		</form>
-	</div>
-	{{#if hasId}}
-	<hr>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="upload-area">
-				<form id="upload">
-					<p class="alert alert-success text-center">
-						<span>Click or Drag a Image Here to Upload</span>
-				    	<input type="file">
-				    </p>
-			    </form>
-			</div>
-		</div>
-	</div>
-	{{/if}}
+    <div class="editPost">
+        <form>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Awesome title" value="{{title}}">
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="vision">Vision</label>
+                <input type="text" class="form-control" id="vision" name="vision" value="{{vision}}">
+            </div>
+            <div class="form-group">
+                <label for="howithelps">How it helps</label>
+                <input type="text" class="form-control" id="howithelps" name="howithelps" value="{{howithelps}}">
+            </div>
+            <div class="form-group">
+                <label for="whatitneeds">What it needs</label>
+                <input type="text" class="form-control" id="whatitneeds" name="whatitneeds" value="{{whatitneeds}}">
+            </div>
+            <div class="form-group">
+                <label for="website">Link to website</label>
+                <input type="text" class="form-control" id="website" name="website" value="{{website}}">
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="description">Complete description</label>
+                <textarea name="description" class="form-control" id="description" placeholder="Short description" rows="3">{{description}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="website">Cause</label>
+                <input type="text" class="form-control" id="cause" name="cause" value="{{cause}}">
+            </div>
+            <div class="form-group">
+                <label for="website">Location</label>
+                <input type="text" class="form-control" id="location" name="location" value="{{location}}">
+            </div>
+            <div class="form-group">
+                <label for="website">Contact person</label>
+                <input type="text" class="form-control" id="contactperson" name="contactperson" value="{{contactperson}}">
+            </div>
+            <div class="form-group">
+                <label for="website">Founding year</label>
+                <input type="text" class="form-control" id="foundingyear" name="foundingyear" value="{{foundingyear}}">
+            </div>
+            <button type="submit" class="save">{{saveButtonText}}</button>
+        </form>
+    </div>
+    {{#if hasId}}
+    <hr>
+    <div class="editPost">
+        <div class="row">
+            <div class="thumbnail">
+                <img src="{{imageURL}}" alt="{{title}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="upload-area">
+                <form id="upload">
+                    <p class="alert alert-success text-center">
+                        <span>Click or Drag an Image Here to Upload</span>
+                        <input type="file">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{/if}}
 </template>
