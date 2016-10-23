@@ -64,6 +64,11 @@ Router.map(function() {
         template: 'register'
     });
 
+    this.route('AdminPanel', {
+        path: '/admin',
+        template: 'adminPanel'
+    });
+
     this.route('Post', {
 	    path: '/posts/:slug',
 	    template: 'post',
@@ -124,5 +129,18 @@ var requiresLogin = function(){
     }
 }; 
 
+
+var requiresAdmin = function(){
+    if (!Meteor.user() && Roles.userIsInRole( Meteor.userId(), 'admin' ) ){
+        this.render('notFound');
+
+    } else {
+        this.next();
+    }
+}; 
+
+
+
 Router.onBeforeAction(requiresLogin, {only: ['Initiatives','Create Post','Edit Post']});
+Router.onBeforeAction(requiresAdmin, {only: ['AdminPanel']});
 

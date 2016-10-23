@@ -5,23 +5,30 @@ Template.register.events({
         var usernameVar = event.target.registerEmail.value;
         var emailVar = event.target.registerEmail.value;
         var passwordVar = event.target.registerPassword.value;
-        
+
         Accounts.createUser({
             username: usernameVar,
             email: emailVar,
             password: passwordVar,
             profile: {
-            	name: nameVar
+                name: nameVar
             }
-        }, function(error){
-        	if (error) {
-        		Bert.alert(error.reason, "warning");
-        	}
-        	else{
-        		Bert.alert("Registirerung erfolgreich!", "success");
-        		Router.go('Home');
-        	}
+        }, function(error) {
+            if (error) {
+                Bert.alert(error.reason, "warning");
+            } else {
+                Meteor.call("setRoleOnUser", {
+                    user: Meteor.userId(),
+                    role: 'user'
+                }, (error, response) => {
+                    if (error) {
+                        Bert.alert(error.reason, "warning");
+                    }
+                });
+                Bert.alert("Registirerung erfolgreich!", "success");
+                Router.go('Home');
+            }
         });
-        
+
     }
 });

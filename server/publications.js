@@ -56,6 +56,17 @@ Meteor.publish("single-initiative", function(slug) {
 });
 
 
+Meteor.publish( 'users', function() {
+
+  if ( Roles.userIsInRole( this.userId, 'admin') ) {
+    return [
+      Meteor.users.find( {}, { fields: { "profile.name": 1, "emails.address": 1, "roles": 1 } } ),
+    ];
+  } else {
+    return null;
+  }
+});
+
 
 
 Meteor.publish("userRoles", function () {

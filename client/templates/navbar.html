@@ -18,6 +18,9 @@
                     <li><a href="/">Events</a></li>
                     <li><a href="/initiatives">Initiatives</a></li>
                     <li><a href="#">Profile</a></li>
+                    {{#if isInRole 'admin' 'employees'}}
+                        <li><a href="/admin">Admin</a></li>
+                    {{/if}}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <button type="button" id="logout" class="btn btn-default navbar-btn">Logout</button>

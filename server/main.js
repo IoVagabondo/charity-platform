@@ -6,27 +6,37 @@ Meteor.startup(function(){
 	// #Users and Permissions -> -> Creating the admin user
 	if(Meteor.users.find().count() === 0) {
 
-		console.log('Created Admin user');
-
 		var userId = Accounts.createUser({
-			username: 'sven',
-			email: 'sven@example.com',
+			username: 'sven@primi.io',
+			email: 'sven@primi.io',
 			password: '1234',
 			profile: {
 				name: 'Sven Rossmann'
 			}
 		});
-		Meteor.users.update(userId, {$set: {
-			roles: {admin: true},
-		}})
+
+		Roles.addUsersToRoles(userId, ['admin'], 'employees');
+
+		var userId = Accounts.createUser({
+			username: 'bea@primi.io',
+			email: 'bea@primi.io',
+			password: '1234',
+			profile: {
+				name: 'Bea Zanforlin'
+			}
+		});
+
+		Roles.addUsersToRoles(userId, ['admin'], 'employees');
 
 		var userId = Accounts.createUser({
 			username: 'mia',
 			email: 'mia@example.com',
 			password: '1234',
 			profile: {
-				name: 'Mia Rossmann'
+				name: 'Mia Zehnicker'
 			}
 		});
+
+		Roles.addUsersToRoles(userId, [], 'default-group');
 	}
 });

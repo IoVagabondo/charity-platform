@@ -1,9 +1,8 @@
-
 // #Security with allow and deny rules -> Adding posts using a method call
 Meteor.methods({
     insertPost: function(postDocument) {
 
-        if(this.isSimulation) {
+        if (this.isSimulation) {
             Session.set('saveButton', 'Saving...');
 
         } else {
@@ -15,14 +14,14 @@ Meteor.methods({
 
 
             // prevent duplicate link names, we just add a random string like: "my-page-c5g"
-            if(Posts.findOne({slug: postDocument.slug}))
-                postDocument.slug = postDocument.slug +'-'+ Math.random().toString(36).substring(3);
+            if (Posts.findOne({ slug: postDocument.slug }))
+                postDocument.slug = postDocument.slug + '-' + Math.random().toString(36).substring(3);
 
 
             // add properties on the serverside
             postDocument.timeCreated = moment().unix();
-            postDocument.author      = user.profile.name;
-            postDocument.owner       = user._id;
+            postDocument.author = user.profile.name;
+            postDocument.owner = user._id;
 
 
             Posts.insert(postDocument);
@@ -32,13 +31,13 @@ Meteor.methods({
         }
     },
 
-    deletePost: function(postId){
+    deletePost: function(postId) {
 
         var user = Meteor.user();
 
         if (!user)
-                throw new Meteor.Error(401, "You need to login");
-        
+            throw new Meteor.Error(401, "You need to login");
+
         return Posts.remove(postId);
 
     },
@@ -48,7 +47,7 @@ Meteor.methods({
 
     insertInitiative: function(initiativeDocument) {
 
-        if(this.isSimulation) {
+        if (this.isSimulation) {
             Session.set('saveButton', 'Saving...');
 
         } else {
@@ -60,14 +59,14 @@ Meteor.methods({
 
 
             // prevent duplicate link names, we just add a random string like: "my-page-c5g"
-            if(Initiatives.findOne({slug: initiativeDocument.slug}))
-                initiativeDocument.slug = initiativeDocument.slug +'-'+ Math.random().toString(36).substring(3);
+            if (Initiatives.findOne({ slug: initiativeDocument.slug }))
+                initiativeDocument.slug = initiativeDocument.slug + '-' + Math.random().toString(36).substring(3);
 
 
             // add properties on the serverside
             initiativeDocument.timeCreated = moment().unix();
-            initiativeDocument.author      = user.profile.name;
-            initiativeDocument.owner       = user._id;
+            initiativeDocument.author = user.profile.name;
+            initiativeDocument.owner = user._id;
 
 
             Initiatives.insert(initiativeDocument);
@@ -77,29 +76,29 @@ Meteor.methods({
         }
     },
 
-    deleteInitiative: function(initiativeId){
+    deleteInitiative: function(initiativeId) {
 
         var user = Meteor.user();
 
         if (!user)
-                throw new Meteor.Error(401, "You need to login");
-        
+            throw new Meteor.Error(401, "You need to login");
+
         return Initiatives.remove(initiativeId);
 
     },
 
-    storeUrlInDatabase: function( url ) {
-        check( url, String );
-        Modules.both.checkUrlValidity( url );
+    setRoleOnUser: function(options) {
+        check(options, {
+            user: String,
+            role: String
+        });
 
         try {
-          Files.insert({
-            url: url,
-            userId: Meteor.userId(),
-            added: new Date() 
-          });
-        } catch( exception ) {
-          return exception;
+            Roles.setUserRoles(options.user, [options.role]);
+        } catch (exception) {
+            return exception;
         }
-  }
+    },
+
+
 });
