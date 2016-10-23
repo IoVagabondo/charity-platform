@@ -37,7 +37,7 @@ if(Meteor.isServer) {
 		},
 		update: function (userId, doc, fields, modifier) {
 			// User must be an admin
-			return Meteor.user().roles.admin;
+			return Roles.userIsInRole( userId, 'admin' );
 		},
 		remove: function (userId, doc) {
 			// User must be an admin

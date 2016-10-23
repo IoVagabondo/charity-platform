@@ -43,7 +43,6 @@ Template.editInitiative.events({
                 if(error) {
                     // display the error to the user
                     alert(error.reason);
-                    console.log('edit Inititative with ID')
                 } else {
                     // Redirect to the post
                     Router.go('Initiatives', {slug: _this.slug});
