@@ -1,0 +1,11 @@
+<template name="homescreen">
+	<div class="appBody">
+		<a href="/create-post" class="createNewPost">Create new post</a>
+		
+		{{#each postsList}}
+	  		{{> postInList}}
+		{{/each}}
+
+		<button class="lazyload">Load more</button>
+	</div>
+</template>

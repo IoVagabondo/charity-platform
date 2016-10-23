@@ -1,6 +1,6 @@
 if(Meteor.isClient) {
     Session.setDefault('lazyloadLimit', 2);
-    Session.setDefault('lazyloadLimit_initiatives', 2);
+    Session.setDefault('lazyloadLimit_initiatives', 5);
 }
 
 Router.configure({

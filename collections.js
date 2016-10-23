@@ -4,6 +4,7 @@ Initiatives = new Mongo.Collection('initiatives');
 Files = new Mongo.Collection('files');
 
 
+
 // #Security with allow and deny rules -> Restricting database updates
 if(Meteor.isServer) {
 	

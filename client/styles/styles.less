@@ -8,7 +8,6 @@ body {
 	background-color: #f5f5f5;
 	font: 15px 'Helvetica Neue', Arial, Verdana;
 	color: #262422;
-	padding: 0 30px;
 }
 
 a, a:visited {
@@ -70,6 +69,14 @@ div.container {
 	max-width: 960px;
 }
 
+div.container-fliud {
+	
+}
+
+.content {
+	margin-top: 6em;
+}
+
 body > header {
 	margin: -10px -40px;
 	margin-bottom: 30px;
@@ -108,31 +115,51 @@ body > header {
 		}
 	}
 }
+
+.transparantJumbotron {
+  background-color: rgba(255,255,255, 0.5);
+  color: inherit;
+}
+
 main {
 	padding-bottom: 30px;
 }
 
 section {
   width: 100%;
-  padding: 0 7%;
   display: table;
   margin: 0;
   max-width: none;
-  
   height: 100vh;
-  
-  &:nth-of-type(2n) {
-    background-color: #FE4B74;
-  }
+
 }
 
 .intro {
   height: 90vh;
-}
-
-.content {
   display: table-cell;
   vertical-align: middle;
+  background-image: url("https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/shutterstock_447950605+small.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.chairity {
+  display: table-cell;
+  vertical-align: middle;
+  background-image: url("https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/shutterstock_400220989_small.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.login,
+.register {
+	margin-top: 7em;
+}
+
+.appBody {
+	margin-top: 7em;
+	width:80%;
+  	margin-left:10%;
 }
 
 
@@ -189,7 +216,7 @@ section {
 // EDIT POST
 .editPost {
 	max-width: 960px;
-	margin: 0 auto;
+	margin-top: 6em;
 
 	input,
 	textarea {

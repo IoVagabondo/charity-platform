@@ -9,7 +9,7 @@ Template.login.events({
         		Bert.alert(error.reason, "warning");
         	}
         	else{
-        		Bert.alert("Login erfolgreich!", "success");
+        		// Bert.alert("Login erfolgreich!", "success");
         		Router.go('Home');
         	}
         });

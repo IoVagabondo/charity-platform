@@ -1,42 +1,13 @@
 <template name="layout">
     {{> navbar}}
-    <header>
-        <div class="container">
-            <div class="row verticalCenter">
-                <div class="col-md-3">
-                    <h1>Primi.io</h1>
-                </div>
-                <div class="col-md-offset-3 col-md-6" style="padding-top: 8px">
-                    {{> loginButtons}}
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                {{#if currentUser}}
-                <div class="col-md-4">
-                    <a class="head" href="/">Home</a>
-                </div>
-                <div class="col-md-4">
-                    <a class="head" href="/initiatives">Initiatives</a>
-                </div>
-                <div class="col-md-4">
-                    <a class="head" href="#">Profile</a>
-                </div>
-                {{else}}
-                <div class="col-md-12">
-                    <!-- Für später eventuell -->
-                </div>
-                {{/if}}
-            </div>
-        </div>
-    </header>
+    
     <div class="container-fluid">
         <main>
             {{> yield}}
         </main>
     </div>
 </template>
+
 <!-- #Routes -> Switching to a layout template -->
 <template name="notFound">
     <div class="center">

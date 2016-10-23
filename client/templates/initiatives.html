@@ -1,15 +1,15 @@
 <template name="initiatives">
-	
-	{{#if currentUser.roles.admin}}
-	    <a href="/create-initiative" class="createNewInitiative">Create new initiative</a>
-	{{/if}}
+	<div class="appBody">
+		{{#if currentUser.roles.admin}}
+		    <a href="/create-initiative" class="createNewInitiative">Create new initiative</a>
+		{{/if}}
 
-	{{#each initiativesList}}
-	  {{> initiativeInList}}
-	{{/each}}
+		{{#each initiativesList}}
+		  {{> initiativeInList}}
+		{{/each}}
 
-	{{#if currentUser}}
-		<button class="lazyload">Load more</button>
-	{{/if}}
-	
+		{{#if currentUser}}
+			<button class="lazyload">Load more</button>
+		{{/if}}
+	</div>
 </template>

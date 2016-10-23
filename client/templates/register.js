@@ -2,7 +2,7 @@ Template.register.events({
     'submit form': function(event) {
         event.preventDefault();
         var nameVar = event.target.registerName.value;
-        var usernameVar = event.target.registerUsername.value;
+        var usernameVar = event.target.registerEmail.value;
         var emailVar = event.target.registerEmail.value;
         var passwordVar = event.target.registerPassword.value;
         
