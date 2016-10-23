@@ -2,26 +2,43 @@
     <div class="appBody">
         <div class="editPost">
             <div class="row">
-                <h1>Title: {{title}}</h1>
-                <small>
-			Posted {{formatTime timeCreated "fromNow"}} by {{author}}
-			{{#if currentUser.roles.admin}}
-		        | <a href="/edit-initiative/{{slug}}">Edit initiative</a>
-		        | <a href="/initiatives/{{slug}}/edit-products">Edit products</a>
-		        | <a href="#" id="delete" >Delete initiative</a>
-		    {{/if}} 
-		</small>
-                <hr>
-                <h3>Description: {{description}}</h3>
-                <hr>
+                <div class="col-md-12">
+                    <h1>Title: {{title}}</h1>
+                </div>
+                <div class="col-md-12">
+                    <small>
+					Posted {{formatTime timeCreated "fromNow"}} by {{author}}
+					{{#if isInRole 'admin'}}
+				        | <a href="/edit-initiative/{{slug}}">Edit initiative</a>
+				        | <a href="/initiatives/{{slug}}/edit-products">Edit products</a>
+				        | <a href="#" id="delete" >Delete initiative</a>
+				    {{/if}} 
+				</small>
+                </div>
             </div>
-            <div class="row">
-                <headText for="purposeText">Purpose:</headText>
-                <p id="purposeText">{{purpose}}</p>
+            <div class="row" style="margin-top: 15px">
+                <div class="col-xs-12 col-md-9">
+                    <headText for="vision">Vision:</headText>
+                    <p id="initationText">{{vision}}</p>
+                    <headText for="howithelps">How it helps:</headText>
+                    <p id="howithelps">{{howithelps}}</p>
+                    <headText for="whatitneeds">What it needs:</headText>
+                    <p id="whatitneeds">{{whatitneeds}}</p>
+                    <headText for="website">Link:</headText>
+                    <p id="website"><a href="{{website}}">{{website}}</a></p>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="thumbnail">
+                        <img src={{imageURL}} alt="{{title}}">
+                    </div>
+                </div>
             </div>
+            <hr>
             <div class="row">
-                <headText for="founderText">Founder:</headText>
-                <p id="founderText">{{founder}}</p>
+                <div class="col-md-12">
+                    <headText for="founderText">Description:</headText>
+                    <p id="founderText">{{description}}</p>
+                </div>
             </div>
         </div>
     </div>

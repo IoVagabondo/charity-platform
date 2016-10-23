@@ -1,6 +1,6 @@
 <template name="initiatives">
 	<div class="appBody">
-		{{#if currentUser.roles.admin}}
+		{{#if isInRole 'admin'}}
 		    <a href="/create-initiative" class="createNewInitiative">Create new initiative</a>
 		{{/if}}
 
