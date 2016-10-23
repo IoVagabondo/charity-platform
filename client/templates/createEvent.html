@@ -1,0 +1,20 @@
+<template name="createEvent">
+    <div class="appBody">
+        <div class="row">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-default back">Back</button>
+            </div>
+            <div class="col-md-6">
+                <ul class="nav nav-pills" style="margin-bottom: 3em">
+                    <li id="formStep1" data-template="formStep1" role="presentation" class="active"><a href="#">Step 1: Find</a></li>
+                    <li id="formStep2" data-template="formStep2" role="presentation"><a href="#">Step 2: Choose</a></li>
+                    <li id="formStep3" data-template="formStep3" role="presentation"><a href="#">Step 3: Describe</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+	            <button type="button" class="btn btn-default next">Next</button>
+    		</div>
+        </div>
+        {{> Template.dynamic template=tab }}
+    </div>
+</template>

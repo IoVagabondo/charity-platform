@@ -54,6 +54,14 @@ Router.map(function() {
         template: 'about'
     });
 
+    this.route('Create Event', {
+        path: '/createEvent',
+        template: 'createEvent',
+        subscriptions: function(){
+            return Meteor.subscribe("lazyload-initiatives", Session.get('lazyloadLimit_initiatives'));
+        }
+    });
+
     this.route('Login', {
         path: '/login',
         template: 'login'

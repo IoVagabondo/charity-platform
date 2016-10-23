@@ -1,0 +1,37 @@
+<template name="formStep2">
+    <div class="row">
+        <div class="col-md-1">
+            Filter
+        </div>
+        <div class="col-md-3">
+            <select class="form-control" style="margin-top: 10px">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <select class="form-control" style="margin-top: 10px">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="col-md-offset-1 col-md-1">
+            Suche
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" id="searchQuery" name="searchQuery" placeholder="Search ...">
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        {{#each initiativesList}}
+          {{> initiativeInList}}
+        {{/each}}
+
+        <button class="lazyload">Load more</button>
+    </div>
+</template>
