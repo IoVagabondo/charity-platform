@@ -1,4 +1,6 @@
 @import 'lesshat.import.less';
+@import "myStyle.less";
+@import "variables.less";
 
 // variables
 @tintColor: desaturate(lighten(#3f51b5, 10%), 5%);
@@ -43,13 +45,21 @@ p {
 	line-height: 22px;
 	text-align: justify;
 }
+
+hr {
+	border: 0;
+	height: 2px;
+	color: #D3D3D3;
+	background-color: #D3D3D3;
+}
+
 small {
 	color: #999;
 }
 input,
 textarea {
 	display: block;
-	margin: 20px auto;
+	margin: 0 auto;
 	padding: 10px;
 	font-size: 15px;
 	color: #333;
@@ -125,6 +135,8 @@ main {
 	padding-bottom: 30px;
 }
 
+// Sections
+
 section {
   width: 100%;
   display: table;
@@ -151,13 +163,72 @@ section {
   background-repeat: no-repeat;
 }
 
-
+.portfolio-box {
+    position: relative;
+    display: block;
+    max-width: 650px;
+    margin: 0 auto;
+    .portfolio-box-caption {
+        color: white;
+        opacity: 0;
+        display: block;
+        background: fade(@theme-primary, 90%);
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        .transition-all;
+        .portfolio-box-caption-content {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            .project-category,
+            .project-name {
+                .sans-serif-font;
+                padding: 0 15px;
+            }
+            .project-category {
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 14px;
+            }
+            .project-name {
+                font-size: 18px;
+            }
+        }
+    }
+    &:hover {
+        .portfolio-box-caption {
+            opacity: 1;
+        }
+    }
+    &:focus {
+        outline: none;
+    }
+    @media (min-width: 768px) {
+        .portfolio-box-caption {
+            .portfolio-box-caption-content {
+                .project-category {
+                    font-size: 16px;
+                }
+                .project-name {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
 
 
 .login,
 .register {
 	margin-top: 7em;
 }
+
+// General app body
 
 .appBody {
 	margin-top: 7em;
@@ -174,7 +245,7 @@ section {
 }
 
 
-// POST LIST ITEM
+// Event list item
 .postListItem {
 	margin-top: 20px;
 	padding: 1px;
@@ -211,7 +282,7 @@ section {
 	}
 }
 
-// POST CONTENT
+// Event content & edit
 .postContent {
 
 	&.hasShouts {
@@ -224,7 +295,7 @@ section {
 	float: right;
 }
 
-// EDIT POST
+
 .editPost {
 	max-width: 960px;
 	margin-top: 6em;
@@ -235,6 +306,9 @@ section {
 		width: 100%;
 	}
 }
+
+
+// Zu entfernen
 
 #login-buttons {
 	position: absolute;
@@ -254,6 +328,9 @@ section {
 	right: -1px;
 	left: auto;
 }
+
+
+// Butttons
 
 button.lazyload,
 a.createNewPost,
@@ -289,6 +366,25 @@ button.inTable {
 	border: 0px;
 }
 
+.btn-circle {
+  width: 40px;
+  background-color: transparent;
+  height: 40px;
+  text-align: center;
+  padding: 9px 0;
+  font-size: 15px;
+  line-height: 1.42;
+  border-radius: 18px;
+
+  &:hover {
+  	background-color: #31708f;
+  	color: white;
+  }
+}
+
+
+// Others
+
 headText {
     font-size: 12px;
     font-weight: 700;
@@ -296,3 +392,18 @@ headText {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+.center-pills {
+	display: flex;
+    justify-content: center;
+}
+
+
+
+// Override bootstrap
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+

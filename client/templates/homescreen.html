@@ -1,10 +1,50 @@
 <template name="homescreen">
-	<div class="appBody">
-		
-		{{#each postsList}}
-	  		{{> postInList}}
-		{{/each}}
+    <div class="appBody">
+        <div class="row">
+            <div class="col-md-6 text-left">
+                <h2>Impact Panel</h2>
+            </div>
+            <div class="col-md-offset-4 col-md-2 text-right">
+                <button type="button" style="margin-top: 15px" class="btn btn-primary newEvent">Create new event</button>
+            </div>
+        </div>
+        <hr style="margin-top: 0px">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><strong>Your pending event</strong></h3>
+                    </div>
+                    <div class="panel-body pendingEvent">
+                        <p>Name: </p>
+                        <p>Date: </p>
+                        <p>Funding: </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-offset-1 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><strong>Your account</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Last Event: </p>
+                        <p>Last Funding: </p>
+                        <hr>
+                        <p>Number of events: </p>
+                        <p>Total Funding: </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<button class="lazyload">Load more</button>
-	</div>
+        <div class="row">
+        
+            <div class="col-md-7">
+            	<hr>
+                {{#each postsList}} {{> postInList}} {{/each}}
+                <button class="lazyload">Load more</button>
+            </div>
+        </div>
+    </div>
 </template>

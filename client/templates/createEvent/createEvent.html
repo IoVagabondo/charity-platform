@@ -1,0 +1,23 @@
+<template name="createEvent">
+    <div class="appBody">
+        <div class="row">
+            <div class="col-md-3 text-right">
+            	<a href="#" class="btn btn-default btn-circle back"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                <!-- <button type="button" class="btn btn-default back">Back</button> -->
+            </div>
+            <div class="col-md-6 text-center">
+                <ul class="nav nav-pills center-pills" style="margin-bottom: 3em">
+                    <li id="formStep1" data-template="formStep1" role="presentation" class="active"><a href="#">Step 1: Find</a></li>
+                    <li id="formStep2" data-template="formStep2" role="presentation"><a href="#">Step 2: Choose</a></li>
+                    <li id="formStep3" data-template="formStep3" role="presentation"><a href="#">Step 3: Describe</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 text-left">
+	            <!-- <button type="button" class="btn btn-default next">Next</button> -->
+	            <a href="#" class="btn btn-default btn-circle next"><i class="fa fa-chevron-right" aria-hidden="true"></i>
+</a>
+    		</div>
+        </div>
+        {{> Template.dynamic template=tab }}
+    </div>
+</template>
