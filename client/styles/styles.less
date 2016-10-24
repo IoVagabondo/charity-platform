@@ -53,6 +53,10 @@ hr {
 	background-color: #D3D3D3;
 }
 
+.small {
+	max-width: 50px;
+}
+
 small {
 	color: #999;
 }
@@ -86,6 +90,8 @@ div.container-fliud {
 .content {
 	margin-top: 6em;
 }
+
+
 
 body > header {
 	margin: -10px -40px;
@@ -124,6 +130,8 @@ body > header {
 			}
 		}
 	}
+
+
 }
 
 .transparantJumbotron {
@@ -141,10 +149,37 @@ section {
   width: 100%;
   display: table;
   margin: 0;
-  max-width: none;
-  height: 100vh;
-
+  
 }
+
+.welcome {
+	width: 100%;
+	margin: 0;
+	display: table;
+	color: @theme-primary;
+	text-align: center;
+	padding: 120px 15px 120px;
+	.header-content-inner {
+            h1 {
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 30px;
+            }
+            hr {
+                margin: 30px auto;
+            }
+            p {
+                font-weight: 300;
+                color: @theme-primary;
+                font-size: 16px;
+                margin-bottom: 50px;
+            }
+        }
+}
+
+        
 
 .intro {
   height: 90vh;
@@ -156,6 +191,7 @@ section {
 }
 
 .chairity {
+  height: 100vh;
   display: table-cell;
   vertical-align: middle;
   background-image: url("https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/shutterstock_400220989_small.jpg");
@@ -222,6 +258,16 @@ section {
     }
 }
 
+.functions {
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	margon-bottom: 100px;
+	
+  	vertical-align: middle;
+}
 
 .login,
 .register {

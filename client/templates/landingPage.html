@@ -1,5 +1,5 @@
 <template name="landingPage">
-    <section>
+    <section class="head">
         <div class="intro">
             <header class="jumbotron transparantJumbotron text-xs-center center-vertically" role="banner">
                 <div class="container">
@@ -9,48 +9,61 @@
             </header>
         </div>
     </section>
-    <section class="section-features text-xs-center">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-block">
-                            <span class="icon-pen display-1"></span>
-                            <h4 class="card-title">250</h4>
-                            <h6 class="card-subtitle text-muted">UI Elements</h6>
-                            <p class="card-text">Sed risus feugiat fusce eu sit conubia venenatis aliquet nisl cras eu adipiscing ac cras at sem cras per senectus eu parturient quam.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-block">
-                            <span class="icon-thunderbolt display-1"></span>
-                            <h4 class="card-title">Ultra</h4>
-                            <h6 class="card-subtitle text-muted">Modern design</h6>
-                            <p class="card-text">Sed risus feugiat fusce eu sit conubia venenatis aliquet nisl cras eu adipiscing ac cras at sem cras per senectus eu parturient quam.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card m-b-0">
-                        <div class="card-block">
-                            <span class="icon-heart display-1"></span>
-                            <h4 class="card-title">Free</h4>
-                            <h6 class="card-subtitle text-muted">Forever and ever</h6>
-                            <p class="card-text">Sed risus feugiat fusce eu sit conubia venenatis aliquet nisl cras eu adipiscing ac cras at sem cras per senectus eu parturient quam.</p>
-                        </div>
-                    </div>
-                </div>
+    <section class="welcome">
+        <div class="header-content-inner">
+            <div class="col-lg-6 col-lg-offset-3 text-center">
+                <h1 id="homeHeading">We have got what you need!</h1>
+                <hr class="small">
+                <p class="text-center">Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
             </div>
         </div>
     </section>
     <section>
         <div class="chairity">
-            TEST
         </div>
     </section>
-    
+    <section id="services" class="functions">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">At Your Service</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box text-center">
+                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+                        <h3>Sturdy Templates</h3>
+                        <p class="text-muted text-center">Our templates are updated regularly so they don't break.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box text-center">
+                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+                        <h3>Ready to Ship</h3>
+                        <p class="text-muted text-center">You can use this theme as is, or you can make changes!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box text-center">
+                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+                        <h3>Up to Date</h3>
+                        <p class="text-muted text-center">We update dependencies to keep things fresh.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box text-center">
+                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+                        <h3>Made with Love</h3>
+                        <p class="text-muted text-center">You have to make your websites with love these days!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">
             <div class="row no-gutter popup-gallery">
@@ -147,5 +160,4 @@
             </div>
         </div>
     </section>
-
 </template>
