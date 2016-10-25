@@ -43,6 +43,30 @@ Meteor.publish('all-initiatives', function () {
 });
 
 
+Meteor.publish( 'searchableInitiatives', function( search ) {
+  check( search, Match.OneOf( String, null, undefined ) );
+
+  let query      = {},
+      projection = { limit: 10, sort: { title: 1 } };
+
+  if ( search ) {
+    let regex = new RegExp( search, 'i' );
+
+    query = {
+      $or: [
+        { title: regex },
+        { artist: regex },
+        { year: regex }
+      ]
+    };
+
+    projection.limit = 100;
+  }
+
+  return Initiatives.find( query, projection );
+});
+
+
 // #Controlling the data flow -> Lazy load posts or how to change subscriptions
 Meteor.publish('lazyload-initiatives', function (limit) {
 	return Initiatives.find({}, {

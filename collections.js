@@ -5,6 +5,8 @@ Initiatives = new Mongo.Collection('initiatives');
 
 // #Security with allow and deny rules -> Restricting database updates
 if(Meteor.isServer) {
+
+	Initiatives._ensureIndex( { title: 1, vision: 1, howithelps: 1, whatitneeds: 1 } );
 	
 	Posts.allow({
 		insert: function (userId, doc) {
