@@ -58,7 +58,6 @@
      'input input.searchQuery': function(event, template) {
 
          let value = event.target.value.trim();
-         console.log("Value: " + value);
          var self = this;
 
         
