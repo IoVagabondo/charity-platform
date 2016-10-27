@@ -55,8 +55,9 @@ Meteor.publish( 'searchableInitiatives', function( search ) {
     query = {
       $or: [
         { title: regex },
-        { artist: regex },
-        { year: regex }
+        { vision: regex },
+        { howithelps: regex },
+        { whatitneeds: regex }
       ]
     };
 

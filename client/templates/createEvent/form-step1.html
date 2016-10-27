@@ -1,20 +1,20 @@
 <template name="formStep1">
     <div class="row">
         <form>
-        	<p class="text-center"><strong>Search for the name</strong></p>
+            <h4 class="text-center text-uppercase">Search for the name</h4>
+            <hr style="max-width: 75px">
             <div class="form-group">
-                <input type="text" class="form-control searchQuery" id="searchQuery" name="searchQuery" >
+                <input type="text" class="form-control searchQuery" id="searchQuery" name="searchQuery">
             </div>
-            <p class="text-center" style="margin-top: 3em"><strong>... or use the filters below</strong></p>
+            <h4 class="text-center text-uppercase" style="margin-top: 3em">... or use the filters below</h4>
+            <hr style="max-width: 75px">
             <div class="form-group">
                 <select name="filter1" id="filter1" class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option value="none">Choose here ...</option>
+                    <option value="Berlin">Berlin</option>
+                    <option value="Brazil">Brazil</option>
                 </select>
-                <select class="form-control" style="margin-top: 10px">
+                <select class="form-control" id="filter2" style="margin-top: 10px">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>

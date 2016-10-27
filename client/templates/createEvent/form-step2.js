@@ -6,6 +6,10 @@
      template.searchQuery = new ReactiveVar();
      template.searching = new ReactiveVar(false);
 
+     template.filter1 = new ReactiveVar();
+     template.filter2 = new ReactiveVar();
+
+
      template.autorun(() => {
          template.subscribe('searchableInitiatives', template.searchQuery.get(), () => {
              setTimeout(() => {
@@ -16,12 +20,28 @@
  });
 
  Template.formStep2.onRendered(function() {
-     this.find('.searchQuery').value = Session.get('searchQuery');
-     query = Session.get('searchQuery');
-     if(query !== ''){
-        Template.instance().searchQuery.set(query);
-        Template.instance().searching.set(true);
+
+     // Set search query to value of form-step-1
+     var query = Session.get('searchQuery');
+     this.find('.searchQuery').value = query;
+
+     // Set filter1 & filter2 to value of form-step-1
+     var filter1 = Session.get('filter1');
+     var filter2 = Session.get('filter2');
+     $('#filter1').val(filter1);
+     $('#filter2').val(filter2);
+
+
+     if (query !== '') {
+         Template.instance().searchQuery.set(query);
+         Template.instance().searching.set(true);
      }
+
+     Template.instance().filter1.set(filter1);
+     Template.instance().filter2.set(filter2);
+
+
+
  });
 
 
@@ -39,12 +59,29 @@
      query() {
          return Template.instance().searchQuery.get();
      },
+     // value of the filter to initialize the HTML input
+     filter1: function() {
+         return Template.instance().filter1.get();
+     },
+     filter2: function() {
+         return Template.instance().filter2.get();
+     },
 
      initiatives() {
-         let initiatives = Initiatives.find();
-         if (initiatives) {
-             return initiatives;
+         if (Template.instance().filter1.get() && Template.instance().filter1.get() !== 'none') {
+             let initiatives = Initiatives.find({
+                 location: Template.instance().filter1.get()
+             });
+             if (initiatives) {
+                 return initiatives;
+             }
+         } else {
+             let initiatives = Initiatives.find();
+             if (initiatives) {
+                 return initiatives;
+             }
          }
+
      }
 
  });
@@ -60,15 +97,15 @@
          let value = event.target.value.trim();
          var self = this;
 
-        
-             if (handle)
-                 clearTimeout(handle);
-             handle = setTimeout(function() {
-                 var query = $(event.target).val();
-                 Session.set('searchQuery', query);
-                 template.searchQuery.set(value);
-                 template.searching.set(true);
-             }, 700);
+
+         if (handle)
+             clearTimeout(handle);
+         handle = setTimeout(function() {
+             var query = $(event.target).val();
+             Session.set('searchQuery', query);
+             template.searchQuery.set(value);
+             template.searching.set(true);
+         }, 700);
 
      },
 
@@ -83,5 +120,12 @@
          if (value === '') {
              template.searchQuery.set(value);
          }
+     },
+
+
+
+     'change #filter1': function(event, template) {
+         var currentValue = $(event.target).val();
+         template.filter1.set(currentValue);
      }
  });

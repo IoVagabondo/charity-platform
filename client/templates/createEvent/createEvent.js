@@ -3,6 +3,8 @@
 Template.createEvent.onCreated(function() {
     this.currentTab = new ReactiveVar("formStep1");
     Session.set('searchQuery', '');
+    Session.set('filer1', 'none');
+    Session.set('filer2', 'none');
 });
 
 Template.createEvent.helpers({
@@ -27,9 +29,12 @@ Template.createEvent.events({
 
         if (currentTabTemplate === "formStep2") {
             newTab = $("#formStep1");
-        } else {
+        } else if (currentTabTemplate === "formStep3"){
             newTab = $("#formStep2");
+        } else {
+            newTab = $("#formStep3");
         }
+
         if (currentTabTemplate !== "formStep1") {
             newTab.addClass("active");
             $(".nav-pills li").not(newTab).removeClass("active");
@@ -46,9 +51,11 @@ Template.createEvent.events({
             newTab = $("#formStep2");
         } else if (currentTabTemplate === "formStep2") {
             newTab = $("#formStep3");
+        } else if (currentTabTemplate === "formStep3") {
+            newTab = $("#formStep4");
         }
 
-        if (currentTabTemplate !== "formStep3") {
+        if (currentTabTemplate !== "formStep4") {
             newTab.addClass("active");
             $(".nav-pills li").not(newTab).removeClass("active");
             template.currentTab.set(newTab.data("template"));
