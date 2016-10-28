@@ -295,6 +295,7 @@ section {
 .postListItem {
 	margin-top: 20px;
 	padding: 1px;
+	min-height: 170px;
 	background-color: #fff;
 	.box-shadow(0 0 4px rgba(0,0,0,0.3));
 
@@ -314,8 +315,8 @@ section {
 		}
 	}
 	p {
-		margin: 15px 20px;
 		margin-top: 0;
+		margin-bottom: 3px;
 		text-align: justify;
 	}
 
@@ -326,6 +327,15 @@ section {
 		font-size: 13px;
 
 	}
+
+	.hoverArea {
+		height: 25px;
+		&:hover {
+			background-color: #f7f7f7;
+		}
+	}
+
+	
 }
 
 // Event content & edit
