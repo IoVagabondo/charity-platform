@@ -42,6 +42,10 @@ Meteor.publish('all-initiatives', function () {
 	return Initiatives.find();
 });
 
+Meteor.publish('single-initiative-with-id', function (_initiativeId) {
+  return Initiatives.find({_id: _initiativeId});
+});
+
 
 Meteor.publish( 'searchableInitiatives', function( search ) {
   check( search, Match.OneOf( String, null, undefined ) );

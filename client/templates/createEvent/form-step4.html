@@ -1,11 +1,36 @@
 <template name="formStep4">
     <div class="row">
-        <div class="col-md-offset-2 col-md-6">
+        <div class="col-md-offset-3 col-md-6">
             <h2 class="text-center text-uppercase">{{title}}</h2>
             <hr style="max-width: 50px">
-            <p>Date: {{date}}</p>
-            <p>Description: {{description}}</p>
-            <p>Suggested value: {{value}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center"><strong>Event Details</strong></h3>
+                </div>
+                <div class="panel-body pendingEvent">
+                    <p><strong>Date:</strong> {{date}}</p>
+                    <p><strong>Description:</strong> {{description}}</p>
+                    <p><strong>Suggested value:</strong> {{suggestedValue}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-offset-2 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center"><strong>Selected Initiative</strong></h3>
+                </div>
+                <div class="panel-body">
+                    {{#each selectedInitiative}}
+                    	{{> initiativeItemForEventSummary}} 
+                    {{else}}
+                    	<p class="alert alert-warning">No initiative selected!</p>
+                    {{/each}}
+                </div>
+            </div>
         </div>
     </div>
 </template>

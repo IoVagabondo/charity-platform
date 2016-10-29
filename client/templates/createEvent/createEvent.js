@@ -4,13 +4,13 @@ Template.createEvent.onCreated(function() {
     this.currentTab = new ReactiveVar("formStep1");
 
     // Set Session variables to default
-    Session.set('searchQuery', '');
-    Session.set('filer1', 'none');
-    Session.set('filer2', 'none');
-    Session.set('eventTitle', '');
-    Session.set('date', '');
-    Session.set('description', '');
-    Session.set('suggestedValue', '');
+    // Session.set('searchQuery', '');
+    // Session.set('filer1', 'none');
+    // Session.set('filer2', 'none');
+    // Session.set('eventTitle', '');
+    // Session.set('date', '');
+    // Session.set('description', '');
+    // Session.set('suggestedValue', '');
 });
 
 Template.createEvent.helpers({

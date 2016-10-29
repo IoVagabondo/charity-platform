@@ -4,13 +4,13 @@ Template.formStep3.onRendered(function() {
 
     // Set values of Session variables to input fields
     var query = Session.get('description');
-    $('#description').value = query;
+    $('#description').val(query);
 
     query = Session.get('date');
-    $('#date').value = query;
+    $('#date').val(query);
 
     query = Session.get('suggestedValue');
-    $('#suggestedValue').value = query;
+    $('#suggestedValue').val(query);
 
     this.$('.datetimepicker').datetimepicker({
         format: 'DD/MM/YYYY',
@@ -24,8 +24,8 @@ Template.formStep3.events({
 
     
 
-    'change input.datetimepicker': function(event, template) {
-        let value = event.target.value.trim();
+    'click input.datetimepicker': function(event, template) {
+        let value = $('#suggestedValue').val();
         console.log("value: " +value);
         if (handle)
             clearTimeout(handle);
