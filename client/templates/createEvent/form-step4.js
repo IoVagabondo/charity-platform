@@ -34,3 +34,64 @@ Template.formStep4.helpers({
     }
 
 });
+
+Template.formStep4.events({
+    'click #publishEvent': function(event, template) {
+
+        var slug = _.slugify(Session.get('eventTitle'));
+        event.preventDefault();
+
+        Meteor.call('insertPost', {
+            title: Session.get('eventTitle'),
+            slug: slug,
+            date: Session.get('date'),
+            suggestedValue: Session.get('suggestedValue'),
+            description: Session.get('description'),
+            initiativeId: Session.get('selectedInitiativeId')
+
+        }, function(error, slug) {
+
+            if (error) {
+                return Bert.alert(error.reason, "warning");
+            } else {
+                // Bert.alert("Event successfully published!", "success");
+                $('#publishEventModal').modal('show');
+                Session.set('slug-new-event', slug);
+
+            }
+
+            // Here we use the probably changed slug from the server side method
+            // show slug in success message for the invitation message
+
+        });
+    },
+
+
+});
+
+
+Template.publishEventModalTemplate.events({
+    'click #goButtonModal': function(event, template) {
+        event.preventDefault();
+        // $('#publishEventModal').modal('hide');
+
+        // Set Session variables to default
+        Session.set('searchQuery', '');
+        Session.set('filer1', 'none');
+        Session.set('filer2', 'none');
+        Session.set('eventTitle', '');
+        Session.set('date', '');
+        Session.set('description', '');
+        Session.set('selectedInitiativeId', '');
+        Session.set('suggestedValue', '');
+
+        
+        $('#publishEventModal')
+        .on('hidden.bs.modal', function() {
+           Router.go('Post', { slug: Session.get('slug-new-event') });
+        })
+        .modal('hide');
+        
+
+    },
+});

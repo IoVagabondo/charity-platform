@@ -3,7 +3,7 @@ var handle = null;
 
 Template.formStep1.onRendered(function() {
     $('#eventTitle').val(Session.get('eventTitle'));
-    
+
 });
 
 

@@ -32,18 +32,19 @@ Template.formStep3.events({
         handle = setTimeout(function() {
             var query = $(event.target).val();
             Session.set('date', query);
-        }, 700);
+        }, 500);
 
     },
 
     'input #description': function(event, template) {
         let value = event.target.value.trim();
+        console.log('input');
         if (handle)
             clearTimeout(handle);
         handle = setTimeout(function() {
             var query = $(event.target).val();
             Session.set('description', query);
-        }, 700);
+        }, 500);
 
     },
 
@@ -54,7 +55,7 @@ Template.formStep3.events({
         handle = setTimeout(function() {
             var query = $(event.target).val();
             Session.set('suggestedValue', query);
-        }, 700);
+        }, 500);
 
     },
 
