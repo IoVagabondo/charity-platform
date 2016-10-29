@@ -28,6 +28,18 @@
      // Set filter1 & filter2 to value of form-step-1
      var filter1 = Session.get('filter1');
      var filter2 = Session.get('filter2');
+
+     if(!filter1){
+        filter1 = 'none';
+        // console.log('filter 1 = undefined');
+     } 
+
+     if(!filter2){
+        filter2 = 'none';
+     } 
+
+
+     // console.log(filter1);
      $('#filter1').val(filter1);
      $('#filter2').val(filter2);
 
@@ -127,5 +139,14 @@
      'change #filter1': function(event, template) {
          var currentValue = $(event.target).val();
          template.filter1.set(currentValue);
+         Session.set('filter1', currentValue);
+         // console.log('set filter 1');
+     },
+
+     'change #filter2': function(event, template) {
+         var currentValue = $(event.target).val();
+         template.filter1.set(currentValue);
+         Session.set('filter2', currentValue);
+         // console.log('set filter 2');
      }
  });

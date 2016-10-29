@@ -1,7 +1,7 @@
 Template.formStep4.helpers({
 
         title: function() {
-            return Session.get('title');
+            return Session.get('eventTitle');
         },
 
         description: function() {
@@ -13,7 +13,7 @@ Template.formStep4.helpers({
         },
 
         suggestedValue: function() {
-            return Session.get('value');
+            return Session.get('suggestedValue');
         },
 
         selectedInitiative: function(){
