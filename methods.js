@@ -1,6 +1,6 @@
-// #Security with allow and deny rules -> Adding posts using a method call
+// #Security with allow and deny rules -> Adding Events using a method call
 Meteor.methods({
-    insertPost: function(postDocument) {
+    insertEvent: function(postDocument) {
 
         if (this.isSimulation) {
             Session.set('saveButton', 'Saving...');
@@ -10,11 +10,11 @@ Meteor.methods({
 
             // ensure the user is logged in
             if (!user)
-                throw new Meteor.Error(401, "You need to login to write a post");
+                throw new Meteor.Error(401, "You need to login to create an event");
 
 
             // prevent duplicate link names, we just add a random string like: "my-page-c5g"
-            if (Posts.findOne({ slug: postDocument.slug }))
+            if (Events.findOne({ slug: postDocument.slug }))
                 postDocument.slug = postDocument.slug + '-' + Math.random().toString(36).substring(3);
 
 
@@ -24,21 +24,21 @@ Meteor.methods({
             postDocument.owner = user._id;
 
 
-            Posts.insert(postDocument);
+            Events.insert(postDocument);
 
             // this will be received as the second parameter of the method callback
             return postDocument.slug;
         }
     },
 
-    deletePost: function(postId) {
+    deleteEvent: function(postId) {
 
         var user = Meteor.user();
 
         if (!user)
             throw new Meteor.Error(401, "You need to login");
 
-        return Posts.remove(postId);
+        return Events.remove(postId);
 
     },
 

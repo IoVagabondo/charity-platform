@@ -9,14 +9,14 @@ Router.configure({
     loadingTemplate: 'loading',
 });
 
-PostController = RouteController.extend({
+EventController = RouteController.extend({
     waitOn: function() {
     	Meteor.subscribe("all-initiatives");
-        return Meteor.subscribe('single-post', this.params.slug);
+        return Meteor.subscribe('single-event', this.params.slug);
     },
 
     data: function() {
-        return Posts.findOne({slug: this.params.slug});
+        return Events.findOne({slug: this.params.slug});
     }
 });
 
@@ -37,7 +37,7 @@ Router.map(function() {
         template: 'home',
         subscriptions: function(){
 
-        	return Meteor.subscribe("lazyload-posts", Session.get('lazyloadLimit'));
+        	return Meteor.subscribe("lazyload-events", Session.get('lazyloadLimit'));
     	}
     });
 
@@ -77,24 +77,26 @@ Router.map(function() {
         template: 'adminPanel'
     });
 
-    this.route('Post', {
-	    path: '/posts/:slug',
-	    template: 'post',
-	    controller: 'PostController'
+    // ++++++++++++++++++ Events ++++++++++++
+
+    this.route('Event', {
+	    path: '/events/:slug',
+	    template: 'event',
+	    controller: 'EventController'
 	});
 
-	this.route('Create Post', {
-	    path: '/create-post',
-	    template: 'editPost',
-	    subscriptions: function(){
-        	return Meteor.subscribe("all-initiatives");
-    	}
-	}); 
+	// this.route('Create Event', {
+	//     path: '/create-event',
+	//     template: 'editEvent',
+	//     subscriptions: function(){
+ //        	return Meteor.subscribe("all-initiatives");
+ //    	}
+	// }); 
 
-	this.route('Edit Post', {
-	    path: '/edit-post/:slug',
-	    template: 'editPost',
-	    controller: 'PostController'
+	this.route('Edit Event', {
+	    path: '/edit-event/:slug',
+	    template: 'editEvent',
+	    controller: 'EventController'
 	});
 
 
@@ -149,6 +151,6 @@ var requiresAdmin = function(){
 
 
 
-Router.onBeforeAction(requiresLogin, {only: ['Initiatives','Create Post','Edit Post']});
+Router.onBeforeAction(requiresLogin, {only: ['Initiatives','Create Event','Edit Event']});
 Router.onBeforeAction(requiresAdmin, {only: ['AdminPanel']});
 

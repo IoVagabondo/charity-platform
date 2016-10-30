@@ -1,5 +1,6 @@
 Template.adminPanel.onCreated( () => {
   Template.instance().subscribe( 'users' );
+  Template.instance().subscribe( 'categories' );
 });
 
 
@@ -11,7 +12,10 @@ Template.adminPanel.helpers({
       return users;
     }
   },
-  // [...]
+  
+  categories: function(){
+    return Meteor.categories.find();
+  },
 });
 
 

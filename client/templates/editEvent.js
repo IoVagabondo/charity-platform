@@ -1,7 +1,7 @@
 
 Session.setDefault('saveButton', 'Save Post');
 
-Template.editPost.helpers({
+Template.editEvent.helpers({
   saveButtonText: function(){
     return Session.get('saveButton');
   },
@@ -12,7 +12,7 @@ Template.editPost.helpers({
 });
 
 
-Template.editPost.events({
+Template.editEvent.events({
     'submit form': function(e, tmpl){
         e.preventDefault();
         var form = e.target,
@@ -22,7 +22,7 @@ Template.editPost.events({
         // Edit the post
         if(this._id) {
 
-            Posts.update(this._id, {$set: { 
+            Events.update(this._id, {$set: { 
 				title:          form.title.value,
                 description:    form.description.value,
                 text:           form.text.value,
@@ -34,7 +34,7 @@ Template.editPost.events({
                     alert(error.reason);
                 } else {
                     // Redirect to the post
-                    Router.go('Post', {slug: _this.slug});
+                    Router.go('Event', {slug: _this.slug});
                 }
             });
 
@@ -44,7 +44,7 @@ Template.editPost.events({
 
             var slug = _.slugify(form.title.value);
 
-			Meteor.call('insertPost', {
+			Meteor.call('insertEvent', {
 				title: 			form.title.value,
 				slug: 			slug,
 				description: 	form.description.value,
@@ -59,7 +59,7 @@ Template.editPost.events({
 				}
 
 				// Here we use the probably changed slug from the server side method
-				Router.go('Post', {slug: slug});
+				Router.go('Event', {slug: slug});
 			});
 
         }

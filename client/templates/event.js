@@ -1,7 +1,7 @@
-Template.post.events({
+Template.event.events({
     'click #delete': function(event,template) {
         event.preventDefault();
-        Meteor.call('deletePost', this._id,
+        Meteor.call('deleteEvent', this._id,
         	function(error, slug) {
 
 				if(error) {

@@ -1,15 +1,15 @@
-<template name="post">
+<template name="event">
 
     <div class="appBody">
         <div class="row">
-            <h1>Title: {{title}}</h1> <small>Access link: http://localhost:3000/posts/{{slug}} | <a href="#" id="copyAccessLink"> Copy Link</a></small>
+            <h1>Title: {{title}}</h1> <small>Access link: http://localhost:3000/events/{{slug}} | <a href="#" id="copyAccessLink"> Copy Link</a></small>
             <br>
             <small>
 				Posted {{formatTime timeCreated "fromNow"}} by {{author}}
 
 				{{#if currentUser}}
-			        | <a href="/edit-post/{{slug}}">Edit post</a>
-			        | <a href="#" id="delete" >Delete post</a>
+			        | <a href="/edit-event/{{slug}}">Edit Event</a>
+			        | <a href="#" id="delete" >Delete Event</a>
 			    {{/if}} 
 			</small>
             <hr>

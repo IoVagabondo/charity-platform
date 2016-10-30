@@ -41,7 +41,7 @@ Template.formStep4.events({
         var slug = _.slugify(Session.get('eventTitle'));
         event.preventDefault();
 
-        Meteor.call('insertPost', {
+        Meteor.call('insertEvent', {
             title: Session.get('eventTitle'),
             slug: slug,
             date: Session.get('date'),
@@ -88,7 +88,7 @@ Template.publishEventModalTemplate.events({
         
         $('#publishEventModal')
         .on('hidden.bs.modal', function() {
-           Router.go('Post', { slug: Session.get('slug-new-event') });
+           Router.go('Event', { slug: Session.get('slug-new-event') });
         })
         .modal('hide');
         

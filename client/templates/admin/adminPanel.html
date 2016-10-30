@@ -1,32 +1,65 @@
 <template name="adminPanel">
     {{#if isInRole 'admin'}}
     <div class="appBody">
-        <h4 class="page-header">User Management Panel</h4>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email Address</th>
-                    <th class="text-center">Role</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each users}}
-                <tr>
-                    <td class="text-left text-middle">{{profile.name}}</td>
-                    <td class="text-left text-middle">{{#if isCurrentUser _id}}
-                        <label class="label label-success">You!</label>{{/if}} {{emails.[0].address}}</td>
-                    <td>
-                        <select {{disableIfAdmin _id}} name="userRole" class="form-control">
-                            <option selected="{{selected roles.[0] 'admin'}}" value="admin">Admin</option>
-                            <option selected="{{selected roles.[0] 'manager'}}" value="manager">Manager</option>
-                            <option selected="{{selected roles.[0] 'user'}}" value="user">User</option>
-                        </select>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+        <div>
+            <h4 class="page-header">User Management Panel</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email Address</th>
+                        <th class="text-center">Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each users}}
+                    <tr>
+                        <td class="text-left text-middle">{{profile.name}}</td>
+                        <td class="text-left text-middle">{{#if isCurrentUser _id}}
+                            <label class="label label-success">You!</label>{{/if}} {{emails.[0].address}}</td>
+                        <td>
+                            <select {{disableIfAdmin _id}} name="userRole" class="form-control">
+                                <option selected="{{selected roles.[0] 'admin'}}" value="admin">Admin</option>
+                                <option selected="{{selected roles.[0] 'manager'}}" value="manager">Manager</option>
+                                <option selected="{{selected roles.[0] 'user'}}" value="user">User</option>
+                            </select>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div>
+            <h4 class="page-header">Categories Management Panel</h4>
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="inputCategory">Category</label>
+                    <input type="text" class="form-control" id="inputCategory">
+                </div>
+                <button type="submit" class="btn btn-default">Add category</button>
+            </form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th class="text-center">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each category}}
+                    <tr>
+                        <td class="text-left text-middle">{{title}}</td>
+                        <td>
+                            <button type="button" id="deleteCategory" class="btn btn-default" aria-label="Left Align">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
     </div>
     {{/if}}
 </template>

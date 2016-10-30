@@ -4,9 +4,9 @@ Template.homescreen.helpers({
         return Meteor.user().profile.name;
     },
 
-    // Listing posts
-    postsList: function() {
-        return Posts.find({}, { sort: { timeCreated: -1 } });
+    // Listing events
+    eventsList: function() {
+        return Events.find({}, { sort: { timeCreated: -1 } });
     }
 
 });
