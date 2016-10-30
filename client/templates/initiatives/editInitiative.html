@@ -38,8 +38,13 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="website">Location</label>
-                    <input type="text" class="form-control" id="location" name="location" value="{{location}}">
+                    <label for="location">Location</label>
+                    <select class="form-control" name="location" id="location" value="{{locationId}}">
+                        <option value="none">Choose here ...</option>
+                        {{#each locationsList}}
+                        <option {{selectedLocation}} value="{{_id}}">{{title}}</option>
+                        {{/each}}
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="website">Contact person</label>

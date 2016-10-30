@@ -5,6 +5,7 @@ Template.editInitiative.onCreated(() => {
 
     template.autorun(() => {
         template.subscribe('categories');
+        template.subscribe('locations');
     });
 });
 
@@ -15,12 +16,23 @@ Template.editInitiative.helpers({
         return Categories.find();
     },
 
+    locationsList: function() {
+        return Locations.find();
+    },
+
     //select category dynamic in html select dropdown by comparison of option id & stored category id
     selectedCategory: function() {
         if (!Template.instance().data) {
             return this.value == 'none' ? 'selected' : '';
         }
-        return Template.instance().data._id && this._id == Template.instance().data.categoryId ? 'selected' : '';
+        return this._id == Template.instance().data.categoryId ? 'selected' : '';
+    },
+
+    selectedLocation: function() {
+        if (!Template.instance().data) {
+            return this.value == 'none' ? 'selected' : '';
+        }
+        return this._id == Template.instance().data.locationId ? 'selected' : '';
     },
 
     saveButtonText: function() {
@@ -54,7 +66,7 @@ Template.editInitiative.events({
                     website: form.website.value,
                     description: form.description.value,
                     categoryId: form.category.value,
-                    location: form.location.value,
+                    locationId: form.location.value,
                     contactperson: form.contactperson.value,
                     // contactemail:   form.contactEmail.value,
                     // contacttel:     form.contactTal.value,
@@ -87,7 +99,7 @@ Template.editInitiative.events({
                 website: form.website.value,
                 description: form.description.value,
                 categoryId: form.category.value,
-                location: form.location.value,
+                locationId: form.location.value,
                 contactperson: form.contactperson.value,
                 // contactemail:   form.contactEmail.value,
                 // contacttel:     form.contactTal.value,
