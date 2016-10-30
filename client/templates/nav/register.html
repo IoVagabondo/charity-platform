@@ -1,29 +1,48 @@
 <template name="register">
     <section class="register">
-        <form class="form-horizontal">
-            <div class="form-group">
-                <label for="registerName" class="col-sm-2 control-label">Name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="registerName" placeholder="Name">
+        <div class="col-md-offset-4 col-md-4">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="registerName" class="col-sm-2 control-label" style="text-align: left; margin-right: 10px">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="registerName" placeholder="Name">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="registerEmail" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" id="registerEmail" placeholder="Email">
+                <div class="form-group">
+                    <label for="registerAge" class="col-sm-2 control-label" style="text-align: left; margin-right: 10px">Age</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="registerAge" placeholder="Age">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="registerPassword" class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="registerPassword" placeholder="Password">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" style="text-align: left; margin-right: 10px">Gender</label>
+                    <div class="col-sm-10">
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="radioButtonMale" value="male" checked> Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="radioButtonFemale" value="female"> Female
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Register</button>
+                <div class="form-group">
+                    <label for="registerEmail" class="col-sm-2 control-label" style="text-align: left; margin-right: 10px">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="registerEmail" placeholder="Email">
+                    </div>
                 </div>
-            </div>
-        </form>
+                <div class="form-group">
+                    <label for="registerPassword" class="col-sm-2 control-label" style="text-align: left; margin-right: 10px">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="registerPassword" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-default register">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </section>
 </template>

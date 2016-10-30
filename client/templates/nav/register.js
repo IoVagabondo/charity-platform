@@ -1,17 +1,29 @@
 Template.register.events({
     'submit form': function(event) {
         event.preventDefault();
-        var nameVar = event.target.registerName.value;
-        var usernameVar = event.target.registerEmail.value;
-        var emailVar = event.target.registerEmail.value;
-        var passwordVar = event.target.registerPassword.value;
+        var form = event.target;
+
+        var nameVar = form.registerName.value;
+        var ageVar = form.registerAge.value;
+
+        var usernameVar = form.registerEmail.value;
+        var emailVar = form.registerEmail.value;
+        var passwordVar = form.registerPassword.value;
+
+        var genderVar = 'male';
+
+        if ($('#radioButtonFemale').checked) {
+            genderVar = 'female';
+        }
 
         Accounts.createUser({
             username: usernameVar,
             email: emailVar,
             password: passwordVar,
             profile: {
-                name: nameVar
+                name: nameVar,
+                age: ageVar,
+                gender: genderVar,
             }
         }, function(error) {
             if (error) {
