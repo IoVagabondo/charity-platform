@@ -2,12 +2,15 @@
 Events = new Mongo.Collection('events');
 Initiatives = new Mongo.Collection('initiatives');
 Categories = new Mongo.Collection('categories');
+Locations = new Mongo.Collection('locations');
 
 
 // #Security with allow and deny rules -> Restricting database updates
 if (Meteor.isServer) {
 
     Initiatives._ensureIndex({ title: 1, vision: 1, howithelps: 1, whatitneeds: 1 });
+    Categories._ensureIndex({ title: 1 });
+    Locations._ensureIndex({ title: 1 });
 
     Meteor.users.deny({
         insert: function(userId, document) {
@@ -22,6 +25,18 @@ if (Meteor.isServer) {
     });
 
     Categories.allow({
+        insert: function(userId, document) {
+            return Roles.userIsInRole(userId, 'admin');
+        },
+        update: function(userId, document, fields, modifier) {
+            return Roles.userIsInRole(userId, 'admin');
+        },
+        remove: function(userId, document) {
+            return Roles.userIsInRole(userId, 'admin');
+        }
+    });
+
+    Locations.allow({
         insert: function(userId, document) {
             return Roles.userIsInRole(userId, 'admin');
         },

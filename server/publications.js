@@ -75,16 +75,20 @@ Meteor.publish( 'users', function() {
 });
 
 Meteor.publish( 'categories', function() {
-
-  if ( Roles.userIsInRole( this.userId, 'admin') ) {
-    return [
-      Categories.find( {}, { fields: { "title": 1 } } ),
-    ];
+  if (this.userId) {
+    return Categories.find( {}, { fields: { "title": 1 } } );
   } else {
     return null;
   }
 });
 
+Meteor.publish( 'locations', function() {
+  if (this.userId) {
+    return Locations.find( {}, { fields: { "title": 1 } } );
+  } else {
+    return null;
+  }
+});
 
 
 Meteor.publish("userRoles", function () {

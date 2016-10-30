@@ -87,6 +87,8 @@ Meteor.methods({
 
     },
 
+    // ########### Categories ##########
+
     insertCategory: function(category) {
 
         var user = Meteor.user();
@@ -112,7 +114,38 @@ Meteor.methods({
         if (!user)
             throw new Meteor.Error(401, "You need to login to add an category");
 
-        return Categories.remove({_id: category.id});
+        return Categories.remove({ _id: category.id });
+
+    },
+
+    // ########### Locations ##########
+
+    insertLocation: function(location) {
+
+        var user = Meteor.user();
+
+        // ensure the user is logged in
+        if (!user)
+            throw new Meteor.Error(401, "You need to login to add an location");
+
+        // prevent duplicate link names, we just add a random string like: "my-page-c5g"
+        if (Locations.findOne({ title: location.title }))
+            throw new Meteor.Error(401, "Title already exists");
+
+        Locations.insert(location);
+
+        return true;
+
+    },
+
+    deleteLocation: function(location) {
+
+        var user = Meteor.user();
+
+        if (!user)
+            throw new Meteor.Error(401, "You need to login to add an location");
+
+        return Locations.remove({ _id: location.id });
 
     },
 
