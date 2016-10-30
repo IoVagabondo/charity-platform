@@ -16,6 +16,7 @@
                  template.searching.set(false);
              }, 300);
          });
+         template.subscribe('categories');
      });
  });
 
@@ -27,16 +28,15 @@
 
      // Set filter1 & filter2 to value of form-step-1
      var filter1 = Session.get('filter1');
-     var filter2 = Session.get('filter2');
+     var filter2 = Session.get('categoryId');
 
-     if(!filter1){
-        filter1 = 'none';
-        // console.log('filter 1 = undefined');
-     } 
+     if (!filter1) {
+         filter1 = 'none';
+     }
 
-     if(!filter2){
-        filter2 = 'none';
-     } 
+     if (!filter2) {
+         filter2 = 'none';
+     }
 
 
      // console.log(filter1);
@@ -64,6 +64,15 @@
          return Initiatives.find({}, { sort: { timeCreated: -1 } });
      },
 
+     categoriesList: function() {
+         return Categories.find();
+     },
+
+     //select category dynamic in html select dropdown by comparison of option id & stored category id
+     selectedCategory: function() {
+         return this._id == Session.get('categoryId') ? 'selected' : '';
+     },
+
      searching() {
          return Template.instance().searching.get();
      },
@@ -80,18 +89,19 @@
      },
 
      initiatives() {
+
+         let query = {};
+
          if (Template.instance().filter1.get() && Template.instance().filter1.get() !== 'none') {
-             let initiatives = Initiatives.find({
-                 location: Template.instance().filter1.get()
-             });
-             if (initiatives) {
-                 return initiatives;
-             }
-         } else {
-             let initiatives = Initiatives.find();
-             if (initiatives) {
-                 return initiatives;
-             }
+             query.location = Template.instance().filter1.get();
+         }
+         if (Template.instance().filter2.get() && Template.instance().filter2.get() !== 'none') {
+             query.categoryId = Template.instance().filter2.get();
+         }
+
+         let initiatives = Initiatives.find(query);
+         if (initiatives) {
+             return initiatives;
          }
 
      }
@@ -140,13 +150,11 @@
          var currentValue = $(event.target).val();
          template.filter1.set(currentValue);
          Session.set('filter1', currentValue);
-         // console.log('set filter 1');
      },
 
      'change #filter2': function(event, template) {
          var currentValue = $(event.target).val();
-         template.filter1.set(currentValue);
-         Session.set('filter2', currentValue);
-         // console.log('set filter 2');
+         template.filter2.set(currentValue);
+         Session.set('categoryId', currentValue);
      }
  });

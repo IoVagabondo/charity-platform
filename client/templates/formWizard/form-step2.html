@@ -6,16 +6,15 @@
         <div class="col-md-3">
             <select class="form-control" id="filter1" value="{{filter1}}">
                 <option value="none" >Choose here ...</option>
+                
                 <option value="Berlin">Berlin</option>
                 <option value="Brazil">Brazil</option>
             </select>
             <select class="form-control" id="filter2" value="{{filter2}}">
                 <option value="none" >Choose here ...</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                {{#each categoriesList}}
+                    <option {{selectedCategory}} value="{{_id}}">{{title}}</option>
+                {{/each}}
             </select>
         </div>
         <div class="col-md-offset-1 col-md-1">
