@@ -31,34 +31,36 @@
         </div>
         <hr>
         <div>
-            <h4 class="page-header">Categories Management Panel</h4>
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="inputCategory">Category</label>
-                    <input type="text" class="form-control" id="inputCategory">
-                </div>
-                <button type="submit" class="btn btn-default">Add category</button>
-            </form>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th class="text-center">Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each category}}
-                    <tr>
-                        <td class="text-left text-middle">{{title}}</td>
-                        <td>
-                            <button type="button" id="deleteCategory" class="btn btn-default" aria-label="Left Align">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
+            <div class="col-md-5">
+                <h4 class="page-header">Categories Management Panel</h4>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="inputCategory">Category</label>
+                        <input type="text" class="form-control" name="inputCategory" id="inputCategory">
+                    </div>
+                    <button type="submit" class="btn btn-default">Add category</button>
+                </form>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th class="text-center">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each categories}}
+                        <tr>
+                            <td class="text-left text-middle">{{title}}</td>
+                            <td class="text-center">
+                                <button type="button" id="deleteCategory" class="btn btn-default" aria-label="Left Align">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     {{/if}}

@@ -87,6 +87,35 @@ Meteor.methods({
 
     },
 
+    insertCategory: function(category) {
+
+        var user = Meteor.user();
+
+        // ensure the user is logged in
+        if (!user)
+            throw new Meteor.Error(401, "You need to login to add an category");
+
+        // prevent duplicate link names, we just add a random string like: "my-page-c5g"
+        if (Categories.findOne({ title: category.title }))
+            throw new Meteor.Error(401, "Title already exists");
+
+        Categories.insert(category);
+
+        return true;
+
+    },
+
+    deleteCategory: function(category) {
+
+        var user = Meteor.user();
+
+        if (!user)
+            throw new Meteor.Error(401, "You need to login to add an category");
+
+        return Categories.remove({_id: category.id});
+
+    },
+
     setRoleOnUser: function(options) {
         check(options, {
             user: String,

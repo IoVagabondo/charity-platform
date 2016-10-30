@@ -74,6 +74,17 @@ Meteor.publish( 'users', function() {
   }
 });
 
+Meteor.publish( 'categories', function() {
+
+  if ( Roles.userIsInRole( this.userId, 'admin') ) {
+    return [
+      Categories.find( {}, { fields: { "title": 1 } } ),
+    ];
+  } else {
+    return null;
+  }
+});
+
 
 
 Meteor.publish("userRoles", function () {
