@@ -4,7 +4,7 @@ Template.register.events({
         var form = event.target;
 
         var nameVar = form.registerName.value;
-        var ageVar = form.registerAge.value;
+        var birthdayVar = form.registerBirthday.value;
 
         var usernameVar = form.registerEmail.value;
         var emailVar = form.registerEmail.value;
@@ -22,7 +22,7 @@ Template.register.events({
             password: passwordVar,
             profile: {
                 name: nameVar,
-                age: ageVar,
+                birthday: birthdayVar,
                 gender: genderVar,
             }
         }, function(error) {
