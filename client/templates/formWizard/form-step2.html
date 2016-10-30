@@ -6,9 +6,9 @@
         <div class="col-md-3">
             <select class="form-control" id="filter1" value="{{filter1}}">
                 <option value="none" >Choose here ...</option>
-                
-                <option value="Berlin">Berlin</option>
-                <option value="Brazil">Brazil</option>
+                {{#each locationsList}}
+                    <option {{selectedLocation}} value="{{_id}}">{{title}}</option>
+                {{/each}}
             </select>
             <select class="form-control" id="filter2" value="{{filter2}}">
                 <option value="none" >Choose here ...</option>
