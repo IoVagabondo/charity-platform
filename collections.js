@@ -2,9 +2,19 @@
 Events = new Mongo.Collection('events');
 Initiatives = new Mongo.Collection('initiatives');
 Categories = new Mongo.Collection('categories');
-Locations = new Mongo.Collection('locations');
+Cities = new Mongo.Collection('cities');
+Countries = new Mongo.Collection('countries');
 
 var Schemas = {};
+
+Schemas.Cities = new SimpleSchema({
+    name: {
+        type: String,
+    },
+    country: {
+        type: String,
+    }
+});
 
 Schemas.Events = new SimpleSchema({
     title: {
@@ -51,6 +61,7 @@ Schemas.Events = new SimpleSchema({
 });
 
 Events.attachSchema(Schemas.Events);
+Cities.attachSchema(Schemas.Cities);
 
 
 // #Security with allow and deny rules -> Restricting database updates
@@ -58,7 +69,7 @@ if (Meteor.isServer) {
 
     Initiatives._ensureIndex({ title: 1, vision: 1, howithelps: 1, whatitneeds: 1 });
     Categories._ensureIndex({ title: 1 });
-    Locations._ensureIndex({ title: 1 });
+    Cities._ensureIndex({ title: 1 });
 
     Meteor.users.deny({
         insert: function(userId, document) {
@@ -84,7 +95,7 @@ if (Meteor.isServer) {
         }
     });
 
-    Locations.allow({
+    Cities.allow({
         insert: function(userId, document) {
             return Roles.userIsInRole(userId, 'admin');
         },

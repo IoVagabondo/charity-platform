@@ -38,11 +38,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="location">Location</label>
-                    <select class="form-control" name="location" id="location" value="{{locationId}}">
+                    <label for="city">City</label>
+                    <select class="form-control" name="city" id="city" value="{{city}}">
                         <option value="none">Choose here ...</option>
-                        {{#each locationsList}}
-                        <option {{selectedLocation}} value="{{_id}}">{{title}}</option>
+                        {{#each citiesList}}
+                        <option {{selectedCity}} value="{{_id}}">{{name}}</option>
                         {{/each}}
                     </select>
                 </div>

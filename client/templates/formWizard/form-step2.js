@@ -17,7 +17,7 @@
              }, 300);
          });
          template.subscribe('categories');
-         template.subscribe('locations');
+         template.subscribe('cities');
      });
  });
 
@@ -28,7 +28,7 @@
      this.find('.searchQuery').value = query;
 
      // Set filter1 & filter2 to value of form-step-1
-     var filter1 = Session.get('locationId');
+     var filter1 = Session.get('cityId');
      var filter2 = Session.get('categoryId');
 
      if (!filter1) {
@@ -69,8 +69,8 @@
          return Categories.find();
      },
 
-     locationsList: function() {
-         return Locations.find();
+     citiesList: function() {
+         return Cities.find();
      },
 
      //select category dynamic in html select dropdown by comparison of option id & stored category id
@@ -78,8 +78,8 @@
          return this._id == Session.get('categoryId') ? 'selected' : '';
      },
 
-     selectedLocation: function() {
-         return this._id == Session.get('locationId') ? 'selected' : '';
+     selectedCity: function() {
+         return this._id == Session.get('cityId') ? 'selected' : '';
      },
 
      searching() {
@@ -102,7 +102,7 @@
          let query = {};
 
          if (Template.instance().filter1.get() && Template.instance().filter1.get() !== 'none') {
-             query.locationId = Template.instance().filter1.get();
+             query.cityId = Template.instance().filter1.get();
          }
          if (Template.instance().filter2.get() && Template.instance().filter2.get() !== 'none') {
              query.categoryId = Template.instance().filter2.get();
@@ -158,7 +158,7 @@
      'change #filter1': function(event, template) {
          var currentValue = $(event.target).val();
          template.filter1.set(currentValue);
-         Session.set('locationId', currentValue);
+         Session.set('cityId', currentValue);
      },
 
      'change #filter2': function(event, template) {

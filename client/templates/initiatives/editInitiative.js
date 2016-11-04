@@ -5,7 +5,7 @@ Template.editInitiative.onCreated(() => {
 
     template.autorun(() => {
         template.subscribe('categories');
-        template.subscribe('locations');
+        template.subscribe('cities');
     });
 });
 
@@ -16,8 +16,8 @@ Template.editInitiative.helpers({
         return Categories.find();
     },
 
-    locationsList: function() {
-        return Locations.find();
+    citiesList: function() {
+        return Cities.find();
     },
 
     //select category dynamic in html select dropdown by comparison of option id & stored category id
@@ -28,11 +28,11 @@ Template.editInitiative.helpers({
         return this._id == Template.instance().data.categoryId ? 'selected' : '';
     },
 
-    selectedLocation: function() {
+    selectedCity: function() {
         if (!Template.instance().data) {
             return this.value == 'none' ? 'selected' : '';
         }
-        return this._id == Template.instance().data.locationId ? 'selected' : '';
+        return this._id == Template.instance().data.cityId ? 'selected' : '';
     },
 
     saveButtonText: function() {
@@ -67,7 +67,7 @@ Template.editInitiative.events({
                     website: form.website.value,
                     description: form.description.value,
                     categoryId: form.category.value,
-                    locationId: form.location.value,
+                    cityId: form.city.value,
                     contact: {
                         contactPerson: form.contactPerson.value,
                         contactEmail: form.contactEmail.value,
@@ -105,7 +105,7 @@ Template.editInitiative.events({
                 website: form.website.value,
                 description: form.description.value,
                 categoryId: form.category.value,
-                locationId: form.location.value,
+                cityId: form.city.value,
                 contact: {
                     contactPerson: form.contactPerson.value,
                     contactEmail: form.contactEmail.value,

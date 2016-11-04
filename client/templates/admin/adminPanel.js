@@ -1,7 +1,8 @@
 Template.adminPanel.onCreated(() => {
     Template.instance().subscribe('users');
     Template.instance().subscribe('categories');
-    Template.instance().subscribe('locations');
+    Template.instance().subscribe('cities');
+    Template.instance().subscribe('countries');
 });
 
 
@@ -18,9 +19,13 @@ Template.adminPanel.helpers({
         return Categories.find();
     },
 
-    locations: function() {
-        return Locations.find();
+    cities: function() {
+        return Cities.find();
     },
+
+    countries: function(){
+        return Countries.find();
+    }
 });
 
 
@@ -79,13 +84,18 @@ Template.adminPanel.events({
     },
 
 
-    'submit .newLocation': function(event, template) {
+    'submit .newCity': function(event, template) {
 
         event.preventDefault();
         var form = event.target;
 
-        Meteor.call('insertLocation', {
-            title: form.inputLocation.value,
+        var countryCode;
+        if(form.country.value !== 'none')
+            countryCode = form.country.value;
+
+        Meteor.call('insertCity', {
+            name: form.inputCity.value,
+            country: countryCode
 
         }, function(error) {
 
@@ -93,16 +103,16 @@ Template.adminPanel.events({
                 return Bert.alert(error.reason, "warning");
             }
 
-            Bert.alert("Location added", "success");
+            Bert.alert("City added", "success");
             form.reset();
         });
 
     },
 
-    'click #deleteLocation': function(event, template) {
+    'click #deleteCity': function(event, template) {
 
         // console.log(this._id);
-        Meteor.call('deleteLocation', {
+        Meteor.call('deleteCity', {
             id: this._id,
 
         }, function(error) {
@@ -111,7 +121,7 @@ Template.adminPanel.events({
                 return Bert.alert(error.reason, "warning");
             }
 
-            Bert.alert("Location deleted", "success");
+            Bert.alert("City deleted", "success");
         });
 
     },

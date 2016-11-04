@@ -31,7 +31,7 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-12">
                 <h4 class="page-header">Categories Management Panel</h4>
                 <form class="newCategory form-inline">
                     <div class="form-group">
@@ -62,29 +62,40 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-5">
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <h4 class="page-header">Locations Management Panel</h4>
-                <form class="newLocation form-inline">
+                <form class="newCity form-inline">
                     <div class="form-group">
-                        <label for="inputLocation">Location</label>
-                        <input type="text" class="form-control" name="inputLocation" id="inputLocation">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" name="inputCity" id="inputCity">
                     </div>
-                    <button type="submit" class="btn btn-default">Add Locations</button>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select class="form-control" name="country" id="country" value="{{country}}">
+                            <option value="none">Choose here ...</option>
+                            {{#each countries}}
+                            <option {{selectedCountry}} value="{{code}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-default">Add City</button>
                 </form>
                 <br>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Location</th>
+                            <th>City</th>
                             <th class="text-center">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{#each locations}}
+                        {{#each cities}}
                         <tr>
-                            <td class="text-left text-middle">{{title}}</td>
+                            <td class="text-left text-middle">{{name}}</td>
                             <td class="text-center">
-                                <button type="button" id="deleteLocation" class="btn btn-default" aria-label="Left Align">
+                                <button type="button" id="deleteCity" class="btn btn-default" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                 </button>
                             </td>

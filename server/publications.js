@@ -82,13 +82,22 @@ Meteor.publish( 'categories', function() {
   }
 });
 
-Meteor.publish( 'locations', function() {
+Meteor.publish( 'cities', function() {
   if (this.userId) {
-    return Locations.find( {}, { fields: { "title": 1 } } );
+    return Cities.find( {}, { fields: { "name": 1 } } );
   } else {
     return null;
   }
 });
+
+Meteor.publish( 'countries', function() {
+  if (this.userId) {
+    return Countries.find( {}, { fields: { "name": 1, "code": 1 } } );
+  } else {
+    return null;
+  }
+});
+
 
 
 Meteor.publish("userRoles", function () {

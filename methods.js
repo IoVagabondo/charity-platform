@@ -117,34 +117,34 @@ Meteor.methods({
 
     },
 
-    // ########### Locations ##########
+    // ########### Cities ##########
 
-    insertLocation: function(location) {
+    insertCity: function(city) {
 
         var user = Meteor.user();
 
         // ensure the user is logged in
         if (!user)
-            throw new Meteor.Error(401, "You need to login to add an location");
+            throw new Meteor.Error(401, "You need to login to add an Cities");
 
         // prevent duplicate link names, we just add a random string like: "my-page-c5g"
-        if (Locations.findOne({ title: location.title }))
+        if (Cities.findOne({ name: city.name }))
             throw new Meteor.Error(401, "Title already exists");
 
-        Locations.insert(location);
+        Cities.insert(city);
 
         return true;
 
     },
 
-    deleteLocation: function(location) {
+    deleteCity: function(city) {
 
         var user = Meteor.user();
 
         if (!user)
-            throw new Meteor.Error(401, "You need to login to add an location");
+            throw new Meteor.Error(401, "You need to login to add an Cities");
 
-        return Locations.remove({ _id: location.id });
+        return Cities.remove({ _id: city.id });
 
     },
 
