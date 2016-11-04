@@ -4,6 +4,54 @@ Initiatives = new Mongo.Collection('initiatives');
 Categories = new Mongo.Collection('categories');
 Locations = new Mongo.Collection('locations');
 
+var Schemas = {};
+
+Schemas.Events = new SimpleSchema({
+    title: {
+        type: String,
+        label: "Title"
+    },
+    slug: {
+        type: String,
+        label: "Slug"
+    },
+    date: {
+        type: String,
+        label: "Date of Event"
+    },
+    suggestedValue: {
+        type: String,
+        label: "Suggested Value for Funding"
+    },
+    description: {
+        type: String,
+        label: "Event Description"
+    },
+    initiativeId: {
+        type: String,
+        label: "ID of Initiative"
+    },
+    timeCreated: {
+        type: Date,
+        label: "Time Created",
+        autoValue: function() {
+            if (this.isInsert) {
+                return new Date;
+            }
+        }
+    },
+    author: {
+        type: String,
+        label: "Author of Event"
+    },
+    owner: {
+        type: String,
+        label: "Owner of the Event"
+    },
+});
+
+Events.attachSchema(Schemas.Events);
+
 
 // #Security with allow and deny rules -> Restricting database updates
 if (Meteor.isServer) {

@@ -19,10 +19,9 @@ Meteor.methods({
 
 
             // add properties on the serverside
-            postDocument.timeCreated = moment().unix();
+            // postDocument.timeCreated = moment().unix();
             postDocument.author = user.profile.name;
             postDocument.owner = user._id;
-
 
             Events.insert(postDocument);
 

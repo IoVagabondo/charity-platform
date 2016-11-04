@@ -60,6 +60,7 @@ Template.editInitiative.events({
             Initiatives.update(this._id, {
                 $set: {
                     title: form.title.value,
+                    slug: slug,
                     vision: form.vision.value,
                     howithelps: form.howithelps.value,
                     whatitneeds: form.whatitneeds.value,
@@ -67,11 +68,16 @@ Template.editInitiative.events({
                     description: form.description.value,
                     categoryId: form.category.value,
                     locationId: form.location.value,
-                    contactperson: form.contactperson.value,
-                    // contactemail:   form.contactEmail.value,
-                    // contacttel:     form.contactTal.value,
-                    // contactadress:  form.contactadress.value,
-                    foundingyear: form.foundingyear.value,
+                    contact: {
+                        contactPerson: form.contactPerson.value,
+                        contactEmail: form.contactEmail.value,
+                        contactTel: form.contactTel.value,
+                        contactStreet: form.contactStreet.value,
+                        contactZip: form.contactZip.value,
+                        contactCity: form.contactCity.value,
+                        contactCountry: form.contactCountry.value
+                    },
+                    foundingYear: form.foundingYear.value,
 
                 }
             }, function(error) {
@@ -100,11 +106,16 @@ Template.editInitiative.events({
                 description: form.description.value,
                 categoryId: form.category.value,
                 locationId: form.location.value,
-                contactperson: form.contactperson.value,
-                // contactemail:   form.contactEmail.value,
-                // contacttel:     form.contactTal.value,
-                // contactadress:  form.contactadress.value,
-                foundingyear: form.foundingyear.value,
+                contact: {
+                    contactPerson: form.contactPerson.value,
+                    contactEmail: form.contactEmail.value,
+                    contactTel: form.contactTel.value,
+                    contactStreet: form.contactStreet.value,
+                    contactZip: form.contactZip.value,
+                    contactCity: form.contactCity.value,
+                    contactCountry: form.contactCountry.value
+                },
+                foundingYear: form.foundingYear.value,
 
             }, function(error, slug) {
                 Session.set('saveButton', 'Save Post');

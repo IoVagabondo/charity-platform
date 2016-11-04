@@ -47,12 +47,36 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="website">Contact person</label>
-                    <input type="text" class="form-control" id="contactperson" name="contactperson" value="{{contactperson}}">
+                    <label for="contactPerson">Contact Person</label>
+                    <input type="text" class="form-control" id="contactPerson" name="contactPerson" value="{{contact.contactPerson}}">
                 </div>
                 <div class="form-group">
-                    <label for="website">Founding year</label>
-                    <input type="text" class="form-control" id="foundingyear" name="foundingyear" value="{{foundingyear}}">
+                    <label for="contactEmail">Email Adress</label>
+                    <input type="email" class="form-control" id="contactEmail" name="contactEmail" value="{{contact.contactEmail}}">
+                </div>
+                 <div class="form-group">
+                    <label for="contactTel">Tel. Number</label>
+                    <input type="text" class="form-control" id="contactTel" name="contactTel" value="{{contact.contactTel}}">
+                </div>
+                <div class="form-group">
+                    <label for="contactStreet">Street </label>
+                    <input type="text" class="form-control" id="contactStreet" name="contactStreet" value="{{contact.contactStreet}}">
+                </div>
+                 <div class="form-group">
+                    <label for="contactZip">Zip </label>
+                    <input type="text" class="form-control" id="contactZip" name="contactZip" value="{{contact.contactZip}}">
+                </div>
+                <div class="form-group">
+                    <label for="contactCity">City </label>
+                    <input type="text" class="form-control" id="contactCity" name="contactCity" value="{{contact.contactCity}}">
+                </div>
+                <div class="form-group">
+                    <label for="contactCountry">Country </label>
+                    <input type="text" class="form-control" id="contactCountry" name="contactCountry" value="{{contact.contactCountry}}">
+                </div>
+                <div class="form-group">
+                    <label for="foundingYear">Founding year</label>
+                    <input type="text" class="form-control" id="foundingYear" name="foundingYear" value="{{foundingYear}}">
                 </div>
                 <button type="submit" class="save">{{saveButtonText}}</button>
             </form>
