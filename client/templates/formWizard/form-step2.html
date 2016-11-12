@@ -5,15 +5,21 @@
         </div>
         <div class="col-md-3">
             <select class="form-control" id="filter1" value="{{filter1}}">
-                <option value="none" >Choose here ...</option>
+                <option value="none" >Choose city here ...</option>
                 {{#each citiesList}}
-                    <option {{selectedCity}} value="{{_id}}">{{title}}</option>
+                    <option {{selectedCity}} value="{{_id}}">{{name}}</option>
                 {{/each}}
             </select>
             <select class="form-control" id="filter2" value="{{filter2}}">
-                <option value="none" >Choose here ...</option>
+                <option value="none" >Choose category here ...</option>
                 {{#each categoriesList}}
                     <option {{selectedCategory}} value="{{_id}}">{{title}}</option>
+                {{/each}}
+            </select>
+            <select class="form-control" id="filter3" value="{{filter3}}">
+                <option value="none" >Choose section here ...</option>
+                {{#each sectionsList}}
+                    <option {{selectedSection}} value="{{_id}}">{{title}}</option>
                 {{/each}}
             </select>
         </div>

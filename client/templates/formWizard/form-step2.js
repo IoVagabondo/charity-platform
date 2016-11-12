@@ -8,6 +8,7 @@
 
      template.filter1 = new ReactiveVar();
      template.filter2 = new ReactiveVar();
+     template.filter3 = new ReactiveVar();
 
 
      template.autorun(() => {
@@ -17,6 +18,7 @@
              }, 300);
          });
          template.subscribe('categories');
+         template.subscribe('sections');
          template.subscribe('cities');
      });
  });
@@ -30,6 +32,7 @@
      // Set filter1 & filter2 to value of form-step-1
      var filter1 = Session.get('cityId');
      var filter2 = Session.get('categoryId');
+     var filter3 = Session.get('sectionId');
 
      if (!filter1) {
          filter1 = 'none';
@@ -39,10 +42,15 @@
          filter2 = 'none';
      }
 
+     if (!filter3) {
+         filter3 = 'none';
+     }
+
 
      // console.log(filter1);
      $('#filter1').val(filter1);
      $('#filter2').val(filter2);
+     $('#filter3').val(filter3);
 
 
      if (query !== '') {
@@ -52,6 +60,7 @@
 
      Template.instance().filter1.set(filter1);
      Template.instance().filter2.set(filter2);
+     Template.instance().filter3.set(filter3);
 
 
 
@@ -69,6 +78,10 @@
          return Categories.find();
      },
 
+     sectionsList: function() {
+         return Sections.find();
+     },
+
      citiesList: function() {
          return Cities.find();
      },
@@ -76,6 +89,10 @@
      //select category dynamic in html select dropdown by comparison of option id & stored category id
      selectedCategory: function() {
          return this._id == Session.get('categoryId') ? 'selected' : '';
+     },
+
+     selectedSection: function() {
+         return this._id == Session.get('sectionId') ? 'selected' : '';
      },
 
      selectedCity: function() {
@@ -96,6 +113,9 @@
      filter2: function() {
          return Template.instance().filter2.get();
      },
+     filter3: function() {
+         return Template.instance().filter3.get();
+     },
 
      initiatives() {
 
@@ -106,6 +126,10 @@
          }
          if (Template.instance().filter2.get() && Template.instance().filter2.get() !== 'none') {
              query.categoryId = Template.instance().filter2.get();
+         }
+
+         if (Template.instance().filter3.get() && Template.instance().filter3.get() !== 'none') {
+             query.sectionId = Template.instance().filter3.get();
          }
 
          let initiatives = Initiatives.find(query);
@@ -165,5 +189,11 @@
          var currentValue = $(event.target).val();
          template.filter2.set(currentValue);
          Session.set('categoryId', currentValue);
+     },
+
+     'change #filter3': function(event, template) {
+         var currentValue = $(event.target).val();
+         template.filter3.set(currentValue);
+         Session.set('sectionId', currentValue);
      }
  });
