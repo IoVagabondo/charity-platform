@@ -5,6 +5,7 @@ Template.editInitiative.onCreated(() => {
 
     template.autorun(() => {
         template.subscribe('categories');
+        template.subscribe('sections');
         template.subscribe('cities');
     });
 });
@@ -14,6 +15,10 @@ Template.editInitiative.helpers({
 
     categoriesList: function() {
         return Categories.find();
+    },
+
+    sectionsList: function() {
+        return Sections.find();
     },
 
     citiesList: function() {
@@ -26,6 +31,13 @@ Template.editInitiative.helpers({
             return this.value == 'none' ? 'selected' : '';
         }
         return this._id == Template.instance().data.categoryId ? 'selected' : '';
+    },
+
+    selectedSection: function() {
+        if (!Template.instance().data) {
+            return this.value == 'none' ? 'selected' : '';
+        }
+        return this._id == Template.instance().data.sectionId ? 'selected' : '';
     },
 
     selectedCity: function() {
@@ -67,6 +79,7 @@ Template.editInitiative.events({
                     website: form.website.value,
                     description: form.description.value,
                     categoryId: form.category.value,
+                    sectionId: form.section.value,
                     cityId: form.city.value,
                     contact: {
                         contactPerson: form.contactPerson.value,
@@ -105,6 +118,7 @@ Template.editInitiative.events({
                 website: form.website.value,
                 description: form.description.value,
                 categoryId: form.category.value,
+                sectionId: form.section.value,
                 cityId: form.city.value,
                 contact: {
                     contactPerson: form.contactPerson.value,
@@ -146,7 +160,7 @@ Template.editInitiative.events({
                         if (error) {
                             Bert.alert(error.reason, "warning");
                         } else {
-                            // TODO                    
+                            // TODO
                         }
                     });
 

@@ -2,6 +2,7 @@
 Events = new Mongo.Collection('events');
 Initiatives = new Mongo.Collection('initiatives');
 Categories = new Mongo.Collection('categories');
+Sections = new Mongo.Collection('sections');
 Cities = new Mongo.Collection('cities');
 Countries = new Mongo.Collection('countries');
 
@@ -69,6 +70,7 @@ if (Meteor.isServer) {
 
     Initiatives._ensureIndex({ title: 1, vision: 1, howithelps: 1, whatitneeds: 1 });
     Categories._ensureIndex({ title: 1 });
+    Sections._ensureIndex({ title: 1 });
     Cities._ensureIndex({ title: 1 });
 
     Meteor.users.deny({
@@ -84,6 +86,18 @@ if (Meteor.isServer) {
     });
 
     Categories.allow({
+        insert: function(userId, document) {
+            return Roles.userIsInRole(userId, 'admin');
+        },
+        update: function(userId, document, fields, modifier) {
+            return Roles.userIsInRole(userId, 'admin');
+        },
+        remove: function(userId, document) {
+            return Roles.userIsInRole(userId, 'admin');
+        }
+    });
+
+    Sections.allow({
         insert: function(userId, document) {
             return Roles.userIsInRole(userId, 'admin');
         },

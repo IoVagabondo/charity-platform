@@ -82,9 +82,17 @@ Meteor.publish( 'categories', function() {
   }
 });
 
+Meteor.publish( 'sections', function() {
+  if (this.userId) {
+    return Sections.find( {}, { fields: { "title": 1 } } );
+  } else {
+    return null;
+  }
+});
+
 Meteor.publish( 'cities', function() {
   if (this.userId) {
-    return Cities.find( {}, { fields: { "name": 1 } } );
+    return Cities.find( {}, { fields: { "name": 1, "country": 1 } } );
   } else {
     return null;
   }

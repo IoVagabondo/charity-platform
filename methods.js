@@ -117,6 +117,37 @@ Meteor.methods({
 
     },
 
+    // ########### Public/Sections ##########
+
+    insertSection: function(section) {
+
+        var user = Meteor.user();
+
+        // ensure the user is logged in
+        if (!user)
+            throw new Meteor.Error(401, "You need to login to add an section");
+
+        // prevent duplicate link names, we just add a random string like: "my-page-c5g"
+        if (Sections.findOne({ title: section.title }))
+            throw new Meteor.Error(401, "Section already exists");
+
+        Sections.insert(section);
+
+        return true;
+
+    },
+
+    deleteSection: function(section) {
+
+        var user = Meteor.user();
+
+        if (!user)
+            throw new Meteor.Error(401, "You need to login to add an section");
+
+        return Sections.remove({ _id: section.id });
+
+    },
+
     // ########### Cities ##########
 
     insertCity: function(city) {

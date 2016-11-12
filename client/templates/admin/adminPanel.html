@@ -63,6 +63,41 @@
                 </table>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="page-header">Public/Section Management Panel</h4>
+                <form class="newSection form-inline">
+                    <div class="form-group">
+                        <label for="inputSection">Sections</label>
+                        <input type="text" class="form-control" name="inputSection" id="inputSection">
+                    </div>
+                    <button type="submit" class="btn btn-default">Add section</button>
+                </form>
+                <br>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th class="text-center">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each sections}}
+                        <tr>
+                            <td class="text-left text-middle">{{title}}</td>
+                            <td class="text-center">
+                                <button type="button" id="deleteSection" class="btn btn-default" aria-label="Left Align">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
                 <h4 class="page-header">Locations Management Panel</h4>
@@ -87,6 +122,7 @@
                     <thead>
                         <tr>
                             <th>City</th>
+                            <th>Country</th>
                             <th class="text-center">Delete</th>
                         </tr>
                     </thead>
@@ -94,6 +130,7 @@
                         {{#each cities}}
                         <tr>
                             <td class="text-left text-middle">{{name}}</td>
+                            <td class="text-left text-middle">{{country}}</td>
                             <td class="text-center">
                                 <button type="button" id="deleteCity" class="btn btn-default" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>

@@ -1,6 +1,7 @@
 Template.adminPanel.onCreated(() => {
     Template.instance().subscribe('users');
     Template.instance().subscribe('categories');
+    Template.instance().subscribe('sections');
     Template.instance().subscribe('cities');
     Template.instance().subscribe('countries');
 });
@@ -17,6 +18,10 @@ Template.adminPanel.helpers({
 
     categories: function() {
         return Categories.find();
+    },
+
+    sections: function() {
+        return Sections.find();
     },
 
     cities: function() {
@@ -79,6 +84,43 @@ Template.adminPanel.events({
             }
 
             Bert.alert("Category deleted", "success");
+        });
+
+    },
+
+    'submit .newSection': function(event, template) {
+
+        event.preventDefault();
+        var form = event.target;
+
+        Meteor.call('insertSection', {
+            title: form.inputSection.value,
+
+        }, function(error) {
+
+            if (error) {
+                return Bert.alert(error.reason, "warning");
+            }
+
+            Bert.alert("Section added", "success");
+            form.reset();
+        });
+
+    },
+
+    'click #deleteSection': function(event, template) {
+
+        // console.log(this._id);
+        Meteor.call('deleteSection', {
+            id: this._id,
+
+        }, function(error) {
+
+            if (error) {
+                return Bert.alert(error.reason, "warning");
+            }
+
+            Bert.alert("Section deleted", "success");
         });
 
     },
