@@ -18,15 +18,45 @@ Template.createEvent.helpers({
         return Template.instance().currentTab.get();
     },
 
+    activeBackButton: function() {
+      return (Template.instance().currentTab.get() !== "formStep1");
+    },
+
+    activeNextButton: function(){
+      var currentTab = Template.instance().currentTab.get();
+      
+      if (currentTab == "formStep1") {
+        if (Session.get('eventTitle') == undefined || Session.get('eventTitle') == ""){
+            return false;
+        } else {
+          return true;
+        }
+      } else if (currentTab == "formStep2") {
+        if (Session.get('selectedInitiativeId') == undefined){
+          return false;
+        } else {
+          return true;
+        }
+      } else if (currentTab == "formStep3") {
+        if (Session.get('date') == undefined || Session.get('description') == undefined || Session.get('suggestedValue') == undefined ){
+          return false;
+        } else {
+          return true;
+        }
+      } else if (currentTab == "formStep4") {
+          return false
+      }
+    }
+
 });
 
 Template.createEvent.events({
-    'click .nav-pills li': function(event, template) {
-        var currentTab = $(event.target).closest("li");
-        currentTab.addClass("active");
-        $(".nav-pills li").not(currentTab).removeClass("active");
-        template.currentTab.set(currentTab.data("template"));
-    },
+    // 'click .nav-pills li': function(event, template) {
+    //     var currentTab = $(event.target).closest("li");
+    //     currentTab.addClass("active");
+    //     $(".nav-pills li").not(currentTab).removeClass("active");
+    //     template.currentTab.set(currentTab.data("template"));
+    // },
 
     'click a.back': function(e, template) {
         var currentTabTemplate = template.currentTab.get();

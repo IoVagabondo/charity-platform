@@ -2,8 +2,9 @@
     <div class="appBody">
         <div class="row">
             <div class="col-md-2 text-right">
+              {{#if activeBackButton}}
             	<a id="backButton" href="#" class="btn btn-default btn-circle back"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-                <!-- <button type="button" class="btn btn-default back">Back</button> -->
+              {{/if}}
             </div>
             <div class="col-md-8 text-center">
                 <ul class="nav nav-pills nav-justified" style="margin-bottom: 3em">
@@ -14,9 +15,10 @@
                 </ul>
             </div>
             <div class="col-md-2 text-left">
-	            <!-- <button type="button" class="btn btn-default next">Next</button> -->
+	            {{#if activeNextButton}}
 	            <a href="#" class="btn btn-default btn-circle next"><i class="fa fa-chevron-right" aria-hidden="true"></i>
-</a>
+              </a>
+              {{/if}}
     		</div>
         </div>
         {{> Template.dynamic template=tab }}
