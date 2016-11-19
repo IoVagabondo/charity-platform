@@ -1,27 +1,80 @@
 <template name="event">
 
     <div class="appBody">
-        <div class="row">
-            <h1>Title: {{title}}</h1> <small>Access link: http://localhost:3000/events/{{slug}} | <a href="#" id="copyAccessLink"> Copy Link</a></small>
-            <br>
-            <small>
-				Posted {{formatTime timeCreated "fromNow"}} by {{author}}
+        {{#if iAmOwner owner}}
+            <div class="row">
+              <div class="col-md-12">
+                <h1>{{title}}</h1> <small>Access link: http://localhost:3000/events/{{slug}} | <a href="#" id="copyAccessLink"> Copy Link</a></small>
+                <br>
+                <small>
+    				    Posted {{formatTime timeCreated "fromNow"}} by {{author}} | <a href="/events/{{slug}}/edit">Edit Event</a>
+    			        | <a href="#" id="delete" >Delete Event</a>
+                </small>
+                <hr>
+            </div>
 
-				{{#if currentUser}}
-			        | <a href="/edit-event/{{slug}}">Edit Event</a>
-			        | <a href="#" id="delete" >Delete Event</a>
-			    {{/if}} 
-			</small>
-            <hr>
-        </div>
-        <div class="row">
-            <headText for="descriptionText">Description:</headText>
-            <p id="descriptionText">{{description}}</p>
-        </div>
-        <hr>
-        <div class="row">
-            <headText for="descriptionText">Invitation:</headText>
-            <p id="initationText">{{text}}</p>
-        </div>
+          </div>
+          <div class="row">
+              <div class="col-md-7">
+                <headText for="descriptionText">Description:</headText>
+                <p id="descriptionText">{{description}}</p>
+                <headText for="date">Date:</headText>
+                <p id="date">{{date}}</p>
+                <headText for="suggestedValue">Suggested Value:</headText>
+                <p id="suggestedValue">{{suggestedValue}}</p>
+              </div>
+              <div class="col-md-offset-1 col-md-4">
+                  Statistic
+              </div>
+          </div>
+
+        {{else}}
+          <div class="row">
+            <div class="col-md-9">
+              <h1>{{title}}</h1>
+              <p>Inivitation by <i class="fa fa-heart" aria-hidden="true"></i> from {{author}} // <span>Date: {{date}}</span></p>
+            </div>
+            <div class="col-md-offset-1 col-md-2" style="text-align: right;">
+                <button type="button" id="donateButton" class="btn btn-block btn-primary btn-lg">Donate</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-7">
+              <hr>
+              <headText for="descriptionText">Invitation:</headText>
+              <p id="descriptionText">{{description}}</p>
+              <headText for="date">Date:</headText>
+              <p id="date">{{date}}</p>
+              <headText for="suggestedValue">Suggested Value:</headText>
+              <p id="suggestedValue">{{suggestedValue}}</p>
+
+            </div>
+            <div class="col-md-offset-1 col-md-4">
+              <img style="max-width: 400px;" src="{{pictureURL}}" />
+
+            </div>
+          </div>
+          <hr>
+          {{#with initiative}}
+          <h4>Selected Initiative: {{title}}</h4>
+          <div class="row">
+
+            <div class="col-md-1">
+              <img style="max-width: 180px;" src="{{imageURL}}" />
+              <span>more informations</span>
+            </div>
+            <div class="col-md-offset-2 col-md-9">
+              <headText for="vision">Vision:</headText>
+              <p id="vision">{{vision}}</p>
+              <headText for="whatitneeds">What it needs:</headText>
+              <p id="whatitneeds">{{whatitneeds}}</p>
+              <headText for="location">Location:</headText>
+              <p id="location">{{location}}</p>
+            </div>
+
+          </div>
+          {{/with}}
+        {{/if}}
+
     </div>
 </template>

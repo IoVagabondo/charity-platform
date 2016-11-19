@@ -31,6 +31,10 @@ Template.formStep4.helpers({
     selectedInitiative: function() {
         // console.log();
         return Initiatives.find({});
+    },
+
+    pictureURL: function(){
+      return Session.get('pictureURL');
     }
 
 });
@@ -47,7 +51,8 @@ Template.formStep4.events({
             date: Session.get('date'),
             suggestedValue: Session.get('suggestedValue'),
             description: Session.get('description'),
-            initiativeId: Session.get('selectedInitiativeId')
+            initiativeId: Session.get('selectedInitiativeId'),
+            pictureURL: Session.get('pictureURL')
 
         }, function(error, slug) {
 
@@ -84,14 +89,15 @@ Template.publishEventModalTemplate.events({
         Session.set('description', '');
         Session.set('selectedInitiativeId', '');
         Session.set('suggestedValue', '');
+        Session.set('pictureURL', '');
 
-        
+
         $('#publishEventModal')
         .on('hidden.bs.modal', function() {
            Router.go('Event', { slug: Session.get('slug-new-event') });
         })
         .modal('hide');
-        
+
 
     },
 });

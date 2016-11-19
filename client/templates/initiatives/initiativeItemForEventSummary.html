@@ -1,6 +1,11 @@
 <template name="initiativeItemForEventSummary">
-    <p><strong>Name</strong> {{title}}</p>
-    <p><strong>Vision:</strong> {{vision}}</p>
-    <p><strong>What it needs:</strong> {{whatitneeds}}</p>
-    <p><strong>Location:</strong> {{location}}</p>
+    <div class="col-md-8">
+      <p><strong>Name</strong> {{title}}</p>
+      <p><strong>Vision:</strong> {{vision}}</p>
+      <p><strong>What it needs:</strong> {{whatitneeds}}</p>
+      <p><strong>Location:</strong> {{location}}</p>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+      <img style="max-width: 200px;" src="{{imageURL}}">
+    </div>
 </template>

@@ -1,6 +1,6 @@
 if(Meteor.isClient) {
-    Session.setDefault('lazyloadLimit', 2);
-    Session.setDefault('lazyloadLimit_initiatives', 5);
+    Session.setDefault('lazyloadLimit', 4);
+    Session.setDefault('lazyloadLimit_initiatives', 4);
 }
 
 Router.configure({
@@ -83,7 +83,13 @@ Router.map(function() {
 	    path: '/events/:slug',
 	    template: 'event',
 	    controller: 'EventController'
-	});
+	   });
+
+     this.route('Event-Donate', {
+ 	    path: '/events/:slug/donate',
+ 	    template: 'eventDonate',
+ 	    controller: 'EventController'
+ 	   });
 
 	// this.route('Create Event', {
 	//     path: '/create-event',
@@ -91,10 +97,10 @@ Router.map(function() {
 	//     subscriptions: function(){
  //        	return Meteor.subscribe("all-initiatives");
  //    	}
-	// }); 
+	// });
 
 	this.route('Edit Event', {
-	    path: '/edit-event/:slug',
+	    path: '/events/:slug/edit',
 	    template: 'editEvent',
 	    controller: 'EventController'
 	});
@@ -111,10 +117,10 @@ Router.map(function() {
 	this.route('Create Initiative', {
 	    path: '/create-initiative',
 	    template: 'editInitiative'
-	}); 
+	});
 
 	this.route('Edit Initiative', {
-	    path: '/edit-initiative/:slug',
+	    path: '/initiatives/:slug/edit',
 	    template: 'editInitiative',
 	    controller: 'InitiativeController'
 	});
@@ -128,7 +134,7 @@ Router.map(function() {
 });
 
 
-    
+
 
 var requiresLogin = function(){
     if (!Meteor.user()) {
@@ -137,7 +143,7 @@ var requiresLogin = function(){
     } else {
         this.next();
     }
-}; 
+};
 
 
 var requiresAdmin = function(){
@@ -147,10 +153,9 @@ var requiresAdmin = function(){
     } else {
         this.next();
     }
-}; 
+};
 
 
 
 Router.onBeforeAction(requiresLogin, {only: ['Initiatives','Create Event','Edit Event']});
 Router.onBeforeAction(requiresAdmin, {only: ['AdminPanel']});
-

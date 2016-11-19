@@ -59,6 +59,10 @@ Schemas.Events = new SimpleSchema({
         type: String,
         label: "Owner of the Event"
     },
+    pictureURL: {
+        type: String,
+        label: "Picture of Event"
+    }
 });
 
 Events.attachSchema(Schemas.Events);

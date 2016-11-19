@@ -22,7 +22,7 @@ Template.formStep3.onRendered(function() {
 
 Template.formStep3.events({
 
-    
+
 
     'click input.datetimepicker': function(event, template) {
         let value = $('#suggestedValue').val();
@@ -58,6 +58,14 @@ Template.formStep3.events({
         }, 500);
 
     },
+
+    'change input[type="file"]' (event, template) {
+        file = Modules.client.uploadToAmazonS3({ event: event, template: template, id: this._id }, function(id, url) {
+            if (url) {
+                Session.set('pictureURL', url);
+            }
+        });
+    }
 
 
 });
