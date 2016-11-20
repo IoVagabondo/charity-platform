@@ -1,0 +1,22 @@
+<template name="EventDonatePayment">
+    <div class="appBody">
+
+      <div class="col-md-offset-4 col-md-4 text-centered">
+        {{#if payment_status 'open'}}
+          {{#if payment_in_progress}}
+            <div class="loader"></div>
+          {{else}}
+              <button type="button" class="btn btn-primary btn-lg " id="executePayment">Submit</button>
+          {{/if}}
+        {{/if}}
+
+        {{#if payment_status 'successful'}}
+          <div class="alert alert-success" role="alert">Payment successful! Many thanks to you for this donation!</div>
+        {{/if}}
+
+        {{#if payment_status 'refused'}}
+          <div class="alert alert-danger" role="alert">Payment refused. Please check your paypal account details</div>
+        {{/if}}
+      </div>
+    </div>
+</template>

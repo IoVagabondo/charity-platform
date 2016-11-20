@@ -6,6 +6,9 @@ Sections = new Mongo.Collection('sections');
 Cities = new Mongo.Collection('cities');
 Countries = new Mongo.Collection('countries');
 
+PaypalPayments = new Meteor.Collection('paypal_payments');
+PaypalTokens = new Meteor.Collection('paypal_tokens');
+
 var Schemas = {};
 
 Schemas.Cities = new SimpleSchema({
