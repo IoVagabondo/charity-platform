@@ -116,3 +116,10 @@ Meteor.publish("userRoles", function () {
  }
 });
 
+Meteor.publish("paypal_payments", function (paymentId) {
+ if (paymentId) {
+  return PaypalPayments.find({id: paymentId, state: 'created'}, {fields: {'id': 1, 'payer': 1, 'transactions': 1, }});
+ } else {
+  this.ready();
+ }
+});

@@ -1,22 +1,58 @@
 <template name="EventDonatePayment">
     <div class="appBody">
+      <div class="col-md-5">
+        <h1>{{title}}</h1>
+        <hr>
+        <headText for="descriptionText">Description:</headText>
+        <p id="descriptionText">{{description}}</p>
+        <headText for="date">Date:</headText>
+        <p id="date">{{date}}</p>
+        <headText for="suggestedValue">Suggested Value:</headText>
+        <p id="suggestedValue">{{suggestedValue}}</p>
+      </div>
+      <div class="col-md-offset-1 col-md-6" style="background-color: lightgray; border-radius: 20px; padding: 20px;">
+        <h2 class="text-center">Pay with PayPal</h2>
+        <hr style="background-color: white; height: 1px">
+        {{#with initiative}}
+          <headText for="title">Selected Initiative:</headText>
+          <p id="title">{{title}}</p>
+          <headText for="vision">Vision:</headText>
+          <p id="vision">{{vision}}</p>
+          <headText for="location">Location:</headText>
+          <p id="location">{{location}}</p>
+        {{/with}}
+        <hr style="background-color: white; height: 1px">
+        {{#with paypal_payment}}
+        
+        <headText for="donation">Amount</headText>
+          {{#each transactions}}
+            <p id="donation">{{amount.currency}} {{amount.total}}</p>
 
-      <div class="col-md-offset-4 col-md-4 text-centered">
-        {{#if payment_status 'open'}}
-          {{#if payment_in_progress}}
-            <div class="loader"></div>
-          {{else}}
-              <button type="button" class="btn btn-primary btn-lg " id="executePayment">Submit</button>
+            <headText for="fee">Fees</headText>
+            <p id="fee">5% fee PayPal: {{amount.currency}} {{paypal_fee amount.total}}<br>
+            10% maintanence costs surprese.me: {{amount.currency}} {{surprese_fee amount.total}}</p>
+            <headText for="donation">Your total donation</headText>
+            <p id="fee">85% total donation: {{amount.currency}} {{bottom_line amount.total}}</p>
+          {{/each}}
+        {{/with}}
+
+        <div class="text-center" style="margin-top:10px;">
+          {{#if payment_status 'open'}}
+            {{#if payment_in_progress}}
+              <div class="loader"></div>
+            {{else}}
+                <button type="button" class="btn btn-primary btn-lg btn-block" id="executePayment">Confirm Payment</button>
+            {{/if}}
           {{/if}}
-        {{/if}}
 
-        {{#if payment_status 'successful'}}
-          <div class="alert alert-success" role="alert">Payment successful! Many thanks to you for this donation!</div>
-        {{/if}}
+          {{#if payment_status 'successful'}}
+            <div class="alert alert-success" role="alert">Payment successful! Many thanks to you for this donation!</div>
+          {{/if}}
 
-        {{#if payment_status 'refused'}}
-          <div class="alert alert-danger" role="alert">Payment refused. Please check your paypal account details</div>
-        {{/if}}
+          {{#if payment_status 'refused'}}
+            <div class="alert alert-danger" role="alert">Payment refused. Please check your paypal account details</div>
+          {{/if}}
+        </div>
       </div>
     </div>
 </template>

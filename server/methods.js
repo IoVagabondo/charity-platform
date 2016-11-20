@@ -307,6 +307,7 @@ Meteor.methods({
       if (payment.state === 'approved') {
         return true;
       } else {
+        console.log(res.data);
         return false;
       }
     }

@@ -93,7 +93,8 @@ Router.map(function() {
 
       this.route('Event-Donate-Payment', {
         path: '/events/:slug/donate/execute',
-        template: 'EventDonatePayment'
+        template: 'EventDonatePayment',
+        controller: 'EventController'
       });
 
 
