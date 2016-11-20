@@ -244,8 +244,8 @@ Meteor.methods({
           payment_method: 'paypal'
         },
         redirect_urls: {
-          return_url: 'http://localhost:3000/events/'+slug+'/donate/execute',
-          cancel_url: 'http://localhost:3000/events/'+slug+'/donate'
+          return_url: 'https://primio.herokuapp.com/events/'+slug+'/donate/execute',
+          cancel_url: 'https://primio.herokuapp.com/events/'+slug+'/donate'
         },
         transactions: [
           {
