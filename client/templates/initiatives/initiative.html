@@ -1,6 +1,7 @@
 <template name="initiative">
     <div class="appBody">
         <div class="editPost">
+          {{> inAppNavBar}}
             <div class="row">
                 <div class="col-md-12">
                     <h1>Title: {{title}}</h1>
@@ -9,10 +10,10 @@
                     <small>
 					Posted {{formatTime timeCreated "fromNow"}} by {{author}}
 					{{#if isInRole 'admin'}}
-				        | <a href="/edit-initiative/{{slug}}">Edit initiative</a>
-				        | <a href="/initiatives/{{slug}}/edit-products">Edit products</a>
-				        | <a href="#" id="delete" >Delete initiative</a>
-				    {{/if}} 
+				        | <a href="/initiatives/{{slug}}/edit">EDIT DETAILS</a>
+				        | <a href="/initiatives/{{slug}}/edit-products">EDIT PRODUCTS</a>
+				        | <a href="#" id="delete" >DELETE INITIATIVE</a>
+				    {{/if}}
 				</small>
                 </div>
             </div>
