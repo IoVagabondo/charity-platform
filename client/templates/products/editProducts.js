@@ -1,3 +1,7 @@
+Template.editProducts.onCreated(function(){
+  Session.set('sliderValueIs', '45');
+});
+
 Template.editProducts.helpers({
     getProducts: function() {
         return this.products;
@@ -6,6 +10,10 @@ Template.editProducts.helpers({
     productsList: function() {
         // console.log(this._id);
         return Initiatives.findOne({ _id: this._id }).products;
+    },
+
+    sliderValue: function() {
+      return Session.get('sliderValueIs');
     }
 
 });
@@ -22,7 +30,7 @@ Template.editProducts.events({
         if (this._id) {
             Initiatives.update(this._id, {
                 $push: {
-                    products: { title: form.title.value, description: form.description.value, productValue: form.productValue.value }
+                    products: { id: new Date().getTime().toString().substr(4), title: form.title.value, description: form.description.value, productValue: form.productValue.value }
 
                 }
             }, function(error) {
@@ -33,6 +41,7 @@ Template.editProducts.events({
                     // Show confirmation
                     Bert.alert("Product successfully inserted", "success");
                     form.reset();
+                    Session.set('sliderValueIs', '45');
                 }
             });
 
@@ -41,13 +50,11 @@ Template.editProducts.events({
         }
     },
 
-    'change input[type="file"]' (event, template) {
-        file = Modules.client.uploadToAmazonS3({ event: event, template: template }, function(url){
-            if (url) {
-                console.log(url);
-            }
-        });
-    }
+    'input input[type=range]': function(event){
+     var sliderValue = event.currentTarget.value
+     Session.set('sliderValueIs', sliderValue)
+
+    },
 
 
 });

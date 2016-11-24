@@ -1,6 +1,6 @@
 Template.product.events({
 
-    'click button.inTable': function(e, template) {
+    'click a.inTable': function(e, template) {
         // ToDo: Aus Array in Initiative Doc entfernen
         // console.log("Pressed DELETE of Product");
         // console.log(this);
@@ -11,8 +11,7 @@ Template.product.events({
 
         Initiatives.update(initiativeId, {
             $pull: {
-                products: { title: this.title, productValue: this.productValue }
-
+                products: { id: this.id}
             }
         }, function(error) {
             if (error) {
