@@ -1,3 +1,9 @@
+Template.initiative.helpers({
+  products: function(){
+		return Template.instance().data.products;
+	}
+});
+
 Template.initiative.events({
     'click #delete': function(event,template) {
         event.preventDefault();
@@ -11,6 +17,6 @@ Template.initiative.events({
 				Router.go('Initiatives');
 			}
 		);
-        
+
     }
 });

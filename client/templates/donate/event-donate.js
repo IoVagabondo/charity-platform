@@ -7,6 +7,10 @@ Template.eventDonate.helpers({
     }
     return currentStep == step;
   },
+
+  products: function(){
+		return Initiatives.findOne({_id: Template.instance().data.initiativeId}).products;
+	}
 });
 
 
@@ -35,9 +39,9 @@ Template.eventDonate.events({
   'click #paypal': function() {
     var product;
     product = {
-      name: 'product name',
-      description: 'production description',
-      price: 30.00
+      name: Session.get('selectedProductTitle'),
+      description: Session.get('selectedProductDescription'),
+      price: Session.get('selectedProductValue')
     };
     var slug = Template.instance().data.slug
     Meteor.call('createPaypalPayment', product, slug, function(err, res) {

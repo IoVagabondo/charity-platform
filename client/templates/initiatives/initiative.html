@@ -4,7 +4,7 @@
           {{> inAppNavBar}}
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Title: {{title}}</h1>
+                    <h1>{{title}}</h1>
                 </div>
                 <div class="col-md-12">
                     <small>
@@ -41,6 +41,11 @@
                     <p id="founderText">{{description}}</p>
                 </div>
             </div>
+            <hr>
+            <h4>Products</h4>
+            {{#each products}}
+  						{{> productItem}}
+  					{{/each}}
         </div>
     </div>
 </template>

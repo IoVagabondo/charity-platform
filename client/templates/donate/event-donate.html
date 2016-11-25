@@ -61,15 +61,11 @@
       {{#if stepEquals 'stepTwo'}}
         <section class="register">
                 <form name="stepTwo" class="form-horizontal">
-                    <div class="form-group">
-                        <label for="donationAmount" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Gift Value</label>
-                        <div class="col-sm-10">
-                            <input type="number" class="form-control" id="donationAmount" placeholder="Gift Value">
-                        </div>
-                        <div class="col-sm-12">
-                          <headText>The value suggested by {{author}} was {{suggestedValue}}</headText>
-                        </div>
-                    </div>
+                    <h4>Choose product or insert donation amount</h4>
+                    {{#each products}}
+                      {{> productItem}}
+                    {{/each}}
+                    
                     <div class="form-group">
                         <div class="col-sm-10">
                             <div class="col-sm-6">

@@ -254,14 +254,14 @@ Meteor.methods({
                 {
                   'name': product.name,
                   'price': product.price,
-                  'currency': 'USD',
+                  'currency': 'BRL',
                   'quantity': 1
                 }
               ]
             },
             amount: {
               total: product.price,
-              currency: 'USD'
+              currency: 'BRL'
             },
             description: product.description
           }
