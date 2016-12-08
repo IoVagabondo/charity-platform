@@ -1,0 +1,77 @@
+@import 'lesshat.import.less';
+@import "variables.less";
+
+button.register,
+button.signin,
+button.lazyload,
+a.createNewPost,
+a.createNewInitiative,
+button.save,
+button.delete,
+button.postShout {
+	display: block;
+	width: 100%;
+	padding: 10px 20px;
+	margin: 20px auto;
+	border: 1px solid desaturate(lighten(@primary-color, 60%), 40%);
+	background-color: desaturate(lighten(@primary-color, 70%), 40%);
+	color: @primary-color;
+	font-size: 15px;
+	text-align: center;
+	.box-sizing(border-box);
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		background-color: @primary-color;
+		color: #fff;
+	}
+}
+button.save,
+button.postShout {
+	width: auto;
+}
+
+button.inTable {
+	background: transparent;
+	border: 0px;
+}
+
+.btn-circle {
+  width: 40px;
+  background-color: transparent;
+  height: 40px;
+  text-align: center;
+  padding: 9px 0;
+  font-size: 15px;
+  line-height: 1.42;
+  border-radius: 18px;
+
+  &:hover {
+  	background-color: @secondary-color;
+  	color: @white-color;
+  }
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: @primary-color;
+  border-color: @primary-color;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: darken(@primary-color, 10%);
+  border-color: darken(@primary-color, 10%);
+}
+
+.nav-pills > li > a {
+  color: @secondary-color;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: @white-color;
+  background-color: @secondary-color;
+}
