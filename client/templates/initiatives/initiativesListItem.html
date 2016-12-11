@@ -1,0 +1,32 @@
+<template name="initiativesListItem">
+  <div class="col-md-12">
+    <div class="causes-list-box">
+        <div class="row vertical-center">
+            <div class="col-sm-6">
+                <img src={{imageURL}} alt="" class="img-responsive">
+            </div>
+            <div class="col-sm-6">
+                <div class="causes-desc">
+                    <h4><a href="initiatives/{{slug}}">{{title}}</a></h4>
+                    <div class="row causes-amount">
+                        <div class="col-xs-12">
+                            <span>Vision</span>
+                            <h1>{{vision}}</h1>
+                        </div>
+                        <div class="col-xs-12">
+                            <span>How it helps</span>
+                            <h1>{{howithelps}}</h1>
+                        </div>
+                        <div class="col-xs-12">
+                            <span>What it needs</span>
+                            <h1>{{whatitneeds}}</h1>
+                        </div>
+                    </div>
+                    <a href="initiatives/{{slug}}" class="btn btn-theme-bg">Donate now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</template>
