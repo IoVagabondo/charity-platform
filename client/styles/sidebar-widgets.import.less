@@ -1,0 +1,105 @@
+/*
+Sidebar widget
+*/
+
+
+.sidebar-widget {
+  padding: 20px 15px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+  -ms-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+  background: @white-color;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+.sidebar-widget h4 {
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: @dark-grey;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid @light-grey;
+}
+.sidebar-widget form {
+  position: relative;
+}
+.sidebar-widget form button[type="submit"] {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  background: transparent;
+}
+.sidebar-widget form .form-control {
+  border: 0px;
+  box-shadow: none;
+}
+.sidebar-widget .list-unstyled {
+  margin: 0px;
+  padding: 0px;
+}
+.sidebar-widget .list-unstyled > li > a {
+  text-transform: capitalize;
+  display: block;
+  color: @medium-grey;
+  padding: 5px 0;
+  border-bottom: 1px solid @light-grey;
+  position: relative;
+}
+.sidebar-widget .list-unstyled > li > a:hover {
+  color: @primary-color;
+}
+.sidebar-widget .list-unstyled > li > a:before {
+  content: "\f101";
+  font-family: 'FontAwesome';
+  margin-right: 10px;
+}
+.sidebar-widget .list-unstyled > li:last-child a {
+  border-bottom: 0px;
+  padding-bottom: 0px;
+}
+.sidebar-widget .latest-news .content a h5 {
+  color: @dark-grey;
+}
+.sidebar-widget .latest-news .content a h5:hover {
+  color: @primary-color;
+}
+.sidebar-widget .latest-news li:last-child {
+  padding-bottom: 0px;
+}
+.sidebar-widget.search-widget {
+  padding: 5px 15px;
+}
+
+
+.tags {
+  margin: 0;
+  padding: 0;
+}
+.tags:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.tags li {
+  padding: 0;
+  display: block;
+  float: left;
+}
+.tags a {
+  display: block;
+  float: left;
+  color: @medium-grey;
+  border: 1px solid #eee;
+  padding: 5px 12px;
+  margin: 2px;
+  font-size: 13px;
+}
+.tags a:hover {
+  color: @primary-color;
+  border-color: @primary-color;
+}
