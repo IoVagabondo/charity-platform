@@ -1,0 +1,39 @@
+<template name="suggestNGOModal">
+    <div class=" modal fade " tabindex="-1 " role="dialog " id="suggestNGOModal">
+        <div class="modal-dialog " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <button type="button " class="close " data-dismiss="modal " aria-label="Close "><span aria-hidden="true ">&times;</span></button>
+                    <h4 class="modal-title ">Suggest a missing NGO</h4>
+                </div>
+                <div class="modal-body ">
+                  <form>
+                    <div class="form-group">
+                      <label for="ngo-title" class="control-label">Name</label>
+                      <input type="text" class="form-control" id="ngo-title">
+                    </div>
+                    <div class="form-group">
+                      <label for="ngo-mission" class="control-label">What they do</label>
+                      <input type="text" class="form-control" id="ngo-mission">
+                    </div>
+                    <div class="form-group">
+                      <label for="ngo-link" class="control-label">Link/Website</label>
+                      <input type="text" class="form-control" id="ngo-link">
+                    </div>
+                    <div class="form-group">
+                      <label for="email" class="control-label">Your email adress</label>
+                      <input type="text" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="control-label">Message</label>
+                      <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="sendNGOSuggestion" class="btn btn-primary ">Send NGO suggestion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
