@@ -1,0 +1,40 @@
+<template name="initiativeDetailsSidebarWidgets">
+    <div class="row">
+      <a href="#" class="btn btn-theme-bg btn-lg">Create Event to Donate</a>
+    </div>
+    {{#if isInRole 'admin'}}
+      <!-- Admin Widget -->
+      <div class="sidebar-widget">
+        <h4 class="text-uppercase">Admin</h4>
+        <a href="/initiatives/{{slug}}/edit" class="btn btn-theme-bg input-block-level">Edit Details</a>
+        <a href="/initiatives/{{slug}}/edit-products" class="btn btn-theme-bg input-block-level">Edit Products</a>
+        <a href="#" id="delete" class="btn btn-theme-bg input-block-level">Delete</a>
+      </div>
+    {{/if}}
+
+    <!-- Meta Data Widget -->
+    <div class="sidebar-widget">
+      <h4 class="text-uppercase">Background</h4>
+
+      <p><i class="fa fa-map-marker"></i>Location: {{city}} - {{country}}</p>
+      <p><i class="fa fa-compass" aria-hidden="true"></i>Founding year: {{foundingYear}}</p>
+      <p><i class="fa fa-user" aria-hidden="true"></i>Contact: {{contact.contactPerson}}</p>
+      <p><a href="{{website}}">Website</a></p>
+
+
+
+
+    </div>
+
+
+
+    <!--end sidebar widget -->
+    <div class="sidebar-widget text-center">
+        <h4 class="text-uppercase">NGO still missing?</h4>
+        <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse.
+        </p>
+        <a href="#" class="btn btn-lg btn-theme-bg">Suggest NGO</a>
+    </div>
+    <!--end sidebar widget col-->
+</template>

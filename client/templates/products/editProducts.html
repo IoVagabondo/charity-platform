@@ -1,7 +1,15 @@
 <template name="editProducts">
 
 	<div class="appBody">
-		{{> inAppNavBar}}
+		<div class="row">
+				<div class="col-md-10 text-left">
+						{{> inAppNavBar}}
+				</div>
+				<div class="col-md-2 text-right">
+						<button id="addProduct" type="button" class="btn btn-primary">Add Product</button>
+				</div>
+		</div>
+
 		<div class="row">
 			<table class="table table-hover">
   				<thead>
@@ -38,7 +46,7 @@
 				<button type="submit" class="save">Hinzufügen</button>
 			</form>
 		</div>
-
-
 	</div>
+
+	{{> addNewProductModal}}
 </template>

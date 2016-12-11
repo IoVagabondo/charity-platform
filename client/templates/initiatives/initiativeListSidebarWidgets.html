@@ -1,4 +1,16 @@
-<template name="sidebarWidgets">
+<template name="initiativeListSidebarWidgets">
+
+    {{#if isInRole 'admin'}}
+      <!-- Admin Widget -->
+      <div class="sidebar-widget">
+        <h4 class="text-uppercase">Admin</h4>
+        <a href="/create-initiative" class="btn btn-theme-bg">Add Initiative</a>
+      </div>
+    {{/if}}
+
+
+
+    <!-- Search widget -->
     <div class="sidebar-widget search-widget">
         <form>
             <input type="text" class="form-control" placeholder="Search here..">

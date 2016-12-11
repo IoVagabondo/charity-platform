@@ -20,6 +20,11 @@ Template.editProducts.helpers({
 
 
 Template.editProducts.events({
+    'click #addProduct': function(event, template) {
+        event.preventDefault();
+        $('#addNewProductModal').modal('show');
+    },
+    
     'submit form': function(e, tmpl) {
         e.preventDefault();
         var form = e.target,

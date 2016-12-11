@@ -1,0 +1,33 @@
+<template name="addNewProductModal">
+    <div class=" modal fade " tabindex="-1 " role="dialog " id="addNewProductModal">
+        <div class="modal-dialog " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <button type="button " class="close " data-dismiss="modal " aria-label="Close "><span aria-hidden="true ">&times;</span></button>
+                    <h4 class="modal-title ">Add new product</h4>
+                </div>
+                <div class="modal-body ">
+                  <form>
+                    <div class="form-group">
+                      <label for="title">Title</label>
+                      <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <textarea id="description" name="description" class="form-control" placeholder="Short description for what the product is needed" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="productValue">Value: R$ {{sliderValue}}</label>
+                      <input type="range" id="productValue" name="productValue" min="1" max="500" value={{sliderValue}} step="4" />
+                    </div>
+
+                    <button type="submit" class="save">Hinzufügen</button>
+                  </form>
+                </div>
+                <div class="modal-footer ">
+                    <button type="button" id="goButtonModal" class="btn btn-primary ">Go to event page</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

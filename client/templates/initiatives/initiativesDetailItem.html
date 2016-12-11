@@ -7,16 +7,19 @@
             <div class="single-box-desc">
                 <h2 class="text-uppercase">{{title}}</h2>
                 <ul class="list-inline">
-                    <li><a href="#"><i class="fa fa-tags"></i> Education</a></li>
+                    <li><a href="#"><i class="fa fa-tags"></i> Category</a></li>
+                    <li><a href="#"><i class="fa fa-tags"></i> Section</a></li>
                 </ul>
                 <div class="row raised-amount">
                     <div class="col-sm-8">
-                        <span class="text-uppercase">Vision</span>
-                        <p>{{vision}}</p>
+                        <headText for="vision">Vision:</headText>
+                        <p id="vision">{{vision}}</p>
+                        <headText for="howithelps">How it helps:</headText>
+                        <p id="howithelps">{{howithelps}}</p>
+                        <headText for="whatitneeds">What it needs:</headText>
+                        <p id="whatitneeds">{{whatitneeds}}</p>
                     </div>
-                    <div class="col-sm-4 text-right">
-                        <a href="#" class="btn btn-theme-bg btn-lg">Create Event to Donate</a>
-                    </div>
+
                 </div>
 
                 <p>{{description}}</p>
@@ -47,7 +50,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        <p>Sidebar</p>
+        {{> initiativeDetailsSidebarWidgets}}
       </div>
     </div>
 </div>
