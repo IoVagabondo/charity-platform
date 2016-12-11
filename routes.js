@@ -9,6 +9,15 @@ Router.configure({
     loadingTemplate: 'loading',
 });
 
+CreateEventController = RouteController.extend({
+  waitOn: function() {
+      return Meteor.subscribe('single-initiative-with-id', this.params.id);
+  },
+  data: function() {
+      return Initiatives.findOne();
+  }
+});
+
 EventController = RouteController.extend({
     waitOn: function() {
     	Meteor.subscribe("all-initiatives");
@@ -55,11 +64,9 @@ Router.map(function() {
     });
 
     this.route('Create Event', {
-        path: '/createEvent',
+        path: '/createEvent/:id',
         template: 'createEvent',
-        // subscriptions: function(){
-        //     return Meteor.subscribe("lazyload-initiatives", Session.get('lazyloadLimit_initiatives'));
-        // }
+        controller: 'CreateEventController'
     });
 
     this.route('Login', {

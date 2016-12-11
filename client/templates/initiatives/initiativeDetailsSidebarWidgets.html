@@ -1,7 +1,7 @@
 <template name="initiativeDetailsSidebarWidgets">
     <div class="row">
       <div class="col-xs-12">
-        <a href="/createEvent/{{_id}}" class="btn btn-theme-bg btn-lg btn-block">Create Event to Donate</a>
+        <a href="/createEvent/{{_id}}" class="btn btn-secondary-theme-bg btn-lg btn-block">Create Event to Donate</a>
       </div>
     </div>
     {{#if isInRole 'admin'}}
@@ -41,7 +41,8 @@
         <p>
             Duis aute irure dolor in reprehenderit in voluptate velit esse.
         </p>
-        <a href="#" class="btn btn-lg btn-theme-bg">Suggest NGO</a>
+        <a href="#" id="suggestNGO" class="btn btn-lg btn-block btn-secondary-theme-bg">Suggest NGO</a>
     </div>
     <!--end sidebar widget col-->
+    {{> suggestNGOModal}}
 </template>
