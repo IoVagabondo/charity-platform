@@ -1,4 +1,5 @@
 @import "bootstrap/bootstrap.import.less";
+@import "main.import.less";
 @import "lesshat.import.less";
 @import "others.import.less";
 @import "button.import.less";
@@ -6,56 +7,12 @@
 @import "upload.import.less";
 @import "landingpage.import.less";
 @import "event-list.import.less";
+@import "initiatives-list.import.less";
+@import "sidebar-widgets.import.less";
 
 @import "variables.import.less";
 
 
-// variables
-@tintColor: desaturate(lighten(#3f51b5, 10%), 5%);
-
-
-body {
-	background-color: #f5f5f5;
-	font: 15px 'Helvetica Neue', Arial, Verdana;
-	color: @dark-grey;
-}
-
-a, a:visited {
-	text-decoration: none;
-	color: @primary-text;
-
-	&:hover,
-	&:focus {
-		color: lighten(@primary-text, 20%);
-	}
-}
-
-a.head {
-	color: @white-color;
-}
-
-
-h1 {
-	font-size: 36px;
-	color: @secondary-text;
-}
-h2 {
-	font-size: 24px;
-	color: @medium-grey;
-
-}
-p {
-	margin: 0px 0px 10px;
-	line-height: 22px;
-	text-align: justify;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	color: @light-grey;
-	background-color: @light-grey;
-}
 
 .small {
 	max-width: 50px;
@@ -111,6 +68,10 @@ hr {
 
 .margin-b-30 {
   margin-bottom: 30px;
+}
+
+.margin-t-0 {
+	margin-top: 0 !important;
 }
 
 

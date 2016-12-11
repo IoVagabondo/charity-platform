@@ -5,12 +5,12 @@
                 <h2>Impact Panel</h2>
             </div>
             <div class="col-md-offset-4 col-md-2 text-right">
-                <button type="button" style="margin-top: 15px" class="btn btn-primary newEvent">Create new event</button>
+                <button type="button" class="btn btn-primary newEvent">Create new event</button>
             </div>
         </div>
-        <hr style="margin-top: 0px">
+        <hr class="margin-t-0">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-9">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title text-center"><strong>Your pending event</strong></h3>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-offset-1 col-md-4">
+            <div class="col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title text-center"><strong>Your account</strong></h3>
@@ -40,7 +40,7 @@
 
         <div class="row">
 
-            <div class="col-md-7">
+            <div class="col-md-9">
                 <h4 class="text-center">Past events</h4>
             	<hr style="max-width: 80px">
                 {{#each eventsList}} {{> eventListItem}} {{/each}}

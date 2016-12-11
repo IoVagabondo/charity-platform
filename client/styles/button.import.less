@@ -1,6 +1,13 @@
 // @import 'lesshat.import.less';
 // @import "variables.less";
 
+button {
+  border: 0px;
+}
+button:focus {
+  outline: 0 !important;
+}
+
 button.register,
 button.signin,
 button.lazyload,
@@ -74,4 +81,22 @@ button.inTable {
 .nav-pills > li.active > a:focus {
   color: @white-color;
   background-color: @secondary-color;
+}
+
+
+.btn-theme-bg {
+  background: @primary-color;
+  color: @white-color !important;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+.btn-theme-bg:hover {
+  background: darken(@primary-color, 10%);
+  color: @white-color;
+}
+.btn-theme-bg:focus {
+  background: @primary-color;
+  color: @white-color;
 }

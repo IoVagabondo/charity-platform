@@ -3,10 +3,15 @@
 		{{#if isInRole 'admin'}}
 		    <a href="/create-initiative" class="createNewInitiative">Create new initiative</a>
 		{{/if}}
+		<div class="col-md-9">
+			{{#each initiativesList}}
+				{{> initiativesListItem}}
+			{{/each}}
+		</div>
 
-		{{#each initiativesList}}
-		  {{> initiativeInList}}
-		{{/each}}
+		<div class="col-md-3">
+	    {{> sidebarWidgets}}
+	  </div>
 
 		{{#if currentUser}}
 			<button class="lazyload">Load more</button>
