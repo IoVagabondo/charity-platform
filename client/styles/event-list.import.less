@@ -1,0 +1,83 @@
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: (@line-height-computed / 2);
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+// List options
+
+// Unstyled keeps list items block level, just removes default browser padding and list-style
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+
+/*
+Event list
+*/
+.event-list > li {
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+  -ms-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+  padding: 20px 15px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+.event-list > li:last-child {
+  border-bottom: 0px;
+}
+
+.event-date {
+  display: block;
+  margin-bottom: 5px;
+  float: left;
+  margin-right: 20px;
+  padding: 8px;
+  color: @white-color;
+  width: 60px;
+  text-align: center;
+  background-color: @primary-color;
+}
+.event-date .date {
+  font-size: 34px;
+  line-height: 34px;
+  display: block;
+  border-bottom: 1px solid @light-grey;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.event-date .month, .event-date .year {
+  text-transform: uppercase;
+  display: block;
+  line-height: 16px;
+}
+
+.event-list-content {
+  overflow: hidden;
+}
+.event-list-content h4 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-transform: capitalize;
+}
+.event-list-content .event-time, .event-list-content .event-location {
+  color: #999;
+  display: inline-block;
+  line-height: 16px;
+}
+.event-list-content .event-time {
+  margin-right: 5px;
+  padding-right: 5px;
+  border-right: 1px solid #ddd;
+}
