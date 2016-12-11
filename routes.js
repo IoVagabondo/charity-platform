@@ -117,7 +117,7 @@ Router.map(function() {
 
 	this.route('Initiative', {
 	    path: '/initiatives/:slug',
-	    template: 'initiative',
+	    template: 'initiativesDetailItem',
 	    controller: 'InitiativeController'
 	});
 
@@ -164,5 +164,5 @@ var requiresAdmin = function(){
 
 
 
-Router.onBeforeAction(requiresLogin, {only: ['Initiatives','Create Event','Edit Event']});
+Router.onBeforeAction(requiresLogin, {only: ['Create Event','Edit Event']});
 Router.onBeforeAction(requiresAdmin, {only: ['AdminPanel']});
