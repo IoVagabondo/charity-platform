@@ -10,16 +10,14 @@
                     <li><a href="#"><i class="fa fa-tags"></i> Category</a></li>
                     <li><a href="#"><i class="fa fa-tags"></i> Section</a></li>
                 </ul>
-                <div class="row raised-amount">
-                    <div class="col-sm-8">
-                        <headText for="vision">Vision:</headText>
-                        <p id="vision">{{vision}}</p>
-                        <headText for="howithelps">How it helps:</headText>
-                        <p id="howithelps">{{howithelps}}</p>
-                        <headText for="whatitneeds">What it needs:</headText>
-                        <p id="whatitneeds">{{whatitneeds}}</p>
-                    </div>
 
+                <div class="row vision">
+                  <headText for="vision">Vision:</headText>
+                  <p id="vision">{{vision}}</p>
+                  <headText for="howithelps">How it helps:</headText>
+                  <p id="howithelps">{{howithelps}}</p>
+                  <headText for="whatitneeds">What it needs:</headText>
+                  <p id="whatitneeds">{{whatitneeds}}</p>
                 </div>
 
                 <p>{{description}}</p>
@@ -50,7 +48,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        {{> initiativeDetailsSidebarWidgets}}
+        {{> initiativeDetailsSidebarWidgets this}}
       </div>
     </div>
 </div>

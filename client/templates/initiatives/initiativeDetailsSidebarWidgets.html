@@ -1,6 +1,8 @@
 <template name="initiativeDetailsSidebarWidgets">
     <div class="row">
-      <a href="#" class="btn btn-theme-bg btn-lg">Create Event to Donate</a>
+      <div class="col-xs-12">
+        <a href="/createEvent/{{_id}}" class="btn btn-theme-bg btn-lg btn-block">Create Event to Donate</a>
+      </div>
     </div>
     {{#if isInRole 'admin'}}
       <!-- Admin Widget -->
@@ -16,16 +18,21 @@
     <div class="sidebar-widget">
       <h4 class="text-uppercase">Background</h4>
 
-      <p><i class="fa fa-map-marker"></i>Location: {{city}} - {{country}}</p>
-      <p><i class="fa fa-compass" aria-hidden="true"></i>Founding year: {{foundingYear}}</p>
-      <p><i class="fa fa-user" aria-hidden="true"></i>Contact: {{contact.contactPerson}}</p>
-      <p><a href="{{website}}">Website</a></p>
-
-
-
+      <p><i class="fa fa-map-marker"></i> {{city}} - {{country}}</p>
+      <p><i class="fa fa-compass" aria-hidden="true"></i> {{foundingYear}}</p>
+      <p><i class="fa fa-user" aria-hidden="true"></i> {{contact.contactPerson}}</p>
+      <p><i class="fa fa-external-link" aria-hidden="true"></i><a href="{{website}}"> Website Link</a></p>
 
     </div>
 
+
+    <!-- Products -->
+    <div class="sidebar-widget">
+      <h4 class="text-uppercase">Products</h4>
+      {{#each products}}
+        {{> productItem}}
+      {{/each}}
+    </div>
 
 
     <!--end sidebar widget -->
