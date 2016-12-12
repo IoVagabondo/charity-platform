@@ -9,6 +9,7 @@
 @import "event-list.import.less";
 @import "initiatives-list.import.less";
 @import "sidebar-widgets.import.less";
+@import "login-modal.import.less";
 
 @import "variables.import.less";
 
@@ -18,6 +19,9 @@
 	max-width: 50px;
 }
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
 
 
 // Padding, margins & spaces
@@ -243,10 +247,6 @@ section {
   	vertical-align: middle;
 }
 
-.login,
-.register {
-	margin-top: 7em;
-}
 
 // General app body
 

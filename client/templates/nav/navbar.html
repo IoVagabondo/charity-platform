@@ -22,12 +22,11 @@
                     {{/if}}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <button type="button" id="logout" class="btn btn-default navbar-btn">Logout</button>
+                    <button type="button" id="logout" class="btn btn-default navbar-btn btn-secondary-theme-bg">Logout</button>
                 </ul>
                 {{else}}
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/register">Register</a></li>
-                    <li><a href="/login">Login</a></li>
+										<button type="button" id="login" class="btn btn-default navbar-btn btn-secondary-theme-bg">Login</button>
                 </ul>
                 {{/if}}
             </div>
@@ -35,4 +34,5 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+		{{> loginModal}}
 </template>

@@ -21,4 +21,9 @@ Template.navbar.events({
             $(".navbar-nav li").not(item).removeClass("active");
     },
 
+    'click #login': function(event, template) {
+        event.preventDefault();
+        $('#loginModal').modal('show');
+    },
+
 });
