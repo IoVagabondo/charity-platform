@@ -1,0 +1,87 @@
+.coming-soon {
+	margin-top: 50px; //navbar
+
+	h1 {
+		margin-bottom: 24px;
+		font-family: @font-primary;
+		font-size: @font-size-xlarge;
+		color: @color-secondary;
+	}
+
+	h2 {
+		margin-bottom: 24px;
+		font-family: @font-primary;
+		font-size: @font-size-large;
+		color: @color-secondary;
+	}
+
+	h3 {
+		font-family: @font-primary;
+		font-size: @font-size-large;
+		color: @color-primary;
+	}
+
+	p {
+		margin-bottom: 18px;
+		font-size: 20px;
+		text-align: center;
+		line-height: 1.5;
+	}
+
+	img {
+		max-width: 90%;
+	}
+
+	.img-highlight {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-image: url(https://s3.amazonaws.com/media.launchrock.com/assets/sites/site-lklij9igska46kybra42pxml/owvngc-shutterstock_378721525_small.jpg);
+	}
+
+	.img-icon {
+		margin-bottom: 18px;
+		height: 60px;
+		width: auto;
+	}
+
+	.section-highlight {
+		padding-top: 120px;
+		padding-bottom: 120px;
+		text-align: left;
+		
+	}
+
+	.section-bg {
+		position: relative;
+		padding-top: 48px;
+		padding-bottom: 48px;
+
+		&:before {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: -2000px;
+			right: -2000px;
+			content: '';
+		}
+
+	}
+
+	.section-bg-white {
+		&:before {
+			background-color: @background-color;
+		}
+	}
+
+	.section-bg-secondary {
+		&:before {
+			background-color: @color-secondary;
+		}		
+	}
+}
