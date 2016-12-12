@@ -21,26 +21,18 @@
     <div class="sidebar-widget">
         <h4 class="text-uppercase">Categories</h4>
         <ul class="list-unstyled">
-            <li><a href="#">Poverty</a></li>
-            <li><a href="#">Education</a></li>
-            <li><a href="#">Water</a></li>
-            <li><a href="#">Child</a></li>
-            <li><a href="#">Africa</a></li>
-            <li><a href="#">Nigeria</a></li>
-            <li><a href="#">India</a></li>
+          {{#each categoriesList}}
+              <li><a href="#" id="{{_id}}">{{title}}</a></li>
+          {{/each}}
         </ul>
     </div>
     <!--end sidebar widget col-->
     <div class="sidebar-widget">
-        <h4 class="text-uppercase">Categories</h4>
+        <h4 class="text-uppercase">Sections</h4>
         <ul class="list-inline tags">
-            <li><a href="#">Poverty</a></li>
-            <li><a href="#">Education</a></li>
-            <li><a href="#">Water</a></li>
-            <li><a href="#">Child</a></li>
-            <li><a href="#">Africa</a></li>
-            <li><a href="#">Nigeria</a></li>
-            <li><a href="#">India</a></li>
+          {{#each sectionsList}}
+              <li><a href="#" id="{{_id}}">{{title}}</a></li>
+          {{/each}}
         </ul>
     </div>
     <!--end sidebar widget-->
