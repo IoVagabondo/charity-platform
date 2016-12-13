@@ -10,7 +10,6 @@ Template.loginModal.events({
         	}
         	else{
             $('#loginModal').modal('hide');
-        		Router.go('Home');
         	}
         });
 

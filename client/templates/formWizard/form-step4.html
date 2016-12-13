@@ -1,47 +1,39 @@
 <template name="formStep4">
     <div class="row">
-        <div class="col-md-offset-3 col-md-6">
-            <h2 class="text-center text-uppercase">{{title}}</h2>
+        <div class="text-center">
+            <h2 class="text-uppercase">{{title}}</h2>
             <hr style="max-width: 50px">
         </div>
     </div>
     <div class="row">
-        <div class="col-md-5">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title text-center"><strong>Event Details</strong></h3>
-                </div>
-                <div class="panel-body pendingEvent">
-                    <p><strong>Date:</strong> {{date}}</p>
-                    <p><strong>Description:</strong> {{description}}</p>
-                    <p><strong>Suggested value:</strong> {{suggestedValue}}</p>
-                </div>
-            </div>
+      <div class="col-xs-12">
+        <headText for="descriptionText">Description:</headText>
+        <p id="descriptionText">{{description}}</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <p><i class="fa fa-calendar"></i> Date of event: {{date}}</p>
+            <p><i class="fa fa-cubes" aria-hidden="true"></i> Suggested donation: R$ {{suggestedValue}}</p>
         </div>
-        <div class="col-md-offset-2 col-md-5">
+        <div class="col-sm-6">
             <div style="max-width: 400px;">
                <img  src="{{pictureURL}}">
             </div>
-
         </div>
       </div>
-      <div class="row" style="margin-top: 3em;">
-        <div class="col-md-12">
-              <div style="text-center">
-                  <h3 class="panel-title text-center"><strong>Selected Initiative</strong></h3>
-                  <hr>
-              </div>
-
-              {{#each selectedInitiative}}
-                {{> initiativeItemForEventSummary}}
-              {{else}}
-                <p class="alert alert-warning">No initiative selected!</p>
-              {{/each}}
-        </div>
+      <div class="space-20"></div>
+      <div style="text-center">
+          <h3 class="panel-title text-center"><strong>Selected Initiative</strong></h3>
+          <hr>
+      </div>
+      <div class="row">
+        {{#each selectedInitiative}}
+          {{> initiativeItemForEventSummary}}
+        {{else}}
+          <p class="alert alert-warning">No initiative selected!</p>
+        {{/each}}
       </div>
 
 
-    <button type="button" id="publishEvent" class="btn btn-primary btn-lg">Publish Event</button>
-
-    {{> publishEventModalTemplate}}
 </template>

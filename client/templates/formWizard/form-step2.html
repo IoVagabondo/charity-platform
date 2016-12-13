@@ -43,20 +43,18 @@
       </div>
     </div>
     <hr>
-    <div class="row">
-        <div class="col-md-12">
-            {{#if searching}}
-                {{> loading}}
-            {{else}}
-                {{#each initiatives}}
-                    {{> initiativeItem}}
-                {{else}}
-                    <p class="alert alert-warning">Nothing found for {{query}}. Sorry, bub.</p>
-                {{/each}}
-            {{/if}}
-        </div>
-         <div class="col-md-12">
-            <button class="lazyload">Load more</button>
-        </div>
+
+    {{#if searching}}
+        {{> loading}}
+    {{else}}
+        {{#each initiatives}}
+            {{> initiativeItem}}
+        {{else}}
+            <p class="alert alert-warning">Nothing found for {{query}}. Sorry, bub.</p>
+        {{/each}}
+    {{/if}}
+
+     <div class="col-md-12">
+        <button class="lazyload">Load more</button>
     </div>
 </template>

@@ -64,7 +64,7 @@ Router.map(function() {
     });
 
     this.route('Create Event', {
-        path: '/createEvent/:id',
+        path: '/createEvent',
         template: 'createEvent',
         controller: 'CreateEventController'
     });

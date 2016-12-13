@@ -1,0 +1,71 @@
+<template name="steps">
+  <div class="row">
+    <div class="col-md-4">
+      {{#if stepEquals 'welcome'}}
+        <section class="stepWelcome">
+          <h3 class="text-uppercase">Welcome!</h3>
+          <p>You're about to set up a new event on Surprese.</p>
+          <p>Next step will be to choose one institution you want to support with the value of your birthday presents.</p>
+          <a id="institutions" class="btn btn-theme-bg">Choose Institution</a>
+        </section>
+      {{/if}}
+
+      {{#if stepEquals 'institutions'}}
+        <section class="stepInstitutions">
+            <h3 class="text-uppercase">Choose an insitution!</h3>
+            <p style="color: #606060;">Here you can search, filter and discover institutions from our hand-selected database of high-impact NGOs. The institution you select will display to the friends you send the invitation and will recieve the donation you and your friends collect.</p>
+            <p><a id="details" class="btn btn-theme-bg {{#if initiativeNotSelected}}disabled{{/if}}">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
+            <p style="color: #606060;">(Select one institution before you go to the next step. You can come back later to change your selection)</p>
+            <p><a id="welcome" class="btn btn-default">Back</a></p>
+        </section>
+      {{/if}}
+
+
+      {{#if stepEquals 'details'}}
+        <section class="stepDetails">
+          <h3 class="text-uppercase">Enter the details!</h3>
+          <p style="color: #606060;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p><a id="check" class="btn btn-theme-bg">Publish <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
+          <p style="color: #606060;">(You have to fill out all fields before you can publish your event)</p>
+          <p><a id="institutions" class="btn btn-default">Back</a></p>
+        </section>
+      {{/if}}
+
+      {{#if stepEquals 'check'}}
+        <section class="stepCheck">
+          <h3 class="text-uppercase">Check your event!</h3>
+          <p style="color: #606060;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p><a id="user" class="btn btn-theme-bg">Publish <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
+          <p><a id="details" class="btn btn-default">Back</a></p>
+        </section>
+      {{/if}}
+
+      {{#if stepEquals 'user'}}
+        <section class="stepCheck">
+          <h3 class="text-uppercase">About you!</h3>
+          <div class="space-20"></div>
+          {{> userDetails}}
+          <p><a id="user" class="btn btn-theme-bg btn-block btn-lg">GO</a></p>
+          <p><a id="check" class="btn btn-default">Back</a></p>
+        </section>
+      {{/if}}
+
+    </div>
+    <div class="col-md-offset-1 col-md-7">
+      {{#if stepEquals 'institutions'}}
+        {{> formStep2}}
+      {{/if}}
+      {{#if stepEquals 'details'}}
+        {{> formStep3}}
+      {{/if}}
+      {{#if stepEquals 'check'}}
+        {{> formStep4}}
+      {{/if}}
+
+      {{#if stepEquals 'user'}}
+        {{> formStep4}}
+      {{/if}}
+    </div>
+  </div>
+
+</template>

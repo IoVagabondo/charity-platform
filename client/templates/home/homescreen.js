@@ -18,6 +18,6 @@ Template.homescreen.events({
     },
 
     'click button.newEvent': function(e, template) {
-        Router.go('Create Event', {id: 0});
+        Router.go('Create Event');
     }
 });

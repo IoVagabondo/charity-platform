@@ -9,6 +9,9 @@ Template.formStep3.onRendered(function() {
     query = Session.get('date');
     $('#date').val(query);
 
+    query = Session.get('eventTitle')
+    $('#eventTitle').val(query);
+
     query = Session.get('suggestedValue');
     $('#suggestedValue').val(query);
 
@@ -21,7 +24,15 @@ Template.formStep3.onRendered(function() {
 
 
 Template.formStep3.events({
-
+    'input #eventTitle': function(evt) {
+        var self = this;
+        if (handle)
+            clearTimeout(handle);
+        handle = setTimeout(function() {
+            var query = $(evt.target).val();
+            Session.set('eventTitle', query);
+        }, 700);
+    },
 
 
     'click input.datetimepicker': function(event, template) {

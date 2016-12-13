@@ -1,6 +1,6 @@
 <template name="createEvent">
     <div class="appBody">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-2 text-right">
               {{#if activeBackButton}}
             	<a id="backButton" href="#" class="btn btn-default btn-circle back"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
@@ -19,8 +19,14 @@
 	            <a href="#" class="btn btn-default btn-circle next"><i class="fa fa-chevron-right" aria-hidden="true"></i>
               </a>
               {{/if}}
-    		</div>
+    		    </div>
         </div>
-        {{> Template.dynamic template=tab }}
+
+        <div class="col-md-offset-1 col-xs-10 text-center">
+          {{> Template.dynamic template=tab }}
+        </div> -->
+
+        {{> steps}}
+
     </div>
 </template>

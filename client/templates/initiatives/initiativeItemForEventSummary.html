@@ -1,11 +1,15 @@
 <template name="initiativeItemForEventSummary">
     <div class="col-md-8">
-      <p><strong>Name</strong> {{title}}</p>
-      <p><strong>Vision:</strong> {{vision}}</p>
-      <p><strong>What it needs:</strong> {{whatitneeds}}</p>
-      <p><strong>Location:</strong> {{location}}</p>
+      <headText for="title"><i class="fa fa-flag" aria-hidden="true"></i> Name</headText>
+      <p id="title">{{title}}</p>
+      <headText for="vision"><i class="fa fa-heart" aria-hidden="true"></i> Vision</headText>
+      <p id="vision">{{vision}}</p>
+      <headText for="whatitneeds"><i class="fa fa-cube" aria-hidden="true"></i> What it needs</headText>
+      <p id="whatitneeds">{{whatitneeds}}</p>
+      <headText for="location"><i class="fa fa-location-arrow" aria-hidden="true"></i> Location</headText>
+      <p id="location">{{location}}</p>
     </div>
     <div class="col-md-offset-1 col-md-3">
-      <img style="max-width: 200px;" src="{{imageURL}}">
+      <img style="max-width: 100%;" src="{{imageURL}}">
     </div>
 </template>
