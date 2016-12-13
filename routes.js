@@ -171,5 +171,5 @@ var requiresAdmin = function(){
 
 
 
-Router.onBeforeAction(requiresLogin, {only: ['Create Event','Edit Event']});
+Router.onBeforeAction(requiresLogin, {only: ['Edit Event']});
 Router.onBeforeAction(requiresAdmin, {only: ['AdminPanel']});
