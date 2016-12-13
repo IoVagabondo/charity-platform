@@ -26,4 +26,8 @@ Template.navbar.events({
         $('#loginModal').modal('show');
     },
 
+    'click #createEvent': function(event, template) {
+        Router.go('Create Event', {id: 0});
+    },
+
 });
