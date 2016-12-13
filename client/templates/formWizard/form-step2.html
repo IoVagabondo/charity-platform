@@ -1,34 +1,46 @@
 <template name="formStep2">
+
     <div class="row">
         <div class="col-md-1">
-            <p>Filter</p>
+            <p>Search</p>
         </div>
-        <div class="col-md-3">
-            <select class="form-control" id="filter1" value="{{filter1}}">
-                <option value="none" >Choose city here ...</option>
-                {{#each citiesList}}
-                    <option {{selectedCity}} value="{{_id}}">{{name}}</option>
-                {{/each}}
-            </select>
-            <select class="form-control" id="filter2" value="{{filter2}}">
-                <option value="none" >Choose category here ...</option>
-                {{#each categoriesList}}
-                    <option {{selectedCategory}} value="{{_id}}">{{title}}</option>
-                {{/each}}
-            </select>
-            <select class="form-control" id="filter3" value="{{filter3}}">
-                <option value="none" >Choose section here ...</option>
-                {{#each sectionsList}}
-                    <option {{selectedSection}} value="{{_id}}">{{title}}</option>
-                {{/each}}
-            </select>
-        </div>
-        <div class="col-md-offset-1 col-md-1">
-            <p>Suche</p>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-10 col-xs-12">
             <input type="text" class="form-control searchQuery" id="searchQuery" name="searchQuery">
         </div>
+        <div class="col-md-1">
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Filter</button>
+        </div>
+    </div>
+    <div class="space-20"></div>
+    <div class="row">
+        <div class="collapse" id="collapseExample">
+
+            <div class="col-md-offset-1 col-xs-3">
+              <select class="form-control" id="filter1" value="{{filter1}}">
+                  <option value="none" >Choose city here ...</option>
+                  {{#each citiesList}}
+                      <option {{selectedCity}} value="{{_id}}">{{name}}</option>
+                  {{/each}}
+              </select>
+            </div>
+            <div class="col-xs-3">
+              <select class="form-control" id="filter2" value="{{filter2}}">
+                  <option value="none" >Choose category here ...</option>
+                  {{#each categoriesList}}
+                      <option {{selectedCategory}} value="{{_id}}">{{title}}</option>
+                  {{/each}}
+              </select>
+            </div>
+            <div class="col-xs-3">
+              <select class="form-control" id="filter3" value="{{filter3}}">
+                  <option value="none" >Choose section here ...</option>
+                  {{#each sectionsList}}
+                      <option {{selectedSection}} value="{{_id}}">{{title}}</option>
+                  {{/each}}
+              </select>
+            </div>
+      </div>
     </div>
     <hr>
     <div class="row">
