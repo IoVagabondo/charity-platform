@@ -7,7 +7,6 @@
 	font: bold 16px sans-serif;
 
 	padding: 55px 50px;
-	margin-top: 80px;
 }
 
 .footer-distributed .footer-left,
@@ -21,6 +20,11 @@
 
 .footer-distributed .footer-left{
 	width: 40%;
+
+}
+
+.footer-distributed img{
+	max-width: 160px;
 }
 
 /* The company logo */

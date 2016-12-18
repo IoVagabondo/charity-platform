@@ -1,8 +1,10 @@
 // @import "variables.less";
 
 .navbar {
-  // background-color: transparent;
-  // border-color: none;
+  background-color: transparent;
+  border-color: transparent;
+  position: absolute;
+  padding-top: 5px;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -13,13 +15,26 @@
     color: @primary-color;
 }
 
+.navbar-default .navbar-right > a {
+    color: @white-color;
+    vertical-align: middle;
+    padding: 0px 10px;
+}
+
+.navbar-default .navbar-right > a:hover {
+    color: @secondary-color;
+}
+
+
+
 .navbar-default .active > a {
     border-bottom: 3px solid @primary-color !important;
     background-color: transparent !important;
 }
 
 .navbar-default .navbar-brand {
-  background: url("https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/novo.png") 10px center no-repeat;
+  // background: url("https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/novo.png") 10px center no-repeat;
+  background: url("/images/novo.png") 10px center no-repeat;
   background-size: 110px 38px;
   width: 140px;
   height: 48px;
