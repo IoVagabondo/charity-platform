@@ -50,17 +50,17 @@ Router.map(function() {
     	}
     });
 
+    this.route('About', {
+        path: '/about-us',
+        template: 'aboutus',
+    });
+
     this.route('Initiatives', {
         path: '/initiatives',
         template: 'initiatives',
         subscriptions: function(){
         	return Meteor.subscribe("lazyload-initiatives", Session.get('lazyloadLimit_initiatives'));
     	}
-    });
-
-    this.route('About', {
-        path: '/about',
-        template: 'about'
     });
 
     this.route('Create Event', {

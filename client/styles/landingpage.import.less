@@ -1,4 +1,21 @@
 
+.separator-with-text{
+  background-color: @forth-color;
+	display: table;
+	width: 100%;
+	h2 {
+		color: @white-color;
+		padding-top: 30px;
+		font-weight: 300;
+		font-size: 24px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+}
+
+
+// Sections
+
 .habit {
 	width: 100%;
 	margin: 0;
@@ -142,4 +159,80 @@
   background-image: url("https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/shutterstock_400220989_small.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
+}
+
+
+// Style test for full screen responsive image
+.background {
+    background-repeat:no-repeat;
+    /* custom background-position */
+    background-position:50% 50%;
+    /* ie8- graceful degradation */
+    background-position:50% 50%\9 !important;
+
+		background-size: 100%;
+}
+
+
+
+.fullscreen,
+.content-a {
+    width:100%;
+		height:50vh;
+    overflow:hidden;
+}
+.fullscreen.overflow,
+.fullscreen.overflow .content-a {
+    height:auto;
+    min-height:100%;
+}
+
+/* content centering styles */
+.content-a {
+	display:table;
+}
+.content-b {
+	display:table-cell;
+    position:relative;
+	vertical-align:middle;
+	text-align:center;
+	h1{
+		color: @white-color;
+		font-size: 52px;
+		font-weight: 300;
+	}
+	h2 {
+		color: @white-color;
+		font-size: 28px;
+		font-weight: 100;
+	}
+
+}
+
+.mission {
+	padding: 3em 2em;
+	p{
+		color: @primary-color;
+		font-size: 24px;
+		text-align: center;
+	}
+}
+
+.values{
+	width: 100%;
+	margin: 0;
+	display: table;
+	padding: 80px 15px 80px;
+
+}
+
+.transparency {
+	padding: 3em 2em;
+	p{
+		color: @forth-color;
+		font-size: 20px;
+		font-weight: 200;
+		text-align: center;
+
+	}
 }
