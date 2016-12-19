@@ -11,21 +11,15 @@
 @import "sidebar-widgets.import.less";
 @import "login-modal.import.less";
 
+@import "inputfields.import.less";
+
+@import "utilities.import.less";
 @import "variables.import.less";
 
 
 
-.small {
-	max-width: 50px;
-}
-
-hr.primary-color {
-	text-align: center;
-	max-width: 300px;
-	background-color: @primary-color;
-	border-top: 2px solid @primary-color;
-}
-
+// Placeholder color for input fields
+// ----------------------------------
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
@@ -40,6 +34,25 @@ input:-webkit-autofill {
 }
 :-ms-input-placeholder {
    color: @medium-grey !important;
+}
+
+
+// General app body
+// ----------------
+.appBody {
+	margin-top: 7em;
+	width:80%;
+  	margin-left:10%;
+}
+
+
+// Full width sections
+// -------------------
+section {
+  width: 100%;
+  display: table;
+  margin: 0;
+
 }
 
 
@@ -127,15 +140,6 @@ div.container {
 	max-width: 960px;
 }
 
-div.container-fliud {
-
-}
-
-.content {
-	margin-top: 6em;
-}
-
-
 
 body > header {
 	margin: -10px -40px;
@@ -169,221 +173,12 @@ body > header {
 				&:focus,
 				&.active {
 					background-color: @background-color;
-					color: @primary-text;
+					color: @color-primary;
 				}
 			}
 		}
 	}
 
-
-}
-
-.transparantJumbotron {
-  background-color: rgba(255,255,255, 0.5);
-  color: inherit;
-}
-
-main {
-	padding-bottom: 30px;
-}
-
-// Sections
-
-section {
-  width: 100%;
-  display: table;
-  margin: 0;
-
-}
-
-.portfolio-box {
-    position: relative;
-    display: block;
-    max-width: 650px;
-    margin: 0 auto;
-    .portfolio-box-caption {
-        color: white;
-        opacity: 0;
-        display: block;
-        background: fade(@primary-color, 90%);
-        position: absolute;
-        bottom: 0;
-        text-align: center;
-        width: 100%;
-        height: 100%;
-        .transition-all;
-        .portfolio-box-caption-content {
-            width: 100%;
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            .project-category,
-            .project-name {
-                .sans-serif-font;
-                padding: 0 15px;
-            }
-            .project-category {
-                text-transform: uppercase;
-                font-weight: 600;
-                font-size: 14px;
-            }
-            .project-name {
-                font-size: 18px;
-            }
-        }
-    }
-    &:hover {
-        .portfolio-box-caption {
-            opacity: 1;
-        }
-    }
-    &:focus {
-        outline: none;
-    }
-    @media (min-width: 768px) {
-        .portfolio-box-caption {
-            .portfolio-box-caption-content {
-                .project-category {
-                    font-size: 16px;
-                }
-                .project-name {
-                    font-size: 22px;
-                }
-            }
-        }
-    }
-}
-
-.functions {
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 100px;
-	margon-bottom: 100px;
-
-  	vertical-align: middle;
-}
-
-
-// General app body
-
-.appBody {
-	margin-top: 7em;
-	width:80%;
-  	margin-left:10%;
-}
-
-.form-step1 {
-  display: table-cell;
-  vertical-align: middle;
-  background-image: url("https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/shutterstock_227443765_small.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-
-
-// Event list item
-.postListItem {
-	margin-top: 20px;
-	padding: 1px;
-	min-height: 170px;
-	background-color: #fff;
-	.box-shadow(0 0 4px rgba(0,0,0,0.3));
-
-	h2 {
-		margin: 5px 0;
-		font-size: 20px;
-		a {
-			padding: 8px 20px;
-			display: block;
-			color: @secondary-color;
-
-			&:hover,
-			&:focus,
-			&.active {
-				color: darken(@secondary-color, 20%);
-			}
-		}
-	}
-	p {
-		margin-top: 0;
-		margin-bottom: 3px;
-		text-align: justify;
-	}
-
-	.footer {
-		padding: 8px 20px;
-		background-color: @light-grey;
-		color: @white-color;
-		font-size: 13px;
-
-	}
-
-	.hoverArea {
-		height: 25px;
-		&:hover {
-			background-color: #f7f7f7;
-		}
-	}
-
-
-}
-
-// Event content & edit
-.postContent {
-
-	&.hasShouts {
-		width: 80%;
-		float: left;
-	}
-}
-.shoutStream {
-	width: 20%;
-	float: right;
-}
-
-
-.editPost {
-	max-width: 960px;
-	margin-top: 6em;
-
-	input,
-	textarea {
-		margin-top: 5px;
-		width: 100%;
-	}
-}
-
-
-// Others
-
-headText {
-    font-size: 12px;
-    font-weight: 700;
-    color: rgb(149, 149, 149);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.center-pills {
-	display: flex;
-    justify-content: center;
-}
-
-
-
-// Override bootstrap
-
-.no-gutter > [class*='col-'] {
-    padding-right:0;
-    padding-left:0;
-}
-
-.container-fluid {
-	padding-left: 0px !important;
-	padding-right: 0px !important;
 
 }
 

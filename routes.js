@@ -50,10 +50,17 @@ Router.map(function() {
     	}
     });
 
-    this.route('About', {
-        path: '/about-us',
-        template: 'aboutus',
+    this.route('Sobre nos', {
+        path: '/sobre-nos',
+        template: 'sobreNos',
     });
+
+    this.route('Como funciona', {
+        path: '/como-funciona',
+        template: 'comofunctiona',
+    });
+
+
 
     this.route('Initiatives', {
         path: '/initiatives',

@@ -3,6 +3,17 @@
 // Gray and Brand Colors for use across theme
 
 
+@color-green:		#32AF98;
+@color-orange:		#EA6651;
+@color-yellow:		#FEE168;
+@color-blue-dark:	#1E2938;
+
+@color-primary:     @color-green;
+@color-secondary:   @color-blue-dark;
+@color-accessory:   @color-orange;
+
+
+// ---- old style --- to be deleted
 @primary-color: #32AF98;
 @secondary-color: #EA6651;
 @third-color: #FEE168;
@@ -11,12 +22,8 @@
 @white-color: #fff;
 @black-color: #000000;
 
-
 @link-visited: #f5f5f5;
-
 @background-color: #f5f5f5;
-
-
 @primary-text: #32AF98;
 @secondary-text: #1E2938;
 
@@ -24,3 +31,37 @@
 @light-grey: #D3D3D3;
 @medium-grey: #444;
 @dark-grey: #262422;
+
+// --- end old style
+
+@font-face {
+     font-family: 'Montserrat';
+     src: url('/fonts/Montserrat-Regular.eot');
+     src: url('/fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+          url('/fonts/Montserrat-Regular.woff') format('woff'),
+          url('/fonts/Montserrat-Regular.ttf') format('truetype'),
+          url('/fonts/Montserrat-Regular.svg#Montserrat-Regular') format('svg');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+ @font-face {
+     font-family: 'Montserrat';
+     src: url('/fonts/Montserrat-Bold.eot');
+     src: url('/fonts/Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
+          url('/fonts/Montserrat-Bold.woff') format('woff'),
+          url('/fonts/Montserrat-Bold.ttf') format('truetype'),
+          url('/fonts/Montserrat-Bold.svg#Montserrat-Bold') format('svg');
+     font-weight: bold;
+     font-style: normal;
+ }
+
+ @font-primary:      'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+ @font-secondary:    'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+
+ @font-size-xlarge: 	36px;
+ @font-size-large: 	24px;
+ @font-size-medium: 	16px;
+ @font-size-small: 	14px;
+ @font-size-xsmall: 	10px;
