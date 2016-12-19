@@ -1,40 +1,47 @@
 
-.separator-with-text{
-  background-color: @forth-color;
-	display: table;
+.separator-bg-secondary{
+  background-color: @color-secondary;
 	width: 100%;
-	h2 {
+}
+
+// Beginn of sections for landing page
+// -----------------------------------
+
+.intro {
+  height: 100vh;
+  display: table-cell;
+  vertical-align: middle;
+  background: url("https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/landingpage-header.jpg") 0px center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+	background-position-y: inherit !important;
+	h1{
 		color: @white-color;
-		padding-top: 30px;
+		font-size: 52px;
 		font-weight: 300;
-		font-size: 24px;
-		text-align: center;
-		text-transform: uppercase;
+	}
+	h2 {
+		color: @light-grey;
+		font-size: 18px;
+		font-weight: 100;
+		padding: 0.5em 5em 0;
+
 	}
 }
 
-
-// Sections
 
 .habit {
 	width: 100%;
 	margin: 0;
 	display: table;
-	padding: 120px 15px 120px;
+	padding: 80px 15px 80px;
 	.header-content-inner {
-            h1 {
-                font-weight: 700;
+            h2 {
+                font-weight: 300;
                 margin-top: 0;
                 margin-bottom: 0;
-								color: @forth-color;
-                font-size: 38px;
-            }
-            hr {
-                margin: 30px auto;
-            }
-            p {
-                font-weight: 300;
-                font-size: 24px;
+								color: @color-secondary;
+                font-size: 30px;
             }
         }
 }
@@ -44,7 +51,7 @@
 	margin: 0;
 	display: table;
 	padding: 80px 15px 80px;
-	background-color: @forth-color;
+	background-color: @color-secondary;
 	.content-inner {
             h2 {
                 font-weight: 300;
@@ -62,7 +69,7 @@
 	.how-content {
 					h1 {
 							font-weight: 700;
-							color: @forth-color;
+							color: @color-secondary;
 							margin-bottom: 0;
 							font-size: 26px;
 					}
@@ -98,7 +105,7 @@
 	margin: 0;
 	display: table;
 	padding: 80px 15px 80px;
-	background-color: @forth-color;
+	background-color: @color-secondary;
 
 	h2 {
 		color: @white-color;
@@ -119,45 +126,8 @@
 	}
 }
 
-
-.intro {
-  height: 100vh;
-  display: table-cell;
-  vertical-align: middle;
-  background: url("https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/landingpage-header.jpg") 0px center no-repeat;
-  background-size: cover;
-  background-repeat: no-repeat;
-	background-position-y: inherit !important;
-	h1{
-		color: @white-color;
-		font-size: 52px;
-		font-weight: 300;
-	}
-	h2 {
-		color: @light-grey;
-		font-size: 18px;
-		font-weight: 100;
-		padding: 0.5em 5em 0;
-
-	}
-}
-
-// .landing-page-intro {
-// 	color: @white-color;
-// 	h1 {
-// 		font-size: 42px;
-// 		font-weight: 200;
-// 	}
-// }
-
-.chairity {
-  height: 100vh;
-  display: table-cell;
-  vertical-align: middle;
-  background-image: url("https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/shutterstock_400220989_small.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
+// Beginn of sections for about us
+// -------------------------------
 
 
 // Style test for full screen responsive image
@@ -172,6 +142,9 @@
 }
 
 
+.about-us-header {
+  height: 100vh;
+}
 
 .fullscreen,
 .content-a {
@@ -207,13 +180,13 @@
 
 }
 
-.about-us-header {
-	height: 100vh;
+.mission {
+
+  padding: 5em 2em;
 	// padding: 4em 2em 6em;
-	p{
+	h2{
 		margin-top: 2em;
-		color: @forth-color;
-		font-size: 24px;
+		color: @color-secondary;
 		text-align: center;
 	}
 
@@ -223,9 +196,6 @@
 		height: auto;
 	}
 
-	.mission {
-		padding: 5em 2em;
-	}
 }
 
 .values {
@@ -237,9 +207,8 @@
 	padding: 80px 15px 80px;
 	.values-content {
 
-					p {
+					h2 {
 							font-weight: 300;
-							font-size: 24px;
 							text-align: center;
 							margin: 1em 2em;
 					}
@@ -263,8 +232,7 @@
 .transparency {
 	padding: 3em 2em;
 	p{
-		color: @forth-color;
-		font-size: 20px;
+		color: @color-secondary;
 		font-weight: 200;
 		text-align: center;
 		padding-top: 1em;
