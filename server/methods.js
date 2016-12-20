@@ -186,6 +186,20 @@ Meteor.methods({
 
     },
 
+    insertNewsletterSubscriber: function(subscriber) {
+
+        // prevent duplicate entries
+        if (SubscribersNewsletter.findOne({ email: subscriber.email }))
+            throw new Meteor.Error(401, "Email already exists");
+
+        SubscribersNewsletter.insert(subscriber);
+
+        return true;
+
+    },
+
+    // ########### Set roles on users ##########
+
     setRoleOnUser: function(options) {
         check(options, {
             user: String,
@@ -198,6 +212,10 @@ Meteor.methods({
             return exception;
         }
     },
+
+    // ########### Begin section for paypal integration ##########
+
+    // ########### get token from paypal ##########
 
     'getPaypalToken': function() {
       var auth, isTokenValid, token;
@@ -232,6 +250,8 @@ Meteor.methods({
       }
       return token;
     },
+
+    // ########### get paypal token and redirect to paypal.com for login ##########
 
 
     'createPaypalPayment': function(product, slug) {
@@ -279,6 +299,8 @@ Meteor.methods({
       return res.data;
     },
 
+    // ########### Execute paypal payment when user is back on our domain and confirm payment ##########
+
     'executePaypalPayment': function(payerId) {
       var payment, ref, res, token, url;
       payment = PaypalPayments.findOne({
@@ -311,6 +333,8 @@ Meteor.methods({
         return false;
       }
     }
+
+    // ########### End of paypal section ##########
 
 
 });

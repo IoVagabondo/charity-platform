@@ -159,9 +159,7 @@ Meteor.publish("paypal_payments", function (paymentId) {
 
 Meteor.publish( 'subscribers_newsletter', function() {
 	if ( Roles.userIsInRole( this.userId, 'admin') ) {
-    return [
-      Meteor.users.find( {}, { fields: { "email": 1, "confirmed": 1, "timeCreated": 1 } } ),
-    ];
+    return SubscribersNewsletter.find( {}, { fields: { "email": 1, "confirmed": 1, "timeCreated": 1 }});
   } else {
     return null;
   }
