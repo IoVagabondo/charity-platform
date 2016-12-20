@@ -61,19 +61,29 @@ IMPACTO</h2>
     </section>
 
     <section class="newsletter">
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <h2>Receba uma notificação quando fizermos o lançamento!</h2>
-        </div>
-        <div class="col-sm-offset-2 col-sm-8 col-xs-12">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Email">
-            <span class="input-group-btn">
-              <button id="btn-newsletter-footer" class="btn btn-default btn-lg btn-secondary-theme-bg" type="button">Submit</button>
-            </span>
+      {{#if newsletter_subscribed}}
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <h2>Receba uma notificação quando fizermos o lançamento!</h2>
+          </div>
+          <div class="col-sm-offset-2 col-sm-8 col-xs-12">
+            <form>
+              <div class="input-group">
+                <input type="text" name="email" id="email" class="form-control" placeholder="Email">
+                <span class="input-group-btn">
+                  <button id="btn-newsletter-footer" name="btn-newsletter-footer" class="btn btn-landingpage-footer btn-secondary-theme-bg" type="submit">Submit</button>
+                </span>
+              </div>
+            </form>
           </div>
         </div>
+      {{else}}
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h2>Obrigado! Você agora faz parte da Família <i class="fa fa-heart" aria-hidden="true"></i> </h2>
+        </div>
       </div>
+      {{/if}}
     </section>
   {{> newsletterModal}}
 </template>

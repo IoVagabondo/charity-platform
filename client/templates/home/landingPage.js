@@ -1,3 +1,9 @@
+Template.landingPage.helpers({
+  newsletter_subscribed: function() {
+      return Session.get('newsletter_subscribed') == 'false';
+  },
+});
+
 Template.landingPage.events({
 
     'click #btn-newsletter': function(event, template) {
@@ -6,8 +12,23 @@ Template.landingPage.events({
     },
 
     'click #btn-newsletter-footer': function (event, template){
+
       event.preventDefault();
-      
+
+      Meteor.call('insertNewsletterSubscriber', {
+          email: $('#email').val(),
+          confirmed: false
+
+      }, function(error) {
+
+          if (error) {
+              return Bert.alert(error.reason, "warning");
+          }
+
+          Session.set('newsletter_subscribed', 'true');
+          $('#email').val("");
+      });
+
     }
 
 });
