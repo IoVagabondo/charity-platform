@@ -4,6 +4,7 @@ Template.adminPanel.onCreated(() => {
     Template.instance().subscribe('sections');
     Template.instance().subscribe('cities');
     Template.instance().subscribe('countries');
+    Template.instance().subscribe('subscribers_newsletter');
 });
 
 
@@ -30,6 +31,10 @@ Template.adminPanel.helpers({
 
     countries: function(){
         return Countries.find();
+    },
+
+    subscribers_newsletter: function(){
+        return SubscribersNewsletter.find();
     }
 });
 

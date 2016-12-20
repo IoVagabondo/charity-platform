@@ -30,6 +30,31 @@
             </table>
         </div>
         <hr>
+
+        <div>
+            <h4 class="page-header">Newsletter Subscribers</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Confirmed</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each subscribers_newsletter}}
+                      <tr>
+                          <td class="text-left text-middle">{{email}}</td>
+                          <td class="text-left text-middle">{{confirmed}}</td>
+                          <td class="text-left text-middle">{{timeCreated}}</td>
+                      </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+
         <div class="row">
             <div class="col-md-12">
                 <h4 class="page-header">Categories Management Panel</h4>
