@@ -5,11 +5,29 @@ Categories = new Mongo.Collection('categories');
 Sections = new Mongo.Collection('sections');
 Cities = new Mongo.Collection('cities');
 Countries = new Mongo.Collection('countries');
+SubscribersNewsletter = new Mongo.Collection('subscribers_newsletter');
 
 PaypalPayments = new Meteor.Collection('paypal_payments');
 PaypalTokens = new Meteor.Collection('paypal_tokens');
 
 var Schemas = {};
+
+Schemas.SubscribersNewsletter = new SimpleSchema({
+    email: {
+        type: String,
+    },
+    confirmed: {
+        type: Boolean,
+    },
+    timeCreated: {
+        type: Date,
+        autoValue: function() {
+            if (this.isInsert) {
+                return new Date;
+            }
+        }
+    },
+});
 
 Schemas.Cities = new SimpleSchema({
     name: {
@@ -68,8 +86,10 @@ Schemas.Events = new SimpleSchema({
     }
 });
 
+//Arrach Schemas to MongoDB Collections
 Events.attachSchema(Schemas.Events);
 Cities.attachSchema(Schemas.Cities);
+SubscribersNewsletter.attachSchema(Schemas.SubscribersNewsletter);
 
 
 // #Security with allow and deny rules -> Restricting database updates
@@ -172,5 +192,20 @@ if (Meteor.isServer) {
             return _.contains(fields, 'owner') || _.contains(fields, 'timeCreated') || _.contains(fields, 'slug');
         }
     });
+
+    SubscribersNewsletter.deny({
+        update: function(userId, docs, fields, modifier) {
+            // Can't change email and timeCreated
+            return _.contains(fields, 'timeCreated') || _.contains(fields, 'email');
+        }
+    });
+
+    SubscribersNewsletter.allow({
+        update: function(userId, doc, fields, modifier) {
+            // User must be an admin
+            return Roles.userIsInRole(userId, 'admin');
+        }
+    });
+
 
 }

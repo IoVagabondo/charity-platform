@@ -141,7 +141,6 @@ Meteor.publish( 'single-country', function(countryCode) {
 });
 
 
-
 Meteor.publish("userRoles", function () {
  if (this.userId) {
   return Meteor.users.find({_id: this.userId}, {fields: {roles: 1}});
@@ -156,4 +155,14 @@ Meteor.publish("paypal_payments", function (paymentId) {
  } else {
   this.ready();
  }
+});
+
+Meteor.publish( 'subscribers_newsletter', function() {
+	if ( Roles.userIsInRole( this.userId, 'admin') ) {
+    return [
+      Meteor.users.find( {}, { fields: { "email": 1, "confirmed": 1, "timeCreated": 1 } } ),
+    ];
+  } else {
+    return null;
+  }
 });
