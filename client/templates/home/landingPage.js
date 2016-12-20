@@ -5,4 +5,9 @@ Template.landingPage.events({
         $('#newsletterModal').modal('show');
     },
 
+    'click #btn-newsletter-footer': function (event, template){
+      event.preventDefault();
+      
+    }
+
 });
