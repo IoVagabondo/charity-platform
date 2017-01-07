@@ -42,6 +42,9 @@
                 margin-bottom: 0;
 								color: @color-secondary;
                 font-size: 30px;
+                .highlight {
+                  color: @color-accessory;
+                }
             }
         }
 }
@@ -71,19 +74,28 @@
 							font-weight: 700;
 							color: @color-secondary;
 							margin-bottom: 0;
-							font-size: 26px;
+							font-size: 30px;
 					}
 
 					h2 {
 						margin: 1em 1em;
 						font-size: 20px;
-            color: @color-accessory;
+            color: @color-secondary;
+
+            .text-impact {
+              color: @color-primary;
+            }
 					}
 
 					img {
 						margin-bottom: 1em;
 						width: 180px;
 						height: auto;
+
+            &:hover,
+          	&:focus {
+          		width: 190px;
+          	}
 					}
 
 					.content-inner {
@@ -98,6 +110,14 @@
 							text-align: center;
 							margin: 1em 2em;
 					}
+
+          .content-impact {
+            h2 {
+              margin: 1em 1em;
+  						font-size: 20px;
+              color: @color-secondary;
+            }
+          }
     }
 }
 

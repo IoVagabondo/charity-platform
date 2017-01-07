@@ -1,3 +1,9 @@
+Template.landingPage.onCreated( function (){
+  if (Session.get('newsletter_subscribed') == undefined){
+    Session.set('newsletter_subscribed', 'false');
+  }
+});
+
 Template.landingPage.helpers({
   newsletter_subscribed: function() {
       return Session.get('newsletter_subscribed') == 'false';
