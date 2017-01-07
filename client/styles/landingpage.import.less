@@ -153,7 +153,7 @@
 	}
 }
 
-// Beginn of sections for about us
+// Beginn of sections for about us & how it works
 // -------------------------------
 
 
@@ -169,8 +169,12 @@
 }
 
 
-.about-us-header {
+.header-section-100 {
   height: 100vh;
+}
+
+.header-section-30 {
+  height: 30vh;
 }
 
 .fullscreen,
@@ -183,6 +187,12 @@
 .fullscreen.overflow .content-a {
     height:auto;
     min-height:100%;
+}
+
+.side-picture {
+  width:100%;
+  height:100vh;
+  overflow:hidden;
 }
 
 /* content centering styles */
@@ -213,12 +223,13 @@
 	// padding: 4em 2em 6em;
 	h2{
 		margin-top: 2em;
+    font-weight: 300;
 		color: @color-secondary;
 		text-align: center;
 	}
 
 	img {
-		margin-bottom: 2em;
+		margin-bottom: 1em;
 		width: 60px;
 		height: auto;
 	}
@@ -263,5 +274,106 @@
 		font-weight: 200;
 		text-align: center;
 		padding-top: 1em;
+
 	}
+}
+
+.how-it-works {
+  padding: 3em 0.5em 3em;
+  font-weight: 200;
+
+  .how-step {
+    margin-bottom: 2.5em;
+
+  }
+
+  .outer-box{
+    padding-top: 1em;
+    display: table;
+    border-radius: 0.5em;
+    &:hover,
+    &:focus {
+      background-color: @light-grey;
+    }
+  }
+
+  .inner-box {
+
+     display: table-cell;
+     vertical-align: middle;
+
+  }
+
+  h1 {
+    color: @color-secondary;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  img {
+		width: 60px;
+		height: auto;
+    margin-top: -60px;
+  }
+
+  .numbers {
+    font-size: 6em !important;
+    color: @color-primary;
+    margin: 0em;
+  }
+
+}
+
+/* SECTION */
+.convidados {
+  height: 50vh;
+  background-color: @color-secondary;
+
+  padding: 4em 0.5em 1em;
+
+	h1{
+    margin-bottom: 1.5em;
+    font-weight: 300;
+		color: @white-color;
+		text-align: center;
+	}
+
+  p {
+    color: @white-color;
+  }
+
+	img {
+		width: 60px;
+		height: auto;
+	}
+}
+
+/* SECTION */
+
+.transparency {
+
+  width: 100%;
+	margin: 0;
+  padding: 3em 0.5em 3em;
+
+  h1 {
+      font-weight: 700;
+      color: @color-secondary;
+      margin-bottom: 0;
+      font-size: 30px;
+  }
+
+
+  img {
+		margin: 2em 0em;
+		width: 400px;
+		height: auto;
+	}
+
+  .content-inner {
+    margin-top: 2em;
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+
 }
