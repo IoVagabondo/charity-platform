@@ -8,7 +8,7 @@
 // -----------------------------------
 
 .intro {
-  height: 100vh;
+  height: 95vh;
   display: table-cell;
   vertical-align: middle;
   background: url("https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/landingpage-header.jpg") 0px center no-repeat;
@@ -16,15 +16,20 @@
   background-repeat: no-repeat;
 	background-position-y: inherit !important;
 	h1{
+    padding-top: 0.5em;
 		color: @white-color;
-		font-size: 52px;
-		font-weight: 300;
+		font-size: 36px;
+		font-weight: 200;
+    line-height: 1.2;
+    .highlight {
+      color: @color-accessory;
+    }
 	}
 	h2 {
 		color: @light-grey;
-		font-size: 18px;
+		font-size: 12px;
 		font-weight: 100;
-		padding: 0.5em 5em 0;
+		padding: 0em 5em 0;
 
 	}
 }
@@ -75,12 +80,13 @@
 							color: @color-secondary;
 							margin-bottom: 0;
 							font-size: 30px;
+
 					}
 
 					h2 {
 						margin: 1em 1em;
 						font-size: 20px;
-            color: @color-secondary;
+            color: @color-primary;
 
             .text-impact {
               color: @color-primary;
@@ -89,13 +95,8 @@
 
 					img {
 						margin-bottom: 1em;
-						width: 180px;
+						width: 150px;
 						height: auto;
-
-            &:hover,
-          	&:focus {
-          		width: 190px;
-          	}
 					}
 
 					.content-inner {
@@ -229,8 +230,8 @@
 	}
 
 	img {
-		margin-bottom: 1em;
-		width: 60px;
+		margin-bottom: 1.2em;
+		width: 50px;
 		height: auto;
 	}
 
@@ -247,15 +248,25 @@
 
 					h2 {
 							font-weight: 300;
-							text-align: center;
+							text-align: left;
 							margin: 1em 2em;
 					}
+
+          span {
+            font-size: 24px;
+            font-weight: 300;
+            text-align: left;
+          }
+
+          .row {
+            padding-bottom: 1.5em;
+          }
 
 					img {
 						width: 60px;
 						height: auto;
-						margin-right: 1em;
             vertical-align: middle;
+            margin-top: 4px; 
 					}
 
 					.content-inner {
@@ -267,16 +278,7 @@
     }
 }
 
-.transparency {
-	padding: 3em 2em;
-	p{
-		color: @color-secondary;
-		font-weight: 200;
-		text-align: center;
-		padding-top: 1em;
 
-	}
-}
 
 .how-it-works {
   padding: 3em 0.5em 3em;
@@ -284,17 +286,15 @@
 
   .how-step {
     margin-bottom: 2.5em;
-
+    ::after {
+      margin-bottom: 0.5em;
+    }
   }
 
   .outer-box{
-    padding-top: 1em;
+    padding-top: 2em;
     display: table;
     border-radius: 0.5em;
-    &:hover,
-    &:focus {
-      background-color: @light-grey;
-    }
   }
 
   .inner-box {
@@ -313,11 +313,11 @@
   img {
 		width: 60px;
 		height: auto;
-    margin-top: -60px;
+    margin-top: -0.9em;
   }
 
   .numbers {
-    font-size: 6em !important;
+    font-size: 7em !important;
     color: @color-primary;
     margin: 0em;
   }
@@ -370,10 +370,17 @@
 		height: auto;
 	}
 
+  p{
+		color: @color-secondary;
+		font-weight: 200;
+		text-align: justify;;
+		padding-top: 1em;
+
+	}
+
   .content-inner {
     margin-top: 2em;
-    padding-left: 4em;
-    padding-right: 4em;
+
   }
 
 }

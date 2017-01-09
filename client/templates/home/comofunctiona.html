@@ -1,11 +1,12 @@
 
 <template name="comofunctiona">
   <section>
-    <div class="fullscreen background" style="background-image:url('https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/about-us-header-blur.jpg');">
+    <div class="fullscreen background" style="background-image:url('https://s3-sa-east-1.amazonaws.com/charity-platform-pictures/website/shutterstock_63366721_blur.jpg');">
       <div class="content-a">
         <div class="content-b">
-            <h1>Como funciona</h1>
-            <h2>xxxxxx xxxx xxx xxxxxxx xxxxxx xxxxxx xxxxx xxxxx xxxxx</h2>
+            <h1>Transformar seu evento com o surprese</h1>
+						<a id="top"></a>
+            <h2>é simples rápido e confiável</h2>
         </div>
       </div>
     </div>
@@ -26,7 +27,7 @@
 			</div>
 		</div>
 
-		<hr class="style-300-primary-color">
+		<hr class="style-100-primary-color">
 
 		<div class="row how-step">
 			<div class="col-md-offset-2 col-md-1" >
@@ -39,7 +40,7 @@
 			</div>
 		</div>
 
-		<hr class="style-300-primary-color">
+		<hr class="style-100-primary-color">
 
 		<div class="row how-step">
 			<div class="col-md-offset-2 col-md-1" >
@@ -52,30 +53,32 @@
 		</div>
 
 		<div class="row text-center">
-      <h1>Pronto <img src="/images/suprese-symbol.png"></h1>
+			<div class="col-md-offset-2 col-md-8" >
+      	<h1><strong>Pronto</strong> <img src="/images/icon-present.png"></h1>
+			</div>
     </div>
-    <div class="col-md-offset-1 col-md-10 col-xs-12">
+    <div class="col-md-offset-2 col-md-8">
       <div class="text-center">
-        <p style="text-align: center;">O último passo é o mais legal: depois do seu evento, você recebe um agradecimento da instituição<br>contando o que eles estão fazendo com seus presentes.</p>
+        <p style="text-align: center;">O último passo é o mais legal: depois do seu evento, você recebe um agradecimento<br>da instituiçãocontando o que eles estão fazendo com seus presentes.</p>
         <p style="text-align: center;">Compartilhe com seus convidados, eles vão gostar de saber!</p>
       </div>
     </div>
   </section>
 
 	<section class="convidados">
-		<div class="content">
+		<div class="content-outer">
 				<div class="row text-center">
 					<h1>Como funciona para os seus convidados?</h1>
 				</div>
 
 				<div class="row content-inner">
-					<div class="col-md-offset-1 col-md-5 text-left">
+					<div class="col-md-offset-2 col-md-5">
 						<p>Seus convidados entram no link que você compartilhou e veem a instituição escolhida.</p>
 						<p>Eles escolhem a quantia que querem doar e fazem a transferência no nosso próprio site, com o cartão de crédito.</p>
 						<p>A não ser que seus convidados queiram te dar um presente anônimo, você fica sabendo quem fez a doação e todos podem acompanhar em tempo real o status da arrecadação até o dia do evento.</p>
 					</div>
-					<div class="col-md-offset-1 col-md-3">
-						<div class="fullscreen background" style="background-image:url('/images/present.png');">
+					<div class="col-md-3">
+						<div class="fullscreen background" style="background-image:url('/images/presents_small.jpg');">
 				    </div>
 					</div>
 				</div>
@@ -84,24 +87,25 @@
 	</section>
 
 	<section class="transparency">
-			<div class="content">
+			<div class="content-outer">
 					<div class="row text-center">
 						<h1>TRANSPARÊNCIA</h1>
 						<hr class="style-300-primary-color">
 					</div>
 
 					<div class="row content-inner">
-						<div class="col-md-12 text-center">
+						<div class="col-md-offset-2 col-md-8">
 							<p>Transparência é um de nossos valores fundamentais. Sabemos que doar sem saber o destino dos recursos é extremamente desconfortável e por isso criamos processos claros que comunicamos abertamente para todos os nossos usuários. Quando você ou seus convidados fazem uma doação, nós arrecadamos essa quantia e a repassamos para as instituições. Desse valor, 5% é usado para realizar a transação financeira e 10% usamos para manter nosso site no ar e continuar desenvolvendo o <strong>surprese!</strong></p>
 						</div>
-						<div class="col-md-12 text-center">
-							<img src="/images/transparency.png">
+						<div class="col-md-offset-2 col-md-8 text-center">
+							<img src="/images/grafico.png">
 						</div>
-						<div class="col-md-12 text-center">
+						<div class="col-md-offset-2 col-md-8">
 							<p>Todas as nossas instituições passam por uma seleção antes de entrar em nossa rede. Nós as conhecemos, sabemos as atividades que realizam, o impacto que provocam, e mantemos contato constante. Queremos que você, que organizou seu evento conosco, esteja seguro de que sua arrecadação foi bem utilizada. Por isso te manteremos informado sobre essas ações! </p>
 						</div>
 					</div>
 
 			</div>
 	</section>
+	{{> newsletterSection}}
 </template>
