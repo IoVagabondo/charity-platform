@@ -4,7 +4,7 @@
         {{#if iAmOwner owner}}
             <div class="row">
               <div class="col-md-12">
-                <h1>{{title}}</h1> <small>Access link: http://localhost:3000/events/{{slug}} | <a href="#" id="copyAccessLink"> Copy Link</a></small>
+                <h1>{{title}}</h1> <small>Access link: http://surprese.me/events/{{slug}} | <a href="#" id="copyAccessLink"> Copy Link</a></small>
                 <br>
                 <small>
     				    Posted {{formatTime timeCreated "fromNow"}} by {{author}} | <a href="/events/{{slug}}/edit">Edit Event</a>
@@ -32,7 +32,7 @@
           <div class="row">
             <div class="col-md-9">
               <h1>{{title}}</h1>
-              <p>Inivitation by <i class="fa fa-heart" aria-hidden="true"></i> from {{author}} // <span>Date: {{date}}</span></p>
+              <p>Inivitation by <i class="fa fa-heart" aria-hidden="true"></i> from {{author}}</p>
             </div>
             <div class="col-md-offset-1 col-md-2" style="text-align: right;">
                 <button type="button" id="donateButton" class="btn btn-block btn-primary btn-lg">Donate</button>
@@ -41,12 +41,12 @@
           <div class="row">
             <div class="col-md-7">
               <hr>
-              <headText for="descriptionText">Invitation:</headText>
+              <headText for="descriptionText">Invitation text:</headText>
               <p id="descriptionText">{{description}}</p>
-              <headText for="date">Date:</headText>
+              <headText for="date">When?</headText>
               <p id="date">{{date}}</p>
-              <headText for="suggestedValue">Suggested Value:</headText>
-              <p id="suggestedValue">{{suggestedValue}}</p>
+              <headText for="suggestedValue">Where?</headText>
+              <p id="suggestedValue">{{location}}</p>
 
             </div>
             <div class="col-md-offset-1 col-md-4">

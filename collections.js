@@ -51,6 +51,10 @@ Schemas.Events = new SimpleSchema({
         type: String,
         label: "Date of Event"
     },
+    location: {
+        type: String,
+        label: "Location of Event"
+    },
     suggestedValue: {
         type: String,
         label: "Suggested Value for Funding"
@@ -82,6 +86,7 @@ Schemas.Events = new SimpleSchema({
     },
     pictureURL: {
         type: String,
+        optional: true,
         label: "Picture of Event"
     }
 });

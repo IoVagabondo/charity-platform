@@ -9,6 +9,9 @@ Template.formStep3.onRendered(function() {
     query = Session.get('date');
     $('#date').val(query);
 
+    query = Session.get('location');
+    $('#location').val(query);
+
     query = Session.get('eventTitle')
     $('#eventTitle').val(query);
 
@@ -34,10 +37,19 @@ Template.formStep3.events({
         }, 700);
     },
 
+    'input #location': function(evt) {
+        var self = this;
+        if (handle)
+            clearTimeout(handle);
+        handle = setTimeout(function() {
+            var query = $(evt.target).val();
+            Session.set('location', query);
+        }, 500);
+    },
+
 
     'click input.datetimepicker': function(event, template) {
         let value = $('#suggestedValue').val();
-        console.log("value: " +value);
         if (handle)
             clearTimeout(handle);
         handle = setTimeout(function() {
@@ -49,7 +61,6 @@ Template.formStep3.events({
 
     'input #description': function(event, template) {
         let value = event.target.value.trim();
-        console.log('input');
         if (handle)
             clearTimeout(handle);
         handle = setTimeout(function() {

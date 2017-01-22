@@ -25,7 +25,7 @@
         <section class="stepDetails">
           <h3 class="text-uppercase">Enter the details!</h3>
           <p style="color: #606060;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-          <p><a id="check" class="btn btn-theme-bg">Publish <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
+          <p><a id="check" class="btn btn-theme-bg">Check <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
           <p style="color: #606060;">(You have to fill out all fields before you can publish your event)</p>
           <p><a id="institutions" class="btn btn-default">Back</a></p>
         </section>
@@ -35,7 +35,11 @@
         <section class="stepCheck">
           <h3 class="text-uppercase">Check your event!</h3>
           <p style="color: #606060;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          {{#if currentUser}}
+          <p><a id="publishEvent" class="btn btn-theme-bg">Publish <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
+          {{else}}
           <p><a id="user" class="btn btn-theme-bg">Publish <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
+          {{/if}}
           <p><a id="details" class="btn btn-default">Back</a></p>
         </section>
       {{/if}}
@@ -45,7 +49,7 @@
           <h3 class="text-uppercase">About you!</h3>
           <div class="space-20"></div>
           {{> userDetails}}
-          <p><a id="user" class="btn btn-theme-bg btn-block btn-lg">GO</a></p>
+          <p><a id="publishEvent" class="btn btn-theme-bg btn-block btn-lg">GO</a></p>
           <p><a id="check" class="btn btn-default">Back</a></p>
         </section>
       {{/if}}

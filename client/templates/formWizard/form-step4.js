@@ -24,6 +24,10 @@ Template.formStep4.helpers({
         return Session.get('date');
     },
 
+    location: function() {
+        return Session.get('location');
+    },
+
     suggestedValue: function() {
         return Session.get('suggestedValue');
     },
