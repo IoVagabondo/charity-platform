@@ -25,6 +25,7 @@ Template.event.events({
 			}
 		);
 
+
   },
 
   'click #donateButton': function(event, template) {

@@ -22,12 +22,13 @@ Template.editEvent.events({
         // Edit the post
         if(this._id) {
 
-            Events.update(this._id, {$set: { 
-				title:          form.title.value,
+            Events.update(this._id, {$set: {
+				        title:          form.title.value,
                 description:    form.description.value,
-                text:           form.text.value,
+                suggestedValue: form.suggestedValue.value,
+                location:       form.location.value,
                 initiative:     form.initiative.value
-            
+
             }}, function(error) {
                 if(error) {
                     // display the error to the user
@@ -38,7 +39,7 @@ Template.editEvent.events({
                 }
             });
 
-            
+
         // SAVE
         } else {
 
@@ -50,7 +51,7 @@ Template.editEvent.events({
 				description: 	form.description.value,
 				text: 			form.text.value,
                 initiative:     form.initiative.value
-			
+
 			}, function(error, slug) {
 				Session.set('saveButton', 'Save Post');
 
@@ -65,5 +66,5 @@ Template.editEvent.events({
         }
     },
 
-    
+
 });

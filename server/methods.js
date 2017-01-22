@@ -257,6 +257,7 @@ Meteor.methods({
     'createPaypalPayment': function(product, slug) {
       var payment, res, token;
       token = Meteor.call('getPaypalToken');
+      console.log(product);
 
       payment = {
         intent: 'sale',
@@ -264,8 +265,8 @@ Meteor.methods({
           payment_method: 'paypal'
         },
         redirect_urls: {
-          return_url: 'https://primio.herokuapp.com/events/'+slug+'/donate/execute',
-          cancel_url: 'https://primio.herokuapp.com/events/'+slug+'/donate'
+          return_url: 'https://surprese.me/events/'+slug+'/donate/execute',
+          cancel_url: 'https://surprese.me/events/'+slug+'/donate'
         },
         transactions: [
           {

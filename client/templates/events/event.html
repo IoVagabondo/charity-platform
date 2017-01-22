@@ -4,7 +4,7 @@
         {{#if iAmOwner owner}}
             <div class="row">
               <div class="col-md-12">
-                <h1>{{title}}</h1> <small>Access link: http://surprese.me/events/{{slug}} | <a href="#" id="copyAccessLink"> Copy Link</a></small>
+                <h1>{{title}}</h1> <small>Access link: <span id="input-clipboard">http://surprese.me/events/{{slug}}</span> | <a href="#" id="copyAccessLink"> Copy Link</a></small>
                 <br>
                 <small>
     				    Posted {{formatTime timeCreated "fromNow"}} by {{author}} | <a href="/events/{{slug}}/edit">Edit Event</a>

@@ -94,16 +94,34 @@
         {{#if hasId}}
         <hr>
         <div class="row">
+          <p>Logo</p>
             <div class="thumbnail">
-                <img src="{{imageURL}}" alt="{{title}}">
+                <img src="{{logoURL}}" alt="{{title}}" max-width="300px">
             </div>
         </div>
         <div class="row">
             <div class="upload-area">
-                <form id="upload">
+                <form id="uploadLogo">
                     <p class="alert alert-success text-center">
                         <span>Click or Drag an Image Here to Upload</span>
-                        <input type="file">
+                        <input id="uploadLogo" type="file">
+                    </p>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <p>Image</p>
+            <div class="thumbnail">
+                <img src="{{imageURL}}" alt="{{title}}" max-width="300px">
+            </div>
+        </div>
+        <div class="row">
+            <div class="upload-area">
+                <form id="uploadImage">
+                    <p class="alert alert-success text-center">
+                        <span>Click or Drag an Image Here to Upload</span>
+                        <input id="uploadImage" type="file">
                     </p>
                 </form>
             </div>
