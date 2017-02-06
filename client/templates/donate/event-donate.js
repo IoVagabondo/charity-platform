@@ -1,3 +1,5 @@
+var handle = null;
+
 Template.eventDonate.onCreated(function() {
     Session.set('sliderMinPos',0);
     Session.set('sliderMaxPos',20);
@@ -5,6 +7,18 @@ Template.eventDonate.onCreated(function() {
     Session.set('maxlval', Math.log(10000));
     var scaleVar = (Session.get('maxlval') - Session.get('minlval')) / (Session.get('sliderMaxPos') - Session.get('sliderMinPos'));
     Session.set('scale',scaleVar);
+
+
+
+
+    let template = Template.instance();
+    template.autorun(() => {
+        template.initiative = Initiatives.findOne({_id: template.data.initiativeId});
+        template.subscribe('single-city', template.initiative.cityId);
+        template.subscribe('single-section', template.initiative.sectionId);
+        template.subscribe('single-category', template.initiative.categoryId);
+
+    });
 
 
 });
@@ -16,6 +30,12 @@ Template.eventDonate.onRendered(function(){
     // $("#slider").val(sliderPosition);
 
     // $('#value').val(Template.instance().data.suggestedValue).trigger("keyup");
+
+    $('#registerName').val(Session.get('registerName'));
+    $('#registerBirthday').val(Session.get('registerBirthday'));
+    $('#registerEmail').val(Session.get('registerEmail'));
+
+
     if (Session.get('donationAmount') == undefined){
       var donationAmount = parseInt(Template.instance().data.suggestedValue);
       Session.set('donationAmount',donationAmount);
@@ -29,6 +49,15 @@ Template.eventDonate.onRendered(function(){
 
 
 Template.eventDonate.helpers({
+
+  initiative: function(){
+    var initiative = Initiatives.findOne({_id: Template.instance().data.initiativeId});
+    initiative.city = Cities.findOne();
+    initiative.category = Categories.findOne();
+    initiative.section = Sections.findOne();
+    return initiative;
+  },
+
   stepEquals: function(step){
     var currentStep = Session.get('currentStep');
     if (currentStep == undefined){
@@ -58,7 +87,40 @@ Template.eventDonate.events({
 
   'click #stepOneButton': function(event, template) {
       event.preventDefault();
-      Session.set('currentStep', 'stepTwo');
+      var radioElement = template.find('input:radio[name=inlineRadioGender]:checked');
+      // console.log($(element).val());
+      if(Session.get('registered') == undefined || Session.get('registered') == 'false'){
+        Meteor.call('insertNewDonor', {
+            event_id: template.data._id,
+            name: Session.get('registerName'),
+            email: Session.get('registerEmail'),
+            birthday: Session.get('registerBirthday'),
+            gender: $(radioElement).val(),
+
+        }, function(error, response) {
+
+            if (error) {
+                Session.set('registered', 'false');
+                return Bert.alert(error.reason, "warning");
+            } else {
+                  Session.set('donorId', response);
+                  Session.set('registered', 'true');
+
+
+                  Session.set('currentStep', 'stepTwo');
+            }
+
+        });
+      }
+      else if(Session.get('registered') == 'true'){
+        Session.set('currentStep', 'stepTwo');
+      }
+
+
+
+
+
+
   },
 
   'click #stepTwoButtonBack': function(event, template) {
@@ -99,6 +161,38 @@ Template.eventDonate.events({
     Session.set('sliderPosition',sliderPosition);
 
   },
+
+  'input #registerName': function(evt) {
+      var self = this;
+      if (handle)
+          clearTimeout(handle);
+      handle = setTimeout(function() {
+          var query = $(evt.target).val();
+          Session.set('registerName', query);
+      }, 300);
+  },
+
+  'input #registerBirthday': function(evt) {
+      var self = this;
+      if (handle)
+          clearTimeout(handle);
+      handle = setTimeout(function() {
+          var query = $(evt.target).val();
+          Session.set('registerBirthday', query);
+      }, 300);
+  },
+
+  'input #email-field1': function(evt) {
+      var self = this;
+      if (handle)
+          clearTimeout(handle);
+      handle = setTimeout(function() {
+          var query = $(evt.target).val();
+          Session.set('registerEmail', query);
+      }, 300);
+  },
+
+
 
 
 

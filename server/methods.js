@@ -198,6 +198,14 @@ Meteor.methods({
 
     },
 
+    insertNewDonor: function(donorObject) {
+        var donorId;
+        // TODO: Check if user with email already exists
+        return Donors.insert(donorObject);
+
+
+    },
+
     // ########### Set roles on users ##########
 
     setRoleOnUser: function(options) {

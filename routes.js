@@ -21,7 +21,7 @@ CreateEventController = RouteController.extend({
 EventController = RouteController.extend({
     waitOn: function() {
     	Meteor.subscribe("all-initiatives");
-        return Meteor.subscribe('single-event', this.params.slug);
+      return Meteor.subscribe('single-event', this.params.slug);
     },
 
     data: function() {

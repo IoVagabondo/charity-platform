@@ -7,10 +7,54 @@ Cities = new Mongo.Collection('cities');
 Countries = new Mongo.Collection('countries');
 SubscribersNewsletter = new Mongo.Collection('subscribers_newsletter');
 
+Donors = new Mongo.Collection('donors');
+
 PaypalPayments = new Meteor.Collection('paypal_payments');
 PaypalTokens = new Meteor.Collection('paypal_tokens');
 
 var Schemas = {};
+
+
+Schemas.Donors = new SimpleSchema({
+    event_id: {
+      type: String
+    },
+    name: {
+      type: String,
+    },
+    email: {
+        type: String,
+    },
+    birthday: {
+        type: String,
+    },
+    gender: {
+      type: String,
+    },
+    email_verified: {
+      type: Boolean,
+      defaultValue: false,
+    },
+
+    donated: {
+      type: Boolean,
+      defaultValue: false,
+    },
+
+    donationAmount: {
+      type: Number,
+      optional: true,
+    },
+
+    timeCreated: {
+        type: Date,
+        autoValue: function() {
+            if (this.isInsert) {
+                return new Date;
+            }
+        }
+    },
+});
 
 Schemas.SubscribersNewsletter = new SimpleSchema({
     email: {
@@ -95,6 +139,7 @@ Schemas.Events = new SimpleSchema({
 Events.attachSchema(Schemas.Events);
 Cities.attachSchema(Schemas.Cities);
 SubscribersNewsletter.attachSchema(Schemas.SubscribersNewsletter);
+Donors.attachSchema(Schemas.Donors);
 
 
 // #Security with allow and deny rules -> Restricting database updates

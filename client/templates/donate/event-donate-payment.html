@@ -1,38 +1,62 @@
 <template name="EventDonatePayment">
     <div class="appBody">
+      <div class="col-md-12 text-center">
+        <h1 style="color: #32AF98; margin-bottom: 2em;">TRANSFORME SUAS CELEBRAÇÕES<br>
+          EM EVENTOS DE ALTO IMPACTO</h1>
+      </div>
       <div class="col-md-5">
-        <h1>{{title}}</h1>
-        <hr>
-        <headText for="descriptionText">Description:</headText>
-        <p id="descriptionText">{{description}}</p>
-        <headText for="date">Date:</headText>
-        <p id="date">{{date}}</p>
-        <headText for="suggestedValue">Suggested Value:</headText>
-        <p id="suggestedValue">{{suggestedValue}}</p>
+
+        {{#with initiative}}
+          <h2>ONG selecionada</h2>
+          <hr>
+          <h4 style="color: #32AF98">{{title}}</h4>
+
+          <p>{{category.title}} | {{section.title}}</p>
+          <headText for="vision">Visão:</headText>
+          <p id="vision">{{vision}}</p>
+          <headText for="whatitneeds">O que faz:</headText>
+          <p id="whatitneeds">{{whatitneeds}}</p>
+          <headText for="location">localização:</headText>
+          <p id="location">{{city.name}}</p>
+          <!-- <div class="img" style="margin-top:20px; background-image:url('{{logoURL}}');"></div> -->
+
+
+        {{/with}}
+
       </div>
       <div class="col-md-offset-1 col-md-6" style="background-color: lightgray; border-radius: 20px; padding: 20px;">
-        <h2 class="text-center">Pay with PayPal</h2>
+        <h2 class="text-center">Pagar com PayPal</h2>
         <hr style="background-color: white; height: 1px">
-        {{#with initiative}}
-          <headText for="title">Selected Initiative:</headText>
-          <p id="title">{{title}}</p>
-          <headText for="vision">Vision:</headText>
-          <p id="vision">{{vision}}</p>
-          <headText for="location">Location:</headText>
-          <p id="location">{{location}}</p>
-        {{/with}}
+
+          <headText for="title">Sua doação para {{author}}</headText>
+
+
         <hr style="background-color: white; height: 1px">
         {{#with paypal_payment}}
-        
-        <headText for="donation">Amount</headText>
+
+        <headText for="donation">Montante</headText>
           {{#each transactions}}
-            <p id="donation">{{amount.currency}} {{amount.total}}</p>
+            <p id="donation" style="text-align:left;">
+
+              <span style="float:right;">{{amount.currency}} {{amount.total}}</span>
+            </p>
 
             <headText for="fee">Fees</headText>
-            <p id="fee">5% fee PayPal: {{amount.currency}} {{paypal_fee amount.total}}<br>
-            10% maintanence costs surprese.me: {{amount.currency}} {{surprese_fee amount.total}}</p>
-            <headText for="donation">Your total donation</headText>
-            <p id="fee">85% total donation: {{amount.currency}} {{bottom_line amount.total}}</p>
+            <p id="fee" style="text-align:left;">
+              5% taxa PayPal
+              <span style="float:right;">{{amount.currency}} {{paypal_fee amount.total}}</span>
+            </p>
+            <p id="fee" style="text-align:left;">
+              10% mcustos de manutenção Surprese
+              <span style="float:right;">{{amount.currency}} {{surprese_fee amount.total}}</span>
+            </p>
+
+            <headText for="donation">Sua doação total</headText>
+            <p id="total" style="text-align:left;">
+              85% doação total
+              <span style="float:right;">{{amount.currency}} {{bottom_line amount.total}}</span>
+            </p>
+            
           {{/each}}
         {{/with}}
 
@@ -41,16 +65,16 @@
             {{#if payment_in_progress}}
               <div class="loader"></div>
             {{else}}
-                <button type="button" class="btn btn-primary btn-lg btn-block" id="executePayment">Confirm Payment</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" id="executePayment">Confirme o pagamento</button>
             {{/if}}
           {{/if}}
 
           {{#if payment_status 'successful'}}
-            <div class="alert alert-success" role="alert">Payment successful! Many thanks to you for this donation!</div>
+            <div class="alert alert-success" role="alert">Pagamento bem sucedido! Muito obrigado por esta doação!</div>
           {{/if}}
 
           {{#if payment_status 'refused'}}
-            <div class="alert alert-danger" role="alert">Payment refused. Please check your paypal account details</div>
+            <div class="alert alert-danger" role="alert">Pagamento recusado. Verifique os detalhes da sua conta paypal</div>
           {{/if}}
         </div>
       </div>

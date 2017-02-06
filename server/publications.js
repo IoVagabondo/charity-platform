@@ -83,11 +83,7 @@ Meteor.publish( 'categories', function() {
 });
 
 Meteor.publish( 'single-category', function(categoryId) {
-  if (this.userId) {
-    return Categories.findOne( {_id: categoryId}, { fields: { "title": 1 } } );
-  } else {
-    return null;
-  }
+    return Categories.find( {_id: categoryId}, { fields: { "title": 1 } } );
 });
 
 
@@ -100,11 +96,7 @@ Meteor.publish( 'sections', function() {
 });
 
 Meteor.publish( 'single-section', function(sectionId) {
-  if (this.userId) {
-    return Sections.findOne( {_id: sectionId}, { fields: { "title": 1 } } );
-  } else {
-    return null;
-  }
+    return Sections.find( {_id: sectionId}, { fields: { "title": 1 } } );
 });
 
 
@@ -117,11 +109,7 @@ Meteor.publish( 'cities', function() {
 });
 
 Meteor.publish( 'single-city', function(cityId) {
-  if (this.userId) {
-    return Cities.findOne( {_id: cityId}, { fields: { "name": 1, "country": 1 } } );
-  } else {
-    return null;
-  }
+    return Cities.find( {_id: cityId}, { fields: { "name": 1, "country": 1 } } );
 });
 
 Meteor.publish( 'countries', function() {
@@ -134,7 +122,7 @@ Meteor.publish( 'countries', function() {
 
 Meteor.publish( 'single-country', function(countryCode) {
   if (this.userId) {
-    return Countries.findOne({code: countryCode}, { fields: { "name": 1, "code": 1 } } );
+    return Countries.find({code: countryCode}, { fields: { "name": 1, "code": 1 } } );
   } else {
     return null;
   }

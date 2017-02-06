@@ -9,8 +9,12 @@ Template.EventDonatePayment.created = function() {
 
   let template = Template.instance();
   template.autorun(() => {
-    console.log('###autorun');
+
       template.subscribe('paypal_payments', paymentId);
+      template.initiative = Initiatives.findOne({_id: template.data.initiativeId});
+      template.subscribe('single-city', template.initiative.cityId);
+      template.subscribe('single-section', template.initiative.sectionId);
+      template.subscribe('single-category', template.initiative.categoryId);
   });
 
 };
@@ -26,7 +30,11 @@ Template.EventDonatePayment.helpers ({
   },
 
   initiative: function(){
-    return Initiatives.findOne({_id: Template.instance().data.initiativeId});
+    var initiative = Initiatives.findOne({_id: Template.instance().data.initiativeId});
+    initiative.city = Cities.findOne();
+    initiative.category = Categories.findOne();
+    initiative.section = Sections.findOne();
+    return initiative;
   },
 
   paypal_payment: function(){
@@ -34,15 +42,15 @@ Template.EventDonatePayment.helpers ({
   },
 
   paypal_fee: function(amount){
-    return parseFloat(amount)*0.05;
+    return parseFloat(amount)*0.05.toFixed(2);
   },
 
   surprese_fee: function(amount){
-    return parseFloat(amount)*0.10;
+    return parseFloat(amount)*0.10.toFixed(2);
   },
 
   bottom_line: function(amount){
-      return parseFloat(amount)*0.85;
+      return parseFloat(amount)*0.85.toFixed(2);
   }
 
 

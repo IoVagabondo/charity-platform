@@ -1,57 +1,81 @@
 <template name="eventDonate">
   <div class="appBody">
+    <div class="col-md-12 text-center">
+      <h1 style="color: #32AF98; margin-bottom: 2em;">TRANSFORME SUAS CELEBRAÇÕES<br>
+        EM EVENTOS DE ALTO IMPACTO</h1>
+    </div>
     <div class="col-md-5">
-      <h1>{{title}}</h1>
-      <hr>
-      <headText for="descriptionText">Description:</headText>
-      <p id="descriptionText">{{description}}</p>
-      <headText for="date">Date:</headText>
-      <p id="date">{{date}}</p>
-      <headText for="suggestedValue">Suggested Value:</headText>
-      <p id="suggestedValue">{{suggestedValue}}</p>
+      {{#with initiative}}
+        <h2>ONG selecionada</h2>
+        <hr>
+        <h4 style="color: #32AF98">{{title}}</h4>
+
+        <p>{{category.title}} | {{section.title}}</p>
+        <headText for="vision">Visão:</headText>
+        <p id="vision">{{vision}}</p>
+        <headText for="whatitneeds">O que faz:</headText>
+        <p id="whatitneeds">{{whatitneeds}}</p>
+        <headText for="location">localização:</headText>
+        <p id="location">{{city.name}}</p>
+        <!-- <div class="img" style="margin-top:20px; background-image:url('{{logoURL}}');"></div> -->
+        <br>
+        <button type="button" id="login" class="btn btn-default navbar-btn btn-theme-bg" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Descrição</button>
+        <!-- <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Descrição
+        </a> -->
+        <div class="collapse" id="collapseExample">
+          <div class="well">
+            {{description}}
+          </div>
+        </div>
+
+
+      {{/with}}
     </div>
     <div class="col-md-offset-1 col-md-6">
+
       {{#if stepEquals 'stepOne'}}
-        <section class="register">
-                <form name="stepOne" class="form-horizontal">
+        <section class="register" >
+                <headText>Basta inserir as datas para que possamos alocar sua doação ao evento por {{author}} melhor</headText>
+                <form name="stepOne" class="form-horizontal" style="margin-top: 2em;">
                     <div class="form-group">
-                        <label for="registerName" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Name</label>
+                        <label for="registerName" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Nome</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="registerName" placeholder="Name">
+                            <input type="text" class="form-control" id="registerName">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="registerBirthday" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Birthday</label>
+                        <label for="registerBirthday" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Aniversário</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="registerBirthday" placeholder="Birthday">
+                            <input type="text" class="form-control" id="registerBirthday" >
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Gender</label>
+                        <label class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Sexo</label>
                         <div class="col-sm-10">
                             <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="radioButtonMale" value="male" checked> Male
+                                <input type="radio" name="inlineRadioGender" id="radioButtonMale" value="male" checked> Masculino
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="radioButtonFemale" value="female"> Female
+                                <input type="radio" name="inlineRadioGender" id="radioButtonFemale" value="female"> Fêmea
                             </label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email-field1" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="email-field1" placeholder="Email">
+                            <input type="email" class="form-control" id="email-field1">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="email-field2" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Email (confirm)</label>
                         <div class="col-sm-10">
                             <input type="email" class="form-control" id="email-field2" placeholder="Email confirmation">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <div class="col-sm-10">
-                            <button type="submit" id="stepOneButton" class="btn btn-default register">Next</button>
+                            <button type="submit" id="stepOneButton" class="btn btn-default register">Próximo</button>
                         </div>
                     </div>
                 </form>
@@ -60,11 +84,15 @@
 
       {{#if stepEquals 'stepTwo'}}
         <section class="register">
-                <form name="stepTwo" class="form-horizontal">
-                    <h4>Choose product or insert donation amount</h4>
-                    <p>Value: {{donationAmount}}</p>
+                <headText>Eles escolhem a quantia que querem doar e fazem a transferência no nosso próprio site, com o cartão de crédito ou PayPal</headText>
+                <form name="stepTwo" class="form-horizontal" style="margin-top: 2em;">
+                    <p style="font-size: 20px;">Sugestão de doação por {{author}}: <span style="font-size: 24; color: #32AF98;">R$ {{suggestedValue}}</span></p>
+                    <p style="font-size: 20px;">Montante da Doação: <span style="font-size: 24; color: #EA6651;">R$ {{donationAmount}}</span></p>
                     <input id="slider" type="range" min="0" max="20" value={{sliderPosition}} />
 
+                    <div class="col-sm-12" style="padding: 0px; margin-top: 3em">
+                        <button id="paypal" class="btn btn-default btn-block btn-secondary-theme-bg btn-lg">Pagar com PayPal</button>
+                    </div>
 
 
                     <div class="form-group">
@@ -72,17 +100,16 @@
                             <div class="col-sm-6">
                               <button type="submit" id="stepTwoButtonBack" class="btn btn-default register">Back</button>
                             </div>
-                            <div class="col-sm-6">
-                              <button type="submit" id="stepTwoButtonNext" class="btn btn-default register">Next</button>
-                            </div>
+
                         </div>
                     </div>
                 </form>
+
         </section>
 
       {{/if}}
 
-      {{#if stepEquals 'stepThree'}}
+      <!-- {{#if stepEquals 'stepThree'}}
         <section class="register">
                 <div class="col-sm-10">
                     <button id="paypal" class="btn btn-primary btn-block btn-lg">Pay with PayPal</button>
@@ -96,7 +123,7 @@
                     </div>
                 </form>
         </section>
-      {{/if}}
+      {{/if}} -->
     </div>
   </div>
 </template>
