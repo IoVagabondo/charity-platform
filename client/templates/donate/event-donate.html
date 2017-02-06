@@ -1,16 +1,19 @@
 <template name="eventDonate">
   <div class="appBody">
     <div class="col-md-12 text-center">
-      <h1 style="color: #32AF98; margin-bottom: 2em;">TRANSFORME SUAS CELEBRAÇÕES<br>
+      <h1 style="color: #1E2938; margin-bottom: 2em;">TRANSFORME SUAS CELEBRAÇÕES<br>
         EM EVENTOS DE ALTO IMPACTO</h1>
     </div>
     <div class="col-md-5">
       {{#with initiative}}
-        <h2>ONG selecionada</h2>
+        <h2 style="color: #1E2938">ONG selecionada</h2>
         <hr>
-        <h4 style="color: #32AF98">{{title}}</h4>
+        <h4 style="color: #1E2938">{{title}}</h4>
 
-        <p>{{category.title}} | {{section.title}}</p>
+        <headText for="category">Tipo:</headText>
+        <p>{{category.title}}</p>
+        <headText for="vision">Seção:</headText>
+        <p>{{section.title}}</p>
         <headText for="vision">Visão:</headText>
         <p id="vision">{{vision}}</p>
         <headText for="whatitneeds">O que faz:</headText>
@@ -19,12 +22,12 @@
         <p id="location">{{city.name}}</p>
         <!-- <div class="img" style="margin-top:20px; background-image:url('{{logoURL}}');"></div> -->
         <br>
-        <button type="button" id="login" class="btn btn-default navbar-btn btn-theme-bg" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Descrição</button>
+        <button type="button" id="login" class="btn btn-default navbar-btn btn-blue-color-bg" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Descrição</button>
         <!-- <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           Descrição
         </a> -->
         <div class="collapse" id="collapseExample">
-          <div class="well">
+          <div class="well" style="text-align: justify; font-size: 14px">
             {{description}}
           </div>
         </div>
@@ -36,18 +39,19 @@
 
       {{#if stepEquals 'stepOne'}}
         <section class="register" >
-                <headText>Basta inserir as datas para que possamos alocar sua doação ao evento por {{author}} melhor</headText>
+                <headText>Basta insira seus dados para que possamos identificar sua doação ao evento por {{author}} melhor</headText>
+
                 <form name="stepOne" class="form-horizontal" style="margin-top: 2em;">
                     <div class="form-group">
                         <label for="registerName" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Nome</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="registerName">
+                            <input type="text" class="form-control" id="registerName" value="{{name}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="registerBirthday" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Aniversário</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="registerBirthday" >
+                            <input type="text" class="form-control" id="registerBirthday" value="{{birthday}}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -57,14 +61,20 @@
                                 <input type="radio" name="inlineRadioGender" id="radioButtonMale" value="male" checked> Masculino
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="inlineRadioGender" id="radioButtonFemale" value="female"> Fêmea
+                                <input type="radio" name="inlineRadioGender" id="radioButtonFemale" value="female"> Feminino
                             </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerCPF" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">CPF</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="registerCPF" value="{{cpf}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email-field1" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="email-field1">
+                            <input type="email" class="form-control" id="registerEmail" value="{{email}}">
                         </div>
                     </div>
                     <!-- <div class="form-group">
@@ -75,7 +85,7 @@
                     </div> -->
                     <div class="form-group">
                         <div class="col-sm-10">
-                            <button type="submit" id="stepOneButton" class="btn btn-default register">Próximo</button>
+                            <button type="submit" id="stepOneButton" class="btn btn-default bigNext">Próximo</button>
                         </div>
                     </div>
                 </form>
@@ -84,7 +94,7 @@
 
       {{#if stepEquals 'stepTwo'}}
         <section class="register">
-                <headText>Eles escolhem a quantia que querem doar e fazem a transferência no nosso próprio site, com o cartão de crédito ou PayPal</headText>
+                <headText>Eles escolha a quantia que quer doar e fazem a transferência no nosso próprio site, com o cartão de crédito ou PayPal</headText>
                 <form name="stepTwo" class="form-horizontal" style="margin-top: 2em;">
                     <p style="font-size: 20px;">Sugestão de doação por {{author}}: <span style="font-size: 24; color: #32AF98;">R$ {{suggestedValue}}</span></p>
                     <p style="font-size: 20px;">Montante da Doação: <span style="font-size: 24; color: #EA6651;">R$ {{donationAmount}}</span></p>
@@ -97,7 +107,7 @@
                   <form name="stepThree" class="form-horizontal">
                     <div class="form-group">
                         <div class="col-sm-10">
-                            <div class="col-sm-6">
+                            <div class="col-sm-6" style="padding:0px;">
                               <button type="submit" id="stepTwoButtonBack" class="btn btn-default register">Back</button>
                             </div>
 

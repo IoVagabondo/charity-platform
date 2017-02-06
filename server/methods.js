@@ -262,10 +262,11 @@ Meteor.methods({
     // ########### get paypal token and redirect to paypal.com for login ##########
 
 
-    'createPaypalPayment': function(product, slug) {
+    'createPaypalPayment': function(product, slug, donorId, initiativeId, eventId) {
+      // console.log('donorId', donorId);
+      // console.log('initiativeId', initiativeId);
       var payment, res, token;
       token = Meteor.call('getPaypalToken');
-      console.log(product);
 
       payment = {
         intent: 'sale',
@@ -303,7 +304,10 @@ Meteor.methods({
         },
         data: payment
       });
-      res.data['userId'] = this.userId;
+      res.data['donorId'] = donorId;
+      res.data['initiativeId'] = initiativeId;
+      res.data['eventId'] = eventId;
+
       PaypalPayments.insert(res.data);
       return res.data;
     },
@@ -331,14 +335,12 @@ Meteor.methods({
         }
       });
       payment = res.data;
-      payment['userId'] = this.userId;
       if ((ref = payment.state) === 'approved' || ref === 'pending') {
         PaypalPayments.insert(payment);
       }
       if (payment.state === 'approved') {
         return true;
       } else {
-        console.log(res.data);
         return false;
       }
     }

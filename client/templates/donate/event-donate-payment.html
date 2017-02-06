@@ -28,7 +28,7 @@
         <h2 class="text-center">Pagar com PayPal</h2>
         <hr style="background-color: white; height: 1px">
 
-          <headText for="title">Sua doação para {{author}}</headText>
+          <headText for="title">Sua doação para Surprese</headText>
 
 
         <hr style="background-color: white; height: 1px">
@@ -38,25 +38,25 @@
           {{#each transactions}}
             <p id="donation" style="text-align:left;">
 
-              <span style="float:right;">{{amount.currency}} {{amount.total}}</span>
+              <span style="float:right;">R$ {{amount.total}}</span>
             </p>
 
-            <headText for="fee">Fees</headText>
+            <headText for="fee">Taxas</headText>
             <p id="fee" style="text-align:left;">
               5% taxa PayPal
-              <span style="float:right;">{{amount.currency}} {{paypal_fee amount.total}}</span>
+              <span style="float:right;">R$ {{paypal_fee amount.total}}</span>
             </p>
             <p id="fee" style="text-align:left;">
-              10% mcustos de manutenção Surprese
-              <span style="float:right;">{{amount.currency}} {{surprese_fee amount.total}}</span>
+              10% para custos de manutenção Surprese
+              <span style="float:right;">R$ {{surprese_fee amount.total}}</span>
             </p>
 
             <headText for="donation">Sua doação total</headText>
             <p id="total" style="text-align:left;">
               85% doação total
-              <span style="float:right;">{{amount.currency}} {{bottom_line amount.total}}</span>
+              <span style="float:right;">R$ {{bottom_line amount.total}}</span>
             </p>
-            
+
           {{/each}}
         {{/with}}
 
@@ -70,7 +70,7 @@
           {{/if}}
 
           {{#if payment_status 'successful'}}
-            <div class="alert alert-success" role="alert">Pagamento bem sucedido! Muito obrigado por esta doação!</div>
+            <div class="alert alert-success" role="alert">Pagamento bem sucedido! Muito obrigado pela sua doação!</div>
           {{/if}}
 
           {{#if payment_status 'refused'}}

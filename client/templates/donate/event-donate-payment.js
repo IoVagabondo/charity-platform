@@ -42,15 +42,15 @@ Template.EventDonatePayment.helpers ({
   },
 
   paypal_fee: function(amount){
-    return parseFloat(amount)*0.05.toFixed(2);
+    return (parseFloat(amount)*0.05).toFixed(2);
   },
 
   surprese_fee: function(amount){
-    return parseFloat(amount)*0.10.toFixed(2);
+    return (parseFloat(amount)*0.10).toFixed(2);
   },
 
   bottom_line: function(amount){
-      return parseFloat(amount)*0.85.toFixed(2);
+      return (parseFloat(amount)*0.85).toFixed(2);
   }
 
 

@@ -44,6 +44,26 @@ button.inTable {
 	border: 0px;
 }
 
+button.bigNext {
+	display: block;
+	width: 100%;
+	padding: 10px 20px;
+	margin: 20px auto;
+	border: 1px solid desaturate(lighten(@primary-color, 60%), 40%);
+	background-color: @color-green;
+	color: @white-color;
+	font-size: 15px;
+	text-align: center;
+	.box-sizing(border-box);
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		background-color: darken(@color-green, 10%);;
+		color: #fff;
+	}
+}
+
 .btn-circle {
   width: 40px;
   background-color: transparent;
@@ -119,6 +139,26 @@ button.inTable {
   background: @secondary-color;
   color: @white-color;
 }
+
+
+.btn-blue-color-bg {
+  background: @color-blue-dark;
+  color: @white-color !important;
+	margin-bottom: 10px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+.btn-blue-color-bg:hover {
+  background: darken(@color-blue-dark, 10%);
+  color: @white-color;
+}
+.btn-blue-color-bg:focus {
+  background: @color-blue-dark;
+  color: @white-color;
+}
+
 
 .landingpage {
   border-radius: 0.3em;

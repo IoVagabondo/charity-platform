@@ -1,3 +1,11 @@
+
+
+Template.navbar.helpers({
+    isRouteEvent: function(){
+      return (Router.current().url.includes('events/'));
+    }
+});
+
 Template.navbar.events({
 
     'click #logout': function(e, template) {

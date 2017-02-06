@@ -34,6 +34,7 @@ Template.eventDonate.onRendered(function(){
     $('#registerName').val(Session.get('registerName'));
     $('#registerBirthday').val(Session.get('registerBirthday'));
     $('#registerEmail').val(Session.get('registerEmail'));
+    $('#registerCPF').val(Session.get('registerCPF'));
 
 
     if (Session.get('donationAmount') == undefined){
@@ -77,7 +78,24 @@ Template.eventDonate.helpers({
 
   sliderPosition: function(){
     return Session.get('sliderPosition');
-  }
+  },
+
+  name: function(){
+    return Session.get('registerName');
+  },
+
+  birthday: function(){
+    return Session.get('registerBirthday');
+  },
+
+  cpf: function(){
+    return Session.get('registerCPF');
+  },
+
+  email: function(){
+    return Session.get('registerEmail');
+  },
+
 
 
 });
@@ -88,6 +106,12 @@ Template.eventDonate.events({
   'click #stepOneButton': function(event, template) {
       event.preventDefault();
       var radioElement = template.find('input:radio[name=inlineRadioGender]:checked');
+      // Session.set('registerName',$('#registerName').val());
+      // Session.set('registerBirthday',$('#registerBirthday').val());
+      // Session.set('registerEmail',$('#registerEmail').val());
+      // Session.set('registerCPF',$('#registerCPF').val());
+
+
       // console.log($(element).val());
       if(Session.get('registered') == undefined || Session.get('registered') == 'false'){
         Meteor.call('insertNewDonor', {
@@ -95,6 +119,7 @@ Template.eventDonate.events({
             name: Session.get('registerName'),
             email: Session.get('registerEmail'),
             birthday: Session.get('registerBirthday'),
+            cpf: Session.get('registerCPF'),
             gender: $(radioElement).val(),
 
         }, function(error, response) {
@@ -105,7 +130,6 @@ Template.eventDonate.events({
             } else {
                   Session.set('donorId', response);
                   Session.set('registered', 'true');
-
 
                   Session.set('currentStep', 'stepTwo');
             }
@@ -145,9 +169,10 @@ Template.eventDonate.events({
       description: Session.get('selectedProductDescription'),
       price: Session.get('donationAmount')
     };
-    var slug = Template.instance().data.slug
-    Meteor.call('createPaypalPayment', product, slug, function(err, res) {
-      console.log(res);
+    var slug = Template.instance().data.slug;
+    var initiativeId = Template.instance().data.initiativeId;
+    var eventId = Template.instance().data._id;
+    Meteor.call('createPaypalPayment', product, slug, Session.get('donorId'),initiativeId, eventId, function(err, res) {
       return window.location.replace(res.links[1].href);
     });
   },
@@ -156,7 +181,7 @@ Template.eventDonate.events({
     event.preventDefault();
     var sliderPosition = $('#slider').val();
 
-    var value = Math.exp((sliderPosition - Session.get('sliderMinPos')) * Session.get('scale') + Session.get('minlval'));
+    var value = Math.ceil(Math.exp((sliderPosition - Session.get('sliderMinPos')) * Session.get('scale') + Session.get('minlval'))/5)*5;;
     Session.set('donationAmount', value.toFixed(0));
     Session.set('sliderPosition',sliderPosition);
 
@@ -182,7 +207,17 @@ Template.eventDonate.events({
       }, 300);
   },
 
-  'input #email-field1': function(evt) {
+  'input #registerCPF': function(evt) {
+      var self = this;
+      if (handle)
+          clearTimeout(handle);
+      handle = setTimeout(function() {
+          var query = $(evt.target).val();
+          Session.set('registerCPF', query);
+      }, 300);
+  },
+
+  'input #registerEmail': function(evt) {
       var self = this;
       if (handle)
           clearTimeout(handle);

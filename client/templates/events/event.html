@@ -46,12 +46,12 @@
         <div class="row">
           <div class="col-md-2">
             <headText for="date">Quando?</headText>
-            <p style="font-size: 22px; color: #32AF98;" id="date">{{date}}</p>
+            <p style="font-size: 22px; color: #1E2938;" id="date">{{date}}</p>
             <headText for="suggestedValue">Onde?</headText>
-            <p style="font-size: 22px; color: #32AF98;" id="suggestedValue">{{location}}</p>
+            <p style="font-size: 22px; color: #1E2938;" id="suggestedValue">{{location}}</p>
           </div>
-          <div class="col-md-7">
-            <h1 style="color: #32AF98">{{title}}</h1>
+          <div class="col-md-7" style="padding-right: 4em; text-align: justify;">
+            <h1 style="color: #1E2938">{{title}}</h1>
             <p id="descriptionText">{{description}}</p>
             <div class="space-50"></div>
             {{#with initiative}}
@@ -62,8 +62,12 @@
             <button type="button" id="donateButton" style="margin-bottom: 1em;" class="btn btn-block btn-primary btn-lg">Doe agora!</button>
             <div style="padding-left: 0px;" class="col-md-12">
                 {{#with initiative}}
-                <h4 style="color: #32AF98">{{title}}</h4>
-                <p>{{category.title}} | {{section.title}}</p>
+                <h4 style="color: #1E2938">{{title}}</h4>
+
+                <headText for="category">Tipo:</headText>
+                <p>{{category.title}}</p>
+                <headText for="vision">Seção:</headText>
+                <p>{{section.title}}</p>
                 <headText for="vision">Visão:</headText>
                 <p id="vision">{{vision}}</p>
                 <headText for="whatitneeds">O que faz:</headText>
