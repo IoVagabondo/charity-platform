@@ -1,27 +1,32 @@
 <template name="initiativeDetailsSidebarWidgets">
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-xs-12">
-        <a href="/createEvent/{{_id}}" class="btn btn-theme-bg btn-md btn-block">Create Event to Donate</a>
+        <a href="/createEvent/{{_id}}" class="btn btn-theme-bg btn-md btn-block">Criar evento para doação</a>
       </div>
+    </div> -->
+    <div class="row" style="margin-left: 15px; margin-right: 15px;">
+      <div class="img-logo-event" style="background-image:url('{{logoURL}}');"></div>
     </div>
+
+
     {{#if isInRole 'admin'}}
       <!-- Admin Widget -->
       <div class="sidebar-widget">
         <h4 class="text-uppercase">Admin</h4>
-        <a href="/initiatives/{{slug}}/edit" class="btn btn-theme-bg input-block-level">Edit Details</a>
-        <a href="/initiatives/{{slug}}/edit-products" class="btn btn-theme-bg input-block-level">Edit Products</a>
-        <a href="#" id="delete" class="btn btn-theme-bg input-block-level">Delete</a>
+        <a href="/initiatives/{{slug}}/edit" class="btn btn-theme-bg input-block-level">Editar</a>
+        <a href="/initiatives/{{slug}}/edit-products" class="btn btn-theme-bg input-block-level">Editar produtos</a>
+        <a href="#" id="delete" class="btn btn-theme-bg input-block-level">Excluir</a>
       </div>
     {{/if}}
 
+
     <!-- Meta Data Widget -->
     <div class="sidebar-widget">
-      <h4 class="text-uppercase">Background</h4>
+      <h4 class="text-uppercase">Informações</h4>
 
-      <p><i class="fa fa-map-marker"></i> {{city}} - {{country}}</p>
       <p><i class="fa fa-compass" aria-hidden="true"></i> {{foundingYear}}</p>
       <p><i class="fa fa-user" aria-hidden="true"></i> {{contact.contactPerson}}</p>
-      <p><i class="fa fa-external-link" aria-hidden="true"></i><a href="{{website}}"> Website Link</a></p>
+      <p><i class="fa fa-external-link" aria-hidden="true"></i><a href="{{website}}"> Link website</a></p>
 
     </div>
 
@@ -37,11 +42,11 @@
 
     <!--end sidebar widget -->
     <div class="sidebar-widget text-center">
-        <h4 class="text-uppercase">NGO still missing?</h4>
+        <h4 class="text-uppercase">ONG ainda está faltando?</h4>
         <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse.
+            Envie-nos a sua opinião pessoal, o que deve adicionar ONG
         </p>
-        <a href="#" id="suggestNGO" class="btn btn-md btn-block btn-theme-bg">Suggest NGO</a>
+        <a href="#" id="suggestNGO" class="btn btn-md btn-block btn-theme-bg">Sugerir uma ONG</a>
     </div>
     <!--end sidebar widget col-->
     {{> suggestNGOModal}}

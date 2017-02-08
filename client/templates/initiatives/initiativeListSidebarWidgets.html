@@ -11,15 +11,15 @@
 
 
     <!-- Search widget -->
-    <div class="sidebar-widget search-widget">
+    <!-- <div class="sidebar-widget search-widget">
         <form>
             <input type="text" class="form-control" placeholder="Search here..">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
-    </div>
+    </div> -->
     <!--end sidebar widget-->
     <div class="sidebar-widget">
-        <h4 class="text-uppercase">Categories</h4>
+        <h4 class="text-uppercase">Tipos</h4>
         <ul class="list-unstyled">
           {{#each categoriesList}}
               <li><a href="#" id="{{_id}}">{{title}}</a></li>
@@ -28,7 +28,7 @@
     </div>
     <!--end sidebar widget col-->
     <div class="sidebar-widget">
-        <h4 class="text-uppercase">Sections</h4>
+        <h4 class="text-uppercase">Seçãos</h4>
         <ul class="list-inline tags">
           {{#each sectionsList}}
               <li><a href="#" id="{{_id}}">{{title}}</a></li>
@@ -74,18 +74,18 @@
 
                 </div>
             </li>
-          
+
         </ul>
     </div> -->
 
 
     <!--end sidebar widget -->
     <div class="sidebar-widget text-center">
-        <h4 class="text-uppercase">NGO still missing?</h4>
+        <h4 class="text-uppercase">ONG ainda está faltando?</h4>
         <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse.
+            Envie-nos a sua opinião pessoal, o que deve adicionar ONG
         </p>
-        <a href="#" id="suggestNGO" class="btn btn-lg btn-block btn-secondary-theme-bg">Suggest NGO</a>
+        <a href="#" id="suggestNGO" class="btn btn-md btn-block btn-theme-bg">Sugerir uma ONG</a>
     </div>
     <!--end sidebar widget col-->
     {{> suggestNGOModal}}

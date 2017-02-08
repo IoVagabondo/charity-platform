@@ -1,9 +1,9 @@
 // #Security with allow and deny rules -> Adding Events using a method call
 
 this.paypalConf = {
-  host: "api.sandbox.paypal.com",
-  clientId: "AdaNORaU1gtMWFEyG6iTARnLpMBAiUC2R0S4Nsqxjo3Vj7l6XqNIX6RHR6FAMSY5F-Skrw5hS5F7m33L",
-  clientSecret: "EFb3aZIbppN68udKdFGNGuPLxBZBMJ42e5bw5HqqsShj0qgUgdzQozPYZZcpcuNpD171d81igJpPchXb"
+  host: "api.paypal.com",
+  clientId: "AS8WyV4B6biidNbydT19QV4oJmU1i1GMtn2tNxpa9lgItiCIl1pDNP0b5_XCOLKNL1uXJvVRmyO7Vp_v",
+  clientSecret: "EPukXCfN-gcHPoG9jr5gvJwxgafNPBPw76465MpRclV9-5mAGFFGu-NT592HJVXrq0KFnma8aORMWBu_"
 };
 
 Meteor.methods({
@@ -241,9 +241,9 @@ Meteor.methods({
         isTokenValid = Math.ceil((new Date().getTime() - token.timestamp) / 1000);
       }
       if (isTokenValid === 0 || isTokenValid > token.expires_in) {
-        console.log('#### No TOKEN found');
+        // console.log('#### No TOKEN found');
         auth = paypalConf['clientId'] + ':' + paypalConf['clientSecret'];
-        token = EJSON.parse(Meteor.http.post('https://api.sandbox.paypal.com/v1/oauth2/token', {
+        token = EJSON.parse(Meteor.http.post('https://api.paypal.com/v1/oauth2/token', {
           headers: {
             'Accept': 'application/json',
             'Accept-Language': 'en_US'
@@ -297,7 +297,7 @@ Meteor.methods({
           }
         ]
       };
-      res = Meteor.http.post('https://api.sandbox.paypal.com/v1/payments/payment', {
+      res = Meteor.http.post('https://api.paypal.com/v1/payments/payment', {
         headers: {
           Authorization: 'Bearer ' + token.access_token,
           'Content-Type': 'application/json'
@@ -324,7 +324,7 @@ Meteor.methods({
         }
       });
       token = Meteor.call('getPaypalToken');
-      url = 'https://api.sandbox.paypal.com/v1/payments/payment/' + payment.id + '/execute';
+      url = 'https://api.paypal.com/v1/payments/payment/' + payment.id + '/execute';
       res = Meteor.http.post(url, {
         headers: {
           Authorization: 'Bearer ' + token.access_token,

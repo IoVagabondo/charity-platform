@@ -17,7 +17,7 @@
           <div class="row">
               <div class="col-md-7">
                 <headText for="descriptionText">Description:</headText>
-                <p id="descriptionText">{{description}}</p>
+                <p id="descriptionText">{{{description}}}</p>
                 <headText for="date">Date:</headText>
                 <p id="date">{{date}}</p>
                 <headText for="suggestedValue">Suggested Value:</headText>
@@ -52,7 +52,7 @@
           </div>
           <div class="col-md-7" style="padding-right: 4em; text-align: justify;">
             <h1 style="color: #1E2938">{{title}}</h1>
-            <p id="descriptionText">{{description}}</p>
+            <p id="descriptionText">{{{description}}}</p>
             <div class="space-50"></div>
             {{#with initiative}}
             <headText style="font-size: 10px;">O anfitrião desse evento escolheu a ONG {{title}} para ser apoiada através de seus presentes. Se você quiser transformar seu presente em uma doação e assim ajudar o {{title}}, basta clicar em 'doe agora' e seguir os passos. Com exceção de uma pequena taxa que usamos para manter o site no ar, todo o dinheiro é encaminhado para a instituição escolhida. Qualquer dúvida, conte conosco! Time do Surprese</headText>
@@ -70,9 +70,11 @@
                 <p>{{section.title}}</p>
                 <headText for="vision">Visão:</headText>
                 <p id="vision">{{vision}}</p>
+                <headText for="howithelps">Como isso ajuda:</headText>
+                <p id="howithelps">{{howithelps}}</p>
                 <headText for="whatitneeds">O que faz:</headText>
                 <p id="whatitneeds">{{whatitneeds}}</p>
-                <headText for="location">localização:</headText>
+                <headText for="location">Localização:</headText>
                 <p id="location">{{city.name}}</p>
                 <div class="img-logo-event" style="margin-top:20px; background-image:url('{{logoURL}}');"></div>
                 {{/with}}
