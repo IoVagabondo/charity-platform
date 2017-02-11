@@ -5,10 +5,15 @@ Template.editEvent.helpers({
   saveButtonText: function(){
     return Session.get('saveButton');
   },
+  
   initiatives: function(){
     return Initiatives.find({});
 
-   }
+  },
+
+  hasId: function() {
+      return this._id;
+  },
 });
 
 
@@ -64,6 +69,29 @@ Template.editEvent.events({
 			});
 
         }
+    },
+
+    'change #uploadImage' (event, template) {
+        file = Modules.client.uploadToAmazonS3({ event: event, template: template, id: this._id }, function(id, url) {
+            if (url) {
+                if (id) {
+                    Initiatives.update(id, {
+                        $set: {
+                            imageURL: url
+
+                        }
+                    }, function(error) {
+                        if (error) {
+                            Bert.alert(error.reason, "warning");
+                        } else {
+                            // TODO
+                        }
+                    });
+
+                }
+
+            }
+        });
     },
 
 

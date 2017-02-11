@@ -7,36 +7,47 @@ Meteor.startup(function(){
 	if(Meteor.users.find().count() === 0) {
 
 		var userId = Accounts.createUser({
-			username: 'sven@primi.io',
-			email: 'sven@primi.io',
+			username: 'sven@surprese.me',
+			email: 'sven@surprese.me',
 			password: '1234',
 			profile: {
 				name: 'Sven Rossmann'
 			}
 		});
 
-		Roles.addUsersToRoles(userId, ['admin'], 'employees');
+		Roles.addUsersToRoles(userId, ['admin']);
 
 		var userId = Accounts.createUser({
-			username: 'bea@primi.io',
-			email: 'bea@primi.io',
+			username: 'bea@surprese.me',
+			email: 'bea@surprese.me',
 			password: '1234',
 			profile: {
-				name: 'Bea Zanforlin'
+				name: 'Ana Beatriz G. Zanforlin'
 			}
 		});
 
-		Roles.addUsersToRoles(userId, ['admin'], 'employees');
+		Roles.addUsersToRoles(userId, ['admin']);
 
 		var userId = Accounts.createUser({
-			username: 'mia',
-			email: 'mia@example.com',
+			username: 'gabi@surprese.me',
+			email: 'gabi@surprese.me',
+			password: '1234',
+			profile: {
+				name: 'Gabriela Marques'
+			}
+		});
+
+		Roles.addUsersToRoles(userId, ['admin']);
+
+		var userId = Accounts.createUser({
+			username: 'mia@surprese.me',
+			email: 'mia@surprese.me',
 			password: '1234',
 			profile: {
 				name: 'Mia Zehnicker'
 			}
 		});
 
-		Roles.addUsersToRoles(userId, [], 'default-group');
+		Roles.addUsersToRoles(userId, ['user']);
 	}
 });

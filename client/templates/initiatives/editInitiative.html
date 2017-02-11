@@ -3,11 +3,21 @@
       {{> inAppNavBar}}
         <div>
             <form>
+                <headText>Informações com base</headText>
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Awesome title" value="{{title}}">
                 </div>
+                <div class="form-group">
+                    <label for="website">Link to website</label>
+                    <input type="text" class="form-control" id="website" name="website" value="{{website}}">
+                </div>
+                <div class="form-group">
+                    <label for="foundingYear">Founding year</label>
+                    <input type="text" class="form-control" id="foundingYear" name="foundingYear" value="{{foundingYear}}">
+                </div>
                 <hr>
+                <headText>Descrição detalhada</headText>
                 <div class="form-group">
                     <label for="vision">Vision</label>
                     <input type="text" class="form-control" id="vision" name="vision" value="{{vision}}">
@@ -20,11 +30,6 @@
                     <label for="whatitneeds">What it needs</label>
                     <input type="text" class="form-control" id="whatitneeds" name="whatitneeds" value="{{whatitneeds}}">
                 </div>
-                <div class="form-group">
-                    <label for="website">Link to website</label>
-                    <input type="text" class="form-control" id="website" name="website" value="{{website}}">
-                </div>
-                <hr>
                 <div class="form-group">
                     <label for="description">Complete description</label>
                     <textarea name="description" class="form-control" id="description" placeholder="Short description" rows="3">{{description}}</textarea>
@@ -56,6 +61,8 @@
                         {{/each}}
                     </select>
                 </div>
+                <hr>
+                <headText>Dados de contacto da pessoa de contacto</headText>
                 <div class="form-group">
                     <label for="contactPerson">Contact Person</label>
                     <input type="text" class="form-control" id="contactPerson" name="contactPerson" value="{{contact.contactPerson}}">
@@ -84,10 +91,7 @@
                     <label for="contactCountry">Country </label>
                     <input type="text" class="form-control" id="contactCountry" name="contactCountry" value="{{contact.contactCountry}}">
                 </div>
-                <div class="form-group">
-                    <label for="foundingYear">Founding year</label>
-                    <input type="text" class="form-control" id="foundingYear" name="foundingYear" value="{{foundingYear}}">
-                </div>
+
                 <button type="submit" class="save">{{saveButtonText}}</button>
             </form>
         </div>

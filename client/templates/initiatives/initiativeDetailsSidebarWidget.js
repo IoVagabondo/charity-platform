@@ -5,7 +5,6 @@ Template.initiativeDetailsSidebarWidgets.events({
   },
 
   'click #deleteInitiative': function(event,template) {
-    console.log('asdasdad')
       event.preventDefault();
       Meteor.call('deleteInitiative', this._id,
         function(error, slug) {
