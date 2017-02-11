@@ -1,10 +1,10 @@
-// Template.steps.onCreated(function(){
-//   var currentStep =  Session.get('currentStep');
-//   if (currentStep == undefined){
-//     currentStep = 'welcome';
-//   }
-//   Session.set('currentStep', currentStep);
-// });
+Template.steps.onCreated(function(){
+  var currentStep =  Session.get('currentStep');
+  if (currentStep == undefined){
+    currentStep = 'welcome';
+  }
+  Session.set('currentStep', currentStep);
+});
 
 Template.steps.helpers({
   stepEquals: function(step){
