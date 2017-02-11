@@ -1,51 +1,36 @@
 <template name="homescreen">
     <div class="appBody">
+
         <div class="row">
             <div class="col-md-6 text-left">
-                <h2>Impact Panel</h2>
+                <h2>Painel de Impacto</h2>
             </div>
-            <div class="col-md-offset-4 col-md-2 text-right">
-                <button type="button" class="btn btn-primary newEvent">Create new event</button>
+            <div class="col-md-offset-3 col-md-3 text-right">
+                <button type="button" class="btn btn-primary newEvent">Criar novo evento</button>
             </div>
         </div>
+
         <hr class="margin-t-0">
+
         <div class="row">
+
             <div class="col-md-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title text-center"><strong>Your pending event</strong></h3>
-                    </div>
-                    <div class="panel-body pendingEvent">
-                        <p>Name: </p>
-                        <p>Date: </p>
-                        <p>Funding: </p>
-                    </div>
-                </div>
+                  {{#each eventsList}} {{> eventListItem}} {{/each}}
+                  <button class="lazyload">Carregar mais eventos</button>
             </div>
+
             <div class="col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title text-center"><strong>Your account</strong></h3>
+                        <h3 class="panel-title text-center"><strong>Sua conta</strong></h3>
                     </div>
                     <div class="panel-body">
-                        <p>Last Event: </p>
-                        <p>Last Funding: </p>
-                        <hr>
                         <p>Number of events: </p>
                         <p>Total Funding: </p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-
-            <div class="col-md-9">
-                <h4 class="text-center">Past events</h4>
-            	<hr style="max-width: 80px">
-                {{#each eventsList}} {{> eventListItem}} {{/each}}
-                <button class="lazyload">Load more</button>
-            </div>
         </div>
     </div>
 </template>

@@ -1,34 +1,7 @@
 <template name="event">
 
     <div class="appBody" style="margin-bottom: 4em;">
-        {{#if iAmOwner owner}}
-            <div class="row">
-              <div class="col-md-12">
-                <h1>{{title}}</h1> <small>Access link: <span id="input-clipboard">http://surprese.me/events/{{slug}}</span> | <a href="#" id="copyAccessLink"> Copy Link</a></small>
-                <br>
-                <small>
-    				    Posted {{formatTime timeCreated "fromNow"}} by {{author}} | <a href="/events/{{slug}}/edit">Edit Event</a>
-    			        | <a href="#" id="delete" >Delete Event</a>
-                </small>
-                <hr>
-            </div>
-
-          </div>
-          <div class="row">
-              <div class="col-md-7">
-                <headText for="descriptionText">Description:</headText>
-                <p id="descriptionText">{{{description}}}</p>
-                <headText for="date">Date:</headText>
-                <p id="date">{{date}}</p>
-                <headText for="suggestedValue">Suggested Value:</headText>
-                <p id="suggestedValue">{{suggestedValue}}</p>
-              </div>
-              <div class="col-md-offset-1 col-md-4">
-                  Statistic
-              </div>
-          </div>
-
-        {{else}}
+        
         <headText>Evento</headText>
         <div class="row">
           <div class="col-md-12">
@@ -49,6 +22,10 @@
             <p style="font-size: 22px; color: #1E2938;" id="date">{{date}}</p>
             <headText for="location">Onde?</headText>
             <p style="font-size: 22px; color: #1E2938; text-align:left;" id="location">{{location}}</p>
+            {{#if iAmOwner owner}}
+            <p><a type="button" href="/events/{{slug}}/edit" style="color: white;" class="btn btn-block btn-primary btn-sm">Editar</a></p>
+            <p><a type="button" href="#" id="delete"  style="color: white;" class="btn btn-block btn-primary btn-sm">Excluir</a></p>
+            {{/if}}
           </div>
           <div class="col-md-7" style="padding-right: 4em; text-align: justify;">
             <h1 style="color: #1E2938">{{title}}</h1>
@@ -79,63 +56,9 @@
                 <div class="img-logo-event" style="margin-top:20px; background-image:url('{{logoURL}}');"></div>
                 {{/with}}
 
-
-
-
-
-
             </div>
           </div>
         </div>
-
-
-
-          <!-- <div class="row">
-            <div class="col-md-9">
-              <h1>{{title}}</h1>
-              <p>Inivitation by <i class="fa fa-heart" aria-hidden="true"></i> from {{author}}</p>
-            </div>
-            <div class="col-md-offset-1 col-md-2" style="text-align: right;">
-                <button type="button" id="donateButton" class="btn btn-block btn-primary btn-lg">Donate</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-7">
-              <hr>
-              <headText for="descriptionText">Invitation text:</headText>
-              <p id="descriptionText">{{description}}</p>
-              <headText for="date">When?</headText>
-              <p id="date">{{date}}</p>
-              <headText for="suggestedValue">Where?</headText>
-              <p id="suggestedValue">{{location}}</p>
-
-            </div>
-            <div class="col-md-offset-1 col-md-4">
-              <img style="max-width: 400px;" src="{{pictureURL}}" />
-
-            </div>
-          </div>
-          <hr>
-          {{#with initiative}}
-          <h4>Selected Initiative: {{title}}</h4>
-          <div class="row">
-
-            <div class="col-md-1">
-              <img style="max-width: 180px;" src="{{imageURL}}" />
-              <span>more informations</span>
-            </div>
-            <div class="col-md-offset-2 col-md-9">
-              <headText for="vision">Vision:</headText>
-              <p id="vision">{{vision}}</p>
-              <headText for="whatitneeds">What it needs:</headText>
-              <p id="whatitneeds">{{whatitneeds}}</p>
-              <headText for="location">Location:</headText>
-              <p id="location">{{location}}</p>
-            </div>
-
-          </div>
-          {{/with}} -->
-        {{/if}}
 
     </div>
 </template>
