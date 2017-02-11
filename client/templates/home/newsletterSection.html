@@ -3,25 +3,23 @@
 
   <section class="newsletter">
     {{#if newsletter_subscribed}}
+    <form>
       <div class="row">
-        <div class="col-xs-12 text-center">
-          <h2>Receba uma notificação quando fizermos o lançamento!</h2>
-        </div>
-        <div class="col-sm-offset-2 col-sm-8 col-xs-12">
-          <form>
-            <div class="input-group">
-              <input type="text" name="email" id="email" class="form-control" placeholder="Email">
-              <span class="input-group-btn">
-                <button id="btn-newsletter-footer" name="btn-newsletter-footer" class="btn btn-landingpage-footer btn-secondary-theme-bg" type="submit">Enviar</button>
-              </span>
-            </div>
-          </form>
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <label for="email">Receba uma notificação quando fizermos o lançamento!</label>
+          <div class="well">
+            <input type="text" name="email" id="email" placeholder="E-mail">
+            <button id="btn-newsletter-footer" name="btn-newsletter-footer" class="btn btn-primary pull-right margin-t-30" type="submit">Enviar</button>
+            <div class="clearfix"></div>
+          </div>
         </div>
       </div>
+    </form>
     {{else}}
     <div class="row">
-      <div class="col-xs-12 text-center">
-        <h2>Obrigado! Você agora faz parte da família <i class="fa fa-heart" aria-hidden="true"></i> </h2>
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <h2>Obrigado!</h2>
+        <p>Você agora faz parte da família! <i class="fa fa-heart" aria-hidden="true"></i></p>
       </div>
     </div>
     {{/if}}

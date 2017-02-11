@@ -4,7 +4,7 @@
       <!-- Admin Widget -->
       <div class="sidebar-widget">
         <h4 class="text-uppercase">Admin</h4>
-        <a href="/create-initiative" class="btn btn-theme-bg">Add Initiative</a>
+        <a href="/create-initiative" class="btn btn-primary btn-block">Nova instituição</a>
       </div>
     {{/if}}
 
@@ -19,7 +19,7 @@
     </div> -->
     <!--end sidebar widget-->
     <div class="sidebar-widget">
-        <h4 class="text-uppercase">Tipos</h4>
+        <h4 class="text-uppercase">Categorias</h4>
         <ul class="list-unstyled">
           {{#each categoriesList}}
               <li><a href="#" id="{{_id}}">{{title}}</a></li>
@@ -28,7 +28,7 @@
     </div>
     <!--end sidebar widget col-->
     <div class="sidebar-widget">
-        <h4 class="text-uppercase">Seçãos</h4>
+        <h4 class="text-uppercase">Público-alvo</h4>
         <ul class="list-inline tags">
           {{#each sectionsList}}
               <li><a href="#" id="{{_id}}">{{title}}</a></li>
@@ -80,12 +80,12 @@
 
 
     <!--end sidebar widget -->
-    <div class="sidebar-widget text-center">
-        <h4 class="text-uppercase">ONG ainda está faltando?</h4>
+    <div class="sidebar-widget">
+        <h4 class="text-uppercase">Falta alguma ONG?</h4>
         <p>
-            Envie-nos a sua opinião pessoal, o que deve adicionar ONG
+          Envie para a gente a sua sugestão!
         </p>
-        <a href="#" id="suggestNGO" class="btn btn-md btn-block btn-theme-bg">Sugerir uma ONG</a>
+        <a href="#" id="suggestNGO" class="btn btn-secondary btn-block margin-t-30">Sugerir uma ONG</a>
     </div>
     <!--end sidebar widget col-->
     {{> suggestNGOModal}}

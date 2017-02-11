@@ -8,53 +8,49 @@ body {
  	overflow-y: scroll;
 }
 
-a, a:visited {
+a:visited {
 	text-decoration: none;
-	color: @primary-color;
-
-	&:hover,
-	&:focus {
-		color: lighten(@primary-color, 20%);
-	}
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   text-decoration: none;
   outline: 0 !important;
-  color: @primary-color;
+  color: @color-primary;
 }
 
-a.head {
-	color: @white-color;
-}
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0px;
-	letter-spacing: .0106rem;
-	line-height: 1.2;
+  margin: 0;
+	font-family: @font-primary;
 }
 
 h1 {
-	font-family: @font-primary;
   font-size: @font-size-xlarge;
-	color: @color-secondary;
+	font-weight: @font-weight-bold;
+	line-height: 1.5;
+	color: @color-text;
 }
 
 h2 {
-	font-family: @font-primary;
-	font-size: @font-size-large;
-	color: @color-secondary;
+  margin-top:40px;
+	margin-bottom: 20px;
+	font-size: @font-size-medium;
+	font-weight: @font-weight-regular;
+	text-transform: uppercase;
+	color: @color-text;
 }
 
 h3 {
-	font-family: @font-primary;
 	font-size: @font-size-large;
-	color: @color-primary;
+  font-weight: @font-weight-bold;
+	color: @color-text;
 }
 
 p {
 	font-size: @font-size-medium;
-	margin: 0px 0px 10px;
+  margin-top: 20px;
+  margin-bottom: 0;
 	text-align: justify;
 	line-height: 1.3;
 }

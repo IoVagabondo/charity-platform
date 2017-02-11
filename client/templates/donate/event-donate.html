@@ -4,9 +4,9 @@
       <h1 style="color: #1E2938; margin-bottom: 2em;">TRANSFORME SUAS CELEBRAÇÕES<br>
         EM EVENTOS DE ALTO IMPACTO</h1>
     </div>
-    <div class="col-md-5">
+    <!-- <div class="col-md-5">
       {{#with initiative}}
-        <!-- <h2 style="color: #1E2938">ONG selecionada</h2> -->
+        <h2 style="color: #1E2938">ONG selecionada</h2>
         <div class="row">
           <div class="col-sm-6">
             <div class="img-logo-event" style="height: 60px; margin-top:20px; background-image:url('{{logoURL}}');"></div>
@@ -25,12 +25,12 @@
         <p id="whatitneeds">{{whatitneeds}}</p>
         <headText for="location">localização:</headText>
         <p id="location">{{city.name}}</p>
-        <!-- <div class="img" style="margin-top:20px; background-image:url('{{logoURL}}');"></div> -->
+        <div class="img" style="margin-top:20px; background-image:url('{{logoURL}}');"></div>
         <br>
         <button type="button" id="login" class="btn btn-default navbar-btn btn-blue-color-bg" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Descrição</button>
-        <!-- <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           Descrição
-        </a> -->
+        </a>
         <div class="collapse" id="collapseExample">
           <div class="well" style="text-align: justify; font-size: 14px">
             {{{description}}}
@@ -39,89 +39,115 @@
 
 
       {{/with}}
-    </div>
-    <div class="col-md-offset-1 col-md-6">
+    </div> -->
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
 
       {{#if stepEquals 'stepOne'}}
         <section class="register" >
-                <div class="col-sm-10" style="padding: 0px;">
-                  <headText>Basta inserir seus dados para que possamos identificar sua doação</headText>
-                </div>
+          <h2>Evento de {{author}}</h2>
+          <div class="well">
+            <h3>{{title}}</h3>
+            <headText>ONG selecionada</headText>
+            {{#with initiative}}
+            <p>{{title}}</p>
+            {{/with}}
+          </div>
+          <h2>Doação</h2>
+          <div class="well">
+            <p>Insira seus dados para que possamos identificar sua doação.</p>
 
-                <form name="stepOne" class="form-horizontal" style="margin-top: 2em;">
-                    <div class="form-group">
-                        <label for="registerName" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Nome</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="registerName" value="{{name}}">
-                        </div>
+            <form name="stepOne" class="" style="margin-top: 2em;">
+                <div class="form-group">
+                    <label for="registerName" class="control-label" style="text-align: left; margin-right: 10px">Nome</label>
+                    <div class="">
+                        <input type="text" class="form-control" id="registerName" value="{{name}}">
                     </div>
-                    <div class="form-group">
-                        <label for="registerBirthday" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Aniversário</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="registerBirthday" value="{{birthday}}">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="registerBirthday" class="control-label" style="text-align: left; margin-right: 10px">Aniversário</label>
+                    <div class="">
+                        <input type="text" class="form-control" id="registerBirthday" value="{{birthday}}">
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Sexo</label>
-                        <div class="col-sm-10">
-                            <label class="radio-inline">
-                                <input type="radio" name="inlineRadioGender" id="radioButtonMale" value="male" checked> Masculino
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="inlineRadioGender" id="radioButtonFemale" value="female"> Feminino
-                            </label>
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label class=" control-label" style="text-align: left; margin-right: 10px">Sexo</label>
+                    <div class="">
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioGender" id="radioButtonMale" value="male" checked> Masculino
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioGender" id="radioButtonFemale" value="female"> Feminino
+                        </label>
                     </div>
-                    <div class="form-group">
-                        <label for="registerCPF" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">CPF</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="registerCPF" value="{{cpf}}">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="registerCPF" class=" control-label" style="text-align: left; margin-right: 10px">CPF</label>
+                    <div class="">
+                        <input type="text" class="form-control" id="registerCPF" value="{{cpf}}">
                     </div>
-                    <div class="form-group">
-                        <label for="email-field1" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Email</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" id="registerEmail" value="{{email}}">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="email-field1" class=" control-label" style="text-align: left; margin-right: 10px">Email</label>
+                    <div class="">
+                        <input type="email" class="form-control" id="registerEmail" value="{{email}}">
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="email-field2" class="col-sm-4 control-label" style="text-align: left; margin-right: 10px">Email (confirm)</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" id="email-field2" placeholder="Email confirmation">
-                        </div>
-                    </div> -->
-                    <div class="form-group">
-                        <div class="col-sm-10">
-                            <button type="submit" id="stepOneButton" class="btn btn-default bigNext">Próximo</button>
-                        </div>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="email-field2" class=" control-label" style="text-align: left; margin-right: 10px">Email (confirm)</label>
+                    <div class="">
+                        <input type="email" class="form-control" id="email-field2" placeholder="Email confirmation">
                     </div>
-                </form>
+                </div> -->
+                <div class="form-group text-right margin-t-30">
+                    <div class="">
+                        <button type="submit" id="stepOneButton" class="btn btn-primary bigNext">Próximo</button>
+                    </div>
+                </div>
+            </form>
+          </div>
         </section>
       {{/if}}
 
       {{#if stepEquals 'stepTwo'}}
         <section class="register">
-                <headText>Eles escolha a quantia que quer doar e fazem a transferência no nosso próprio site, com o cartão de crédito ou PayPal</headText>
+          <div class="well">
+                <p>Escolha a quantia que deseja doar e faça a transferência através do PayPal.</p>
                 <form name="stepTwo" class="form-horizontal" style="margin-top: 2em;">
-                    <p style="font-size: 20px;">Sugestão de doação do {{author}}: <span style="font-size: 24; color: #32AF98;">R$ {{suggestedValue}}</span></p>
-                    <p style="font-size: 20px;">Montante da Doação: <span style="font-size: 24; color: #EA6651;">R$ {{donationAmount}}</span></p>
-                    <input id="slider" type="range" min="0" max="20" value={{sliderPosition}} />
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                      <p>Valor sugerido pelo anfitrião:</p>
+                      <p style="font-size: 40px;">R$ {{suggestedValue}}</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                      <p>Valor da doação:</p>
+                      <p style="font-size: 40px; color: #32AF98;">R$ {{donationAmount}}</p>
+                      <input id="slider" type="range" min="0" max="20" value={{sliderPosition}} />
+                    </div>
+                  </div>
                 </form>
-                    <div class="col-sm-12" style="padding: 0px; margin-top: 3em">
-                        <button id="paypal" class="btn btn-default btn-block btn-secondary-theme-bg btn-lg">Pagar com  PayPal</button>
+                    <div class="col-sm-12" style="padding: 0px; margin-top: 2em">
+                      <p class="caption text-right">Ao pagar com PayPal você concorda com os
+                        <a href="" class="btn-link">termos de compromisso do surprese</a>.
+                      </p>
+                      <p class="">
+                        <button id="paypal" class="btn btn-primary pull-right">Pagar com PayPal</button>
+                        <button type="submit" id="stepTwoButtonBack" class="btn btn-secondary register pull-left">Back</button>
+                        <div class="clearfix"></div>
+
+                      </p>
                     </div>
 
                   <form name="stepThree" class="form-horizontal">
                     <div class="form-group">
                         <div class="col-sm-10">
                             <div class="col-sm-6" style="padding:0px;">
-                              <button type="submit" id="stepTwoButtonBack" class="btn btn-default register">Back</button>
+
                             </div>
 
                         </div>
                     </div>
                 </form>
-
+          </div>
         </section>
 
       {{/if}}

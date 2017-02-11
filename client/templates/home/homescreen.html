@@ -5,8 +5,10 @@
             <div class="col-md-6 text-left">
                 <h2>Painel de Impacto</h2>
             </div>
-            <div class="col-md-offset-3 col-md-3 text-right">
-                <button type="button" class="btn btn-primary newEvent">Criar novo evento</button>
+
+            <div class="col-md-offset-4 col-md-2 text-right">
+                <button type="button" class="btn btn-primary newEvent">Create event</button>
+
             </div>
         </div>
 
@@ -29,6 +31,16 @@
                         <p>Total Funding: </p>
                     </div>
                 </div>
+            </div>
+          </div>
+
+        <div class="row">
+
+            <div class="col-md-9">
+                <h2 class="text-center">Past events</h2>
+            	<hr style="max-width: 80px">
+                {{#each eventsList}} {{> eventListItem}} {{/each}}
+                <button class="lazyload btn btn-secondary">Load more</button>
             </div>
 
         </div>

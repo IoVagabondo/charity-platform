@@ -1,7 +1,7 @@
 <template name="initiativeDetailsSidebarWidgets">
     <!-- <div class="row">
       <div class="col-xs-12">
-        <a href="/createEvent/{{_id}}" class="btn btn-theme-bg btn-md btn-block">Criar evento para doação</a>
+        <a href="/createEvent/{{_id}}" class="btn btn-primary btn-md btn-block">Criar evento para doação</a>
       </div>
     </div> -->
     <div class="row" style="margin-left: 15px; margin-right: 15px;">
@@ -13,9 +13,11 @@
       <!-- Admin Widget -->
       <div class="sidebar-widget">
         <h4 class="text-uppercase">Admin</h4>
-        <a href="/initiatives/{{slug}}/edit" class="btn btn-theme-bg input-block-level">Editar</a>
-        <!-- <a href="/initiatives/{{slug}}/edit-products" class="btn btn-theme-bg input-block-level">Editar produtos</a> -->
-        <a href="#" id="deleteInitiative" class="btn btn-theme-bg input-block-level">Excluir</a>
+
+        <a href="/initiatives/{{slug}}/edit" class="btn btn-primary input-block-level">Editar</a>
+        <a href="/initiatives/{{slug}}/edit-products" class="btn btn-primary input-block-level">Editar produtos</a>
+        <a href="#" id="delete" class="btn btn-primary input-block-level">Excluir</a>
+
       </div>
     {{/if}}
 
@@ -46,7 +48,7 @@
         <p>
             Envie-nos a sua opinião pessoal, o que deve adicionar ONG
         </p>
-        <a href="#" id="suggestNGO" class="btn btn-md btn-block btn-theme-bg">Sugerir uma ONG</a>
+        <a href="#" id="suggestNGO" class="btn btn-md btn-block btn-primary">Sugerir uma ONG</a>
     </div>
     <!--end sidebar widget col-->
     {{> suggestNGOModal}}

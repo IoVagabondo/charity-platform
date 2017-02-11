@@ -1,16 +1,16 @@
 <template name="formStep2">
 
     <div class="row">
-        <div class="col-md-1">
-            <p>Search</p>
+        <div class="col-md-12">
+          <label for="searchQuery">Search for institution</label>
         </div>
-        <div class="col-md-10 col-xs-12">
-            <input type="text" class="form-control searchQuery" id="searchQuery" name="searchQuery">
-        </div>
-        <div class="col-md-1">
-          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Filter</button>
-        </div>
+          <div class="col-md-9 col-xs-12">
+              <input type="text" class="form-control searchQuery" id="searchQuery" name="searchQuery">
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Search</button>
+          </div>
     </div>
     <div class="space-20"></div>
     <div class="row">
@@ -55,6 +55,6 @@
     {{/if}}
 
      <div class="col-md-12">
-        <button class="lazyload">Load more</button>
+        <button class="lazyload btn btn-secondary">Load more</button>
     </div>
 </template>

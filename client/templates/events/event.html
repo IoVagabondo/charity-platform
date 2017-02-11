@@ -1,7 +1,7 @@
 <template name="event">
 
     <div class="appBody" style="margin-bottom: 4em;">
-        
+
         <headText>Evento</headText>
         <div class="row">
           <div class="col-md-12">
@@ -17,44 +17,57 @@
         </div>
 
         <div class="row">
-          <div class="col-md-2">
-            <headText for="date">Quando?</headText>
-            <p style="font-size: 22px; color: #1E2938;" id="date">{{date}}</p>
-            <headText for="location">Onde?</headText>
-            <p style="font-size: 22px; color: #1E2938; text-align:left;" id="location">{{location}}</p>
-            {{#if iAmOwner owner}}
-            <p><a type="button" href="/events/{{slug}}/edit" style="color: white;" class="btn btn-block btn-primary btn-sm">Editar</a></p>
-            <p><a type="button" href="#" id="delete"  style="color: white;" class="btn btn-block btn-primary btn-sm">Excluir</a></p>
-            {{/if}}
-          </div>
-          <div class="col-md-7" style="padding-right: 4em; text-align: justify;">
-            <h1 style="color: #1E2938">{{title}}</h1>
-            <p id="descriptionText">{{{description}}}</p>
-            <div class="space-50"></div>
-            {{#with initiative}}
-            <headText style="font-size: 10px;">O anfitrião desse evento escolheu a ONG {{title}} para ser apoiada através de seus presentes. Se você quiser transformar seu presente em uma doação e assim ajudar o {{title}}, basta clicar em 'doe agora' e seguir os passos. Com exceção de uma pequena taxa que usamos para manter o site no ar, todo o dinheiro é encaminhado para a instituição escolhida. Qualquer dúvida, conte conosco! Time do Surprese</headText>
-            {{/with}}
-          </div>
-          <div class="col-md-3">
-            <button type="button" id="donateButton" style="margin-bottom: 1em;" class="btn btn-block btn-primary btn-lg">Doe agora!</button>
-            <div style="padding-left: 0px;" class="col-md-12">
-                {{#with initiative}}
-                <h4 style="color: #1E2938">{{title}}</h4>
 
-                <headText for="category">Tipo:</headText>
-                <p>{{category.title}}</p>
-                <headText for="vision">Seção:</headText>
-                <p>{{section.title}}</p>
-                <headText for="vision">Visão:</headText>
-                <p id="vision">{{vision}}</p>
-                <headText for="howithelps">Como isso ajuda:</headText>
-                <p id="howithelps">{{howithelps}}</p>
-                <headText for="whatitneeds">O que faz:</headText>
-                <p id="whatitneeds">{{whatitneeds}}</p>
-                <headText for="location">Localização:</headText>
-                <p id="location">{{city.name}}</p>
-                <div class="img-logo-event" style="margin-top:20px; background-image:url('{{logoURL}}');"></div>
-                {{/with}}
+          <div class="col-lg-8">
+            <h2>Informações do evento</h2>
+            <div class="well">
+              <h3>{{title}}</h3>
+              <headText for="date">Quando?</headText>
+              <p style="font-size: 22px; color: #1E2938;" id="date">{{date}}</p>
+              <headText for="location">Onde?</headText>
+              <p style="font-size: 22px; color: #1E2938; text-align:left;" id="location">{{location}}</p>
+              <div class="space-50"></div>
+              <p id="descriptionText">{{{description}}}</p>
+
+              {{#with initiative}}
+              <!-- <headText style="font-size: 10px;">O anfitrião desse evento escolheu a ONG {{title}} para ser apoiada através de seus presentes. Se você quiser transformar seu presente em uma doação e assim ajudar o {{title}}, basta clicar em 'doe agora' e seguir os passos. Com exceção de uma pequena taxa que usamos para manter o site no ar, todo o dinheiro é encaminhado para a instituição escolhida. Qualquer dúvida, conte conosco! Time do Surprese</headText> -->
+              {{/with}}
+            </div>
+
+            <div class="hidden-md-up">
+              <h2>Doações</h2>
+              <div class="well">
+                <button type="button" id="donateButton" class="btn btn-block btn-call-to-action btn-lg">Doe agora!</button>
+              </div>
+            </div>
+
+            <h2>Instituição escolhida</h2>
+            <div class="well">
+              {{#with initiative}}
+              <h3>{{title}}</h3>
+              <div class="img-logo-event" style="margin-top:20px; background-image:url('{{logoURL}}');"></div>
+              <p>{{category.title}}, {{section.title}}</p>
+
+              <headText for="vision">Visão:</headText>
+              <p id="vision">{{vision}}</p>
+              <headText for="howithelps">O que a ONG ajuda:</headText>
+              <p id="howithelps">{{howithelps}}</p>
+              <headText for="whatitneeds">Do que a ONG precisa:</headText>
+              <p id="whatitneeds">{{whatitneeds}}</p>
+              <!-- <headText for="location">Localização:</headText>
+              <p id="location">{{city.name}}</p> -->
+              {{/with}}
+              <p>
+                <a href="" class="btn-link">Saiba mais sobre a ONG</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <h2>Doações</h2>
+            <div class="well">
+              <button type="button" id="donateButton" class="btn btn-block btn-call-to-action btn-lg">Doe agora!</button>
+
 
             </div>
           </div>

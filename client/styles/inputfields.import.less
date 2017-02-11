@@ -1,11 +1,15 @@
 // Label before paragraphs or input fields
 
 headText {
-    font-size: 12px;
-    font-weight: 700;
-    color: rgb(149, 149, 149);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  display: inline-block;
+  margin-top: 30px;
+  font-size: @font-size-medium;
+  font-weight: @font-weight-bold;
+  color: @color-text;
+
+  + p {
+    margin-top: 0;
+  }
 }
 
 .upload-area .alert {
@@ -20,4 +24,59 @@ headText {
   bottom: 0px;
   width: 100%;
   opacity: 0;
+}
+
+// -----------
+
+input {
+  outline: none;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  height: 50px;
+
+  font-size: @font-size-large;
+  background-color: @color-gray-light;
+  color: @color-text;
+
+  border: 1px solid @color-white;
+  border-radius: 4px;
+
+  box-shadow: none;
+  -webkit-appearance: none;
+}
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: @color-gray;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+  color: @color-gray;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+  color: @color-gray;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: @color-gray;
+}
+
+
+.input-label {
+  margin-top: 30px;
+  font-family: @font-primary;
+  font-weight: @font-weight-bold;
+  font-size: @font-size-medium;
+  color: @color-text;
+}
+
+#eventForm {
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"] {
+    background-color: @color-white;
+  }
 }

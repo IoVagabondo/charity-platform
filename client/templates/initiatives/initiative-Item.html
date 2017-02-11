@@ -5,8 +5,11 @@
         <div class="row vertical-center">
             <div class="col-sm-3">
                 <img src={{imageURL}} alt="" class="img-responsive">
-                <button id="selectItem" class="btn {{#if isSelected}}btn-secondary-theme-bg{{else}}btn-default{{/if}} btn-block" type="button">
-                  Select</button>
+                {{#if isSelected}}
+                  <button id="selectItem" class="btn btn-primary btn-block" type="button">Selected</button>
+                {{else}}
+                  <button id="selectItem" class="btn btn-secondary btn-block" type="button">Select</button>
+                {{/if}}
             </div>
             <div class="col-sm-8">
                 <div class="causes-desc">

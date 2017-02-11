@@ -1,3 +1,8 @@
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
 
 // Utilities class
 // ---------------
@@ -13,6 +18,17 @@
 	color: @white-color !important;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
 
 // Override bootstrap
 // ------------------
@@ -42,3 +58,9 @@
 // .tbl-cell-expanded {
 // 	width: 100%;
 // }
+
+@media(min-width: 992px) {
+	.hidden-md-up {
+		display: none !important;
+	}
+}
