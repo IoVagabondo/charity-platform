@@ -60,9 +60,10 @@ Template.EventDonatePayment.helpers ({
 Template.EventDonatePayment.events({
   'click #executePayment' : function(event, template){
     Session.set('payment_in_progress', true);
+    var paymentId = Session.get('paymentId');
     var payerId = Session.get('payerId');
     // payerId = window.location.search.split('PayerID=')[1];
-    Meteor.call('executePaypalPayment', payerId, function(err, res) {
+    Meteor.call('executePaypalPayment', paymentId, payerId, function(err, res) {
 
       if (res === true) {
         Session.set('payment_status', 'successful')
