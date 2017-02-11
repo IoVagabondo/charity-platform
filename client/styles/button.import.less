@@ -130,8 +130,34 @@ button.inTable {
 }
 
 
+.btn-link {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  color: @color-text;
+  transition: all ease-in-out 0.3s;
+  background-color: transparent;
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 4px;
+    background-color: @color-primary;
+    content: '';
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: @color-text;
+    background-color: @color-green-light;
+  }
+}
+
 .btn {
-  margin-top: 30px;
+  width: auto;
 
   padding: 10px 20px;
   font-size: @font-size-medium;
@@ -183,8 +209,13 @@ button.inTable {
 .btn-call-to-action:hover,
 .btn-call-to-action:focus {
   background-color: darken(@color-call-to-action, 5%);
+  color: @color-white;
 }
 
+
+.btn-block {
+	width: 100%;
+}
 
 .btn-lg {
   font-size: @font-size-large;

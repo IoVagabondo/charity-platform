@@ -37,9 +37,12 @@ input:-webkit-autofill {
 // General app body
 // ----------------
 .appBody {
+  margin: auto;
 	margin-top: 7em;
-	width:80%;
-  	margin-left:10%;
+  width: 90%;
+  @media(min-width: 900px) {
+    width:65%;
+  }
 }
 
 
@@ -97,6 +100,10 @@ section {
 
 .margin-b-0 {
   margin-bottom: 0 !important;
+}
+
+.margin-t-30 {
+  margin-top: 30px;
 }
 
 .margin-b-30 {

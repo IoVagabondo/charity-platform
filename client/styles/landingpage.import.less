@@ -38,7 +38,7 @@
 	width: 100%;
 	margin: 0;
 	display: table;
-	padding: 80px 15px 80px;
+	padding: 120px 20px 120px;
 	.header-content-inner {
             h2 {
                 font-weight: 300;
@@ -57,13 +57,11 @@
 	width: 100%;
 	margin: 0;
 	display: table;
-	padding: 80px 15px 80px;
-	background-color: @color-secondary;
+	padding: 120px 20px 120px;
+
 	.content-inner {
             h2 {
-                font-weight: 300;
                 color: @white-color;
-                font-size: 30px;
             }
         }
 }
@@ -72,85 +70,27 @@
 	width: 100%;
 	margin: 0;
 	display: table;
-	padding: 80px 15px 80px;
+	padding: 120px 20px 120px;
+
 	.how-content {
-					h1 {
-							font-weight: 700;
-							color: @color-secondary;
-							margin-bottom: 0;
-							font-size: 30px;
+		img {
+			width: 200px;
+			height: auto;
+		}
 
-					}
+		.content-inner {
+			margin-top: 2em;
+		}
 
-					h2 {
-						margin: 1em 1em;
-						font-size: 20px;
-            color: @color-primary;
-
-            .text-impact {
-              color: @color-primary;
-            }
-					}
-
-					img {
-						margin-bottom: 1em;
-						width: 150px;
-						height: auto;
-					}
-
-					.content-inner {
-						margin-top: 2em;
-						padding-left: 4em;
-						padding-right: 4em;
-					}
-
-					p {
-							font-weight: 300;
-							font-size: @font-size-medium;
-							text-align: center;
-							margin: 1em 2em;
-					}
-
-          .content-impact {
-            h2 {
-              margin: 1em 1em;
-  						font-size: 20px;
-              color: @color-secondary;
-            }
-          }
+    p {
+      font-size: @font-size-medium;
+      text-align: center;
     }
-}
 
-.newsletter {
-	width: 100%;
-	margin: 0;
-	display: table;
-	padding: 80px 15px 80px;
-	background-color: @color-secondary;
-
-	h2 {
-		color: @white-color;
-		margin: 0em 1em;
-		font-size: 30px;
-		padding-bottom: 2em;
-	}
-
-  p {
-    text-align: center;
-    color: @light-grey;
-    font-size: @font-size-small;
+    h2 {
+      margin-bottom: 30px;
+    }
   }
-
-	input {
-		border-radius: 0px;
-		height: 44px;
-		font-size: 22px;
-	}
-
-	button {
-		height: 44px;
-		border-radius: 0px;
-	}
 }
 
 // Beginn of sections for about us & how it works
@@ -242,7 +182,7 @@
 	margin: 0;
 
 	display: table;
-	padding: 80px 15px 80px;
+	padding: 120px 20px 120px;
 	.values-content {
 
 					h2 {
@@ -350,7 +290,6 @@
 /* SECTION */
 
 .transparency {
-
   width: 100%;
 	margin: 0;
   padding: 3em 0.5em 3em;
@@ -362,19 +301,10 @@
       font-size: 30px;
   }
 
-
   img {
 		margin: 2em 0em;
 		width: 400px;
 		height: auto;
-	}
-
-  p{
-		color: @color-secondary;
-		font-weight: 200;
-		text-align: justify;;
-		padding-top: 1em;
-
 	}
 
   .content-inner {
@@ -382,4 +312,57 @@
 
   }
 
+}
+
+.newsletter {
+  width: 100%;
+  margin: 0;
+  padding: 120px 20px 120px;
+  background-color: @color-secondary;
+
+  label {
+    margin-bottom: 30px;
+    font-size: @font-size-large;
+    font-weight: @font-weight-regular;
+    color: @color-white;
+  }
+
+  p {
+    color: @color-white;
+  }
+}
+
+.container-white {
+  background-color: @color-white;
+}
+
+.landing {
+
+  h2 {
+    font-size: @font-size-xlarge;
+    font-weight: @font-weight-bold;
+    text-transform: none;
+    color: @color-primary;
+  }
+
+  h3 {
+    font-weight: @font-weight-bold;
+    font-size: @font-size-large;
+    color: @color-text;
+  }
+
+  p {
+    font-weight: @font-weight-regular;
+    font-size: @font-size-large;
+    color: @color-text;
+
+  }
+
+}
+
+.well {
+  padding: 30px;
+  background-color: @color-white;
+  border: none;
+  border-radius: 4px;
 }

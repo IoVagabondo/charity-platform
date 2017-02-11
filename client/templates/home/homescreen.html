@@ -5,7 +5,7 @@
                 <h2>Impact Panel</h2>
             </div>
             <div class="col-md-offset-4 col-md-2 text-right">
-                <button type="button" class="btn btn-primary newEvent">Create new event</button>
+                <button type="button" class="btn btn-primary newEvent">Create event</button>
             </div>
         </div>
         <hr class="margin-t-0">
@@ -41,10 +41,10 @@
         <div class="row">
 
             <div class="col-md-9">
-                <h4 class="text-center">Past events</h4>
+                <h2 class="text-center">Past events</h2>
             	<hr style="max-width: 80px">
                 {{#each eventsList}} {{> eventListItem}} {{/each}}
-                <button class="lazyload">Load more</button>
+                <button class="lazyload btn btn-secondary">Load more</button>
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ Meteor.startup(function(){
 			}
 		});
 
-		Roles.addUsersToRoles(userId, ['admin'], 'employees');
+		Roles.addUsersToRoles(userId, ['admin']);
 
 		var userId = Accounts.createUser({
 			username: 'bea@primi.io',
@@ -26,7 +26,7 @@ Meteor.startup(function(){
 			}
 		});
 
-		Roles.addUsersToRoles(userId, ['admin'], 'employees');
+		Roles.addUsersToRoles(userId, ['admin']);
 
 		var userId = Accounts.createUser({
 			username: 'mia',

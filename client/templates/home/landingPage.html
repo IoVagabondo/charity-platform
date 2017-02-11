@@ -1,58 +1,69 @@
 <template name="landingPage">
+  <div class="landing">
     <section class="head">
         <div class="intro">
 
             <div class="row">
               <div class="col-xs-offset-1 col-xs-10 text-center">
-                <img src="/images/novo-white-text.png" style="width: 500px; height: auto;">
+                <img src="/images/logo-home.png" style="width: 820px; height: auto;">
                 <p class="text-center">
-                  <a href="#" id="btn-newsletter" class="btn btn-lg btn-primary">Em breve!</a>
+                  <a href="#" id="btn-newsletter" class="btn btn-lg btn-call-to-action">Em breve!</a>
                 </p>
               </div>
             </div>
         </div>
     </section>
-    <section class="habit" id="habit">
+
+    <section class="impact container-white" id="impact">
         <div class="header-content-inner">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="text-center">Dê um novo propósito aos seus eventos</h2>
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+                <h2>Dê um novo propósito aos seus eventos</h2>
+                <p>O surprese é uma plataforma que te conecta com instituições sociais que estão fazendo a diferença.</p>
+                <p>Queremos mudar o hábito de presentar, e ao mesmo tempo permitir<br>que todos tenham maior realização pessoal doando ao invés de recebendo</p>
             </div>
         </div>
     </section>
 
-    <div class="space-80 separator-bg-secondary">
-    </div>
+    <!-- <div class="space-80 separator-bg-secondary">
+    </div> -->
 
-    <!-- <section class="impact" id="impact">
+    <!-- <section class="habit" id="habit">
         <div class="content-inner">
-            <div class="col-sm-offset-2 col-md-8 col-xs-12 text-center">
+            <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+              <h2> Dê um novo propósito às suas festas</h2>
+
 
             </div>
         </div>
     </section> -->
 
     <section class="how" id="impact">
-        <div class="how-content">
-            <div class="row text-center">
-              <h1>COMO FUNCIONA</h1>
-              <hr class="style-300-primary-color">
-            </div>
+        <div class="how-content text-center">
+          <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+            <h2>Como funciona</h2>
+            <!-- <hr class="style-300-primary-color"> -->
 
             <div class="row content-inner">
-              <div class="col-md-4 text-center">
-                <h2>Você cria uma página<br>para seu evento</h2>
-                <img src="/images/Rings-step1.png">
-                <p>Com local, data, hora e uma descrição para compartilhar com seus convidados</p>
+              <div class="col-xs-12 col-lg-4">
+                <div class="well">
+                  <h3>Crie uma página<br>para seu evento</h3>
+                  <img src="/images/Rings-step1.png">
+                  <p>Crie o convite da sua festa. Esse é o lugar para contar aos seus convidados porque você decidiu fazer essa festa diferente!</p>
+                </div>
               </div>
-              <div class="col-md-4 text-center">
-                <h2>Escolhe uma<br>instituição</h2>
-                <img src="/images/Rings-step2.png">
-                <p>Através de filtros escolha uma instituição que atue em favor da sua causa</p>
+              <div class="col-xs-12 col-lg-4">
+                <div class="well">
+                  <h3>Escolha uma<br>instituição</h3>
+                  <img src="/images/Rings-step2.png">
+                  <p>Escolha uma instituição parceira que atue em favor de sua causa. Não achou nenhuma? Fala pra gente!</p>
+                </div>
               </div>
-              <div class="col-md-4 text-center">
-                <h2>E troca os presentes<br>que receberia por doações</h2>
-                <img src="/images/Rings-step3.png">
-                <p>Envie o link para seus convidados e eles poderão te presentar com uma doação para a instituição escolhida</p>
+              <div class="col-xs-12 col-lg-4">
+                <div class="well">
+                  <h3>Transforme presentes<br/>em doações</h3>
+                  <img src="/images/Rings-step3.png">
+                  <p>Compartilhe o link com seus convidados para que eles possam te presentear doando para a instituição escolhida através do surprese.</p>
+                </div>
               </div>
             </div>
             <!-- <div class="row content-inner">
@@ -61,15 +72,13 @@
                 <img src="/images/Rings-step4.png">
               </div>
             </div> -->
-            <div class="row content-impact">
-              <div class="col-md-12 text-center">
-                <a href="/como-funciona" id="btn-know-more" class="btn btn-lg btn-secondary">Saiba mais</a>
-                <h2>Queremos mudar o hábito de presentar, e ao mesmo tempo permitir<br>que todos tenham maior realização pessoal doando ao invés de recebendo</h2>
-              </div>
-            </div>
+            <a href="/como-funciona" id="btn-know-more" class="btn btn-primary">Saiba mais</a>
+
+          </div>
         </div>
     </section>
     {{> newsletterSection}}
 
   {{> newsletterModal}}
+  </div>
 </template>

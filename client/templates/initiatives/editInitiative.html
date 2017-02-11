@@ -1,7 +1,7 @@
 <template name="editInitiative">
     <div class="appBody">
       {{> inAppNavBar}}
-        <div>
+        <div class="well">
             <form>
                 <div class="form-group">
                     <label for="title">Title</label>
@@ -88,7 +88,7 @@
                     <label for="foundingYear">Founding year</label>
                     <input type="text" class="form-control" id="foundingYear" name="foundingYear" value="{{foundingYear}}">
                 </div>
-                <button type="submit" class="save">{{saveButtonText}}</button>
+                <button type="submit" class="save btn btn-primary">{{saveButtonText}}</button>
             </form>
         </div>
         {{#if hasId}}
