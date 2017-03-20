@@ -131,9 +131,13 @@
                       </p>
                       <p class="">
                         <button id="paypal" class="btn btn-primary pull-right">Pagar com PayPal</button>
-                        <button type="submit" id="stepTwoButtonBack" class="btn btn-secondary register pull-left">Back</button>
+                        <button id="bancaria" class="btn btn-primary pull-right">Pagar com Transferência</button>
+
                         <div class="clearfix"></div>
 
+                      </p>
+                      <p>
+                        <button type="submit" id="stepTwoButtonBack" class="btn btn-secondary register pull-left">Back</button>
                       </p>
                     </div>
 
@@ -152,21 +156,43 @@
 
       {{/if}}
 
-      <!-- {{#if stepEquals 'stepThree'}}
-        <section class="register">
-                <div class="col-sm-10">
-                    <button id="paypal" class="btn btn-primary btn-block btn-lg">Pay with PayPal</button>
-                </div>
-                <form name="stepThree" class="form-horizontal">
+      {{#if stepEquals 'stepThree'}}
+      <section class="register">
+        <div class="well">
+              <p>Você optou por pagar por transferência bancária.</p>
+              <form name="stepTwo" class="form-horizontal" style="margin-top: 2em;">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12">
+                    <p>Abaixo você encontrará detalhes para a transferência:</p>
+                  </div>
+                  <div class="col-xs-12 col-sm-12">
+                    <p>Banco Itaú<br>
+                    Agência 1514<br>
+                    Conta corrente 11306-5<br>
+                    Beneficiário: Ana Beatriz Gomes Zanforlin<br>
+                    CPF: 40924286857</p>
+                    <p>Use este número de referência na sua transação: {{shortDonorId}}</p>
 
-                    <div class="form-group">
-                        <div class="col-sm-10">
-                              <button type="submit" id="stepThreeButtonBack" class="btn btn-default register">Back</button>
-                        </div>
-                    </div>
-                </form>
-        </section>
-      {{/if}} -->
+                  </div>
+                </div>
+              </form>
+                  <div class="col-sm-12" style="padding: 0px; margin-top: 2em">
+
+                    <p class="">
+                      <button id="completeTransaction" class="btn btn-primary pull-right">Completa operação</button>
+                      <button type="submit" id="stepThreeButtonBack" class="btn btn-secondary register pull-left">Back</button>
+                      <div class="clearfix"></div>
+
+                    </p>
+                  </div>
+
+
+        </div>
+      </section>
+      {{/if}}
     </div>
   </div>
+
+
+  {{> transactionCompleteModal}}
 </template>

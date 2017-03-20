@@ -206,6 +206,11 @@ Meteor.methods({
 
     },
 
+    updateDonorPaymet: function(donorId, amount) {
+        return Donors.update(donorId, {$set: {bankPayment: amount}});
+
+    },
+
     // ########### Set roles on users ##########
 
     setRoleOnUser: function(options) {

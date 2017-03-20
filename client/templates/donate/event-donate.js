@@ -68,6 +68,10 @@ Template.eventDonate.helpers({
     return currentStep == step;
   },
 
+  shortDonorId: function(){
+    return Session.get('donorId').substring(0,5);
+  },
+
   products: function(){
 		return Initiatives.findOne({_id: Template.instance().data.initiativeId}).products;
 	},
@@ -161,6 +165,30 @@ Template.eventDonate.events({
       event.preventDefault();
       Session.set('currentStep', 'stepTwo');
   },
+
+  'click #bancaria': function(event, template) {
+      event.preventDefault();
+      var amount = Session.get('donationAmount');
+      var donorId = Session.get('donorId');
+      Meteor.call('updateDonorPaymet', donorId, amount);
+      Session.set('currentStep', 'stepThree');
+  },
+
+  'click #completeTransaction': function(event, template) {
+      event.preventDefault();
+      $('#transactionCompleteModal').modal('show');
+  },
+
+  'click #btn-transaction-modal': function (event, template){
+
+    event.preventDefault();
+    // Router.go('Home');
+    // $('#transactionCompleteModal').modal('hide');
+    $('#transactionCompleteModal').on('hidden.bs.modal', function (e) {Router.go('Home');}).modal('hide');
+
+  },
+
+
 
   'click #paypal': function() {
     var product;

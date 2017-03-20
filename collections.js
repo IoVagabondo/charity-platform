@@ -41,6 +41,11 @@ Schemas.Donors = new SimpleSchema({
       defaultValue: false,
     },
 
+    bankPayment: {
+      type: Number,
+      optional: true,
+    },
+
     donationAmount: {
       type: Number,
       optional: true,
