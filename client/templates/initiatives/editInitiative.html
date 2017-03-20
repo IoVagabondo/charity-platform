@@ -5,37 +5,37 @@
             <form>
                 <headText>Informações com base</headText>
                 <div class="form-group">
-                    <label for="title">Title</label>
+                    <label for="title">Título</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Awesome title" value="{{title}}">
                 </div>
                 <div class="form-group">
-                    <label for="website">Link to website</label>
+                    <label for="website">Link para o site</label>
                     <input type="text" class="form-control" id="website" name="website" value="{{website}}">
                 </div>
                 <div class="form-group">
-                    <label for="foundingYear">Founding year</label>
+                    <label for="foundingYear">Ano de fundação</label>
                     <input type="text" class="form-control" id="foundingYear" name="foundingYear" value="{{foundingYear}}">
                 </div>
                 <hr>
                 <headText>Descrição detalhada</headText>
                 <div class="form-group">
-                    <label for="vision">Vision</label>
+                    <label for="vision">Visão</label>
                     <input type="text" class="form-control" id="vision" name="vision" value="{{vision}}">
                 </div>
                 <div class="form-group">
-                    <label for="howithelps">How it helps</label>
+                    <label for="howithelps">Como ela ajuda</label>
                     <input type="text" class="form-control" id="howithelps" name="howithelps" value="{{howithelps}}">
                 </div>
                 <div class="form-group">
-                    <label for="whatitneeds">What it needs</label>
+                    <label for="whatitneeds">Do que precisa</label>
                     <input type="text" class="form-control" id="whatitneeds" name="whatitneeds" value="{{whatitneeds}}">
                 </div>
                 <div class="form-group">
-                    <label for="description">Complete description</label>
+                    <label for="description">Descrição completa</label>
                     <textarea name="description" class="form-control" id="description" placeholder="Short description" rows="3">{{description}}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="category">Category</label>
+                    <label for="category">Categoria</label>
                     <select class="form-control" name="category" id="category" value="{{category}}">
                         <option value="none">Choose here ...</option>
                         {{#each categoriesList}}
@@ -44,18 +44,18 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="section">Section</label>
+                    <label for="section">Seção</label>
                     <select class="form-control" name="section" id="section" value="{{section}}">
-                        <option value="none">Choose here ...</option>
+                        <option value="none">Escolha aqui ...</option>
                         {{#each sectionsList}}
                         <option {{selectedSection}} value="{{_id}}">{{title}}</option>
                         {{/each}}
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="city">City</label>
+                    <label for="city">Cidade</label>
                     <select class="form-control" name="city" id="city" value="{{city}}">
-                        <option value="none">Choose here ...</option>
+                        <option value="none">Escolha aqui ...</option>
                         {{#each citiesList}}
                         <option {{selectedCity}} value="{{_id}}">{{name}}</option>
                         {{/each}}
@@ -64,36 +64,36 @@
                 <hr>
                 <headText>Dados de contacto da pessoa de contacto</headText>
                 <div class="form-group">
-                    <label for="contactPerson">Contact Person</label>
+                    <label for="contactPerson">Pessoa de contato</label>
                     <input type="text" class="form-control" id="contactPerson" name="contactPerson" value="{{contact.contactPerson}}">
                 </div>
                 <div class="form-group">
-                    <label for="contactEmail">Email Adress</label>
+                    <label for="contactEmail">Endereço de e-mail</label>
                     <input type="email" class="form-control" id="contactEmail" name="contactEmail" value="{{contact.contactEmail}}">
                 </div>
                  <div class="form-group">
-                    <label for="contactTel">Tel. Number</label>
+                    <label for="contactTel">Número de telefone</label>
                     <input type="text" class="form-control" id="contactTel" name="contactTel" value="{{contact.contactTel}}">
                 </div>
                 <div class="form-group">
-                    <label for="contactStreet">Street </label>
+                    <label for="contactStreet">Rua</label>
                     <input type="text" class="form-control" id="contactStreet" name="contactStreet" value="{{contact.contactStreet}}">
                 </div>
                  <div class="form-group">
-                    <label for="contactZip">Zip </label>
+                    <label for="contactZip">CEP</label>
                     <input type="text" class="form-control" id="contactZip" name="contactZip" value="{{contact.contactZip}}">
                 </div>
                 <div class="form-group">
-                    <label for="contactCity">City </label>
+                    <label for="contactCity">Cidade</label>
                     <input type="text" class="form-control" id="contactCity" name="contactCity" value="{{contact.contactCity}}">
                 </div>
                 <div class="form-group">
-                    <label for="contactCountry">Country </label>
+                    <label for="contactCountry">Nação</label>
                     <input type="text" class="form-control" id="contactCountry" name="contactCountry" value="{{contact.contactCountry}}">
                 </div>
 
                 <div class="form-group">
-                    <label for="foundingYear">Founding year</label>
+                    <label for="foundingYear">Ano de fundação</label>
                     <input type="text" class="form-control" id="foundingYear" name="foundingYear" value="{{foundingYear}}">
                 </div>
                 <button type="submit" class="save btn btn-primary">{{saveButtonText}}</button>
@@ -112,7 +112,7 @@
             <div class="upload-area">
                 <form id="uploadLogo">
                     <p class="alert alert-success text-center">
-                        <span>Click or Drag an Image Here to Upload</span>
+                        <span>Clique ou arraste uma imagem aqui para carregar</span>
                         <input id="uploadLogo" type="file">
                     </p>
                 </form>
@@ -120,7 +120,7 @@
         </div>
         <hr>
         <div class="row">
-            <p>Image</p>
+            <p>Imagem</p>
             <div class="thumbnail">
                 <img src="{{imageURL}}" alt="{{title}}" max-width="300px">
             </div>
@@ -129,7 +129,7 @@
             <div class="upload-area">
                 <form id="uploadImage">
                     <p class="alert alert-success text-center">
-                        <span>Click or Drag an Image Here to Upload</span>
+                        <span>Clique ou arraste uma imagem aqui para carregar</span>
                         <input id="uploadImage" type="file">
                     </p>
                 </form>
