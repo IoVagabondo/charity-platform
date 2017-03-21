@@ -12,7 +12,7 @@
         </div>
         <div style="margin-bottom: 2em;" class="row">
           <div class="col-xs-12">
-            <headText>Convite <i class="fa fa-heart" aria-hidden="true"></i> do {{author}}</headText>
+            <headText>Convite <i class="fa fa-heart" aria-hidden="true"></i> de {{author}}</headText>
           </div>
         </div>
 
@@ -50,16 +50,17 @@
 
               <headText for="vision">Visão:</headText>
               <p id="vision">{{vision}}</p>
-              <headText for="howithelps">O que a ONG ajuda:</headText>
+              <headText for="howithelps">Como a ONG ajuda:</headText>
               <p id="howithelps">{{howithelps}}</p>
               <headText for="whatitneeds">Do que a ONG precisa:</headText>
               <p id="whatitneeds">{{whatitneeds}}</p>
               <!-- <headText for="location">Localização:</headText>
               <p id="location">{{city.name}}</p> -->
-              {{/with}}
+              
               <p>
-                <a href="" class="btn-link">Saiba mais sobre a ONG</a>
+                <a href="/initiatives/{{slug}}" class="btn-link">Saiba mais sobre a ONG</a>
               </p>
+              {{/with}}
             </div>
           </div>
 
