@@ -75,6 +75,15 @@ Template.steps.events({
               Session.set('slug-new-event', slug);
               Router.go('Event', { slug: Session.get('slug-new-event') });
 
+              Session.set('currentStep', 'welcome');
+              Session.set('eventTitle','');
+              Session.set('date','');
+              Session.set('location','');
+              Session.set('suggestedValue','');
+              Session.set('suggestedValueOption','');
+              Session.set('description','');
+              Session.set('selectedInitiativeId','');
+              Session.set('pictureURL','');
           }
 
           // Here we use the probably changed slug from the server side method
