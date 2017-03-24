@@ -114,10 +114,12 @@
                 <p>Escolha a quantia que deseja doar e faça a transferência através do PayPal.</p>
                 <form name="stepTwo" class="form-horizontal" style="margin-top: 2em;">
                   <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                      <p>Valor sugerido pelo anfitrião:</p>
-                      <p style="font-size: 40px;">R$ {{suggestedValue}}</p>
-                    </div>
+                    {{#if noSuggestedValue}}
+                      <div class="col-xs-12 col-sm-6">
+                        <p>Valor sugerido pelo anfitrião:</p>
+                        <p style="font-size: 40px;">R$ {{suggestedValue}}</p>
+                      </div>
+                    {{/if}}
                     <div class="col-xs-12 col-sm-6">
                       <p>Valor da doação:</p>
                       <p style="font-size: 40px; color: #32AF98;">R$ {{donationAmount}}</p>

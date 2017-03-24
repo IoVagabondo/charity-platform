@@ -49,11 +49,14 @@ Template.formStep4.events({
         var slug = _.slugify(Session.get('eventTitle'));
         event.preventDefault();
 
+      
+
         Meteor.call('insertEvent', {
             title: Session.get('eventTitle'),
             slug: slug,
             date: Session.get('date'),
             suggestedValue: Session.get('suggestedValue'),
+            noSuggestedValue: Session.get('suggestedValueOption'),
             description: Session.get('description'),
             initiativeId: Session.get('selectedInitiativeId'),
             pictureURL: Session.get('pictureURL')

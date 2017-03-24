@@ -106,7 +106,13 @@ Schemas.Events = new SimpleSchema({
     },
     suggestedValue: {
         type: String,
-        label: "Suggested Value for Funding"
+        label: "Suggested Value for Funding",
+        optional: true,
+    },
+    noSuggestedValue: {
+      type: String,
+      label: "True if no suggested value",
+      optional: true,
     },
     description: {
         type: String,

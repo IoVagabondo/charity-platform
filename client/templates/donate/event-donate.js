@@ -38,7 +38,13 @@ Template.eventDonate.onRendered(function(){
 
 
     if (Session.get('donationAmount') == undefined){
-      var donationAmount = parseInt(Template.instance().data.suggestedValue);
+      var donationAmount;
+      if (Template.instance().data.noSuggestedValue == 'true'){
+        donationAmount = 1;
+      }
+      else {
+        donationAmount = parseInt(Template.instance().data.suggestedValue);
+      }
       Session.set('donationAmount',donationAmount);
     }
 
@@ -57,6 +63,16 @@ Template.eventDonate.helpers({
     initiative.category = Categories.findOne();
     initiative.section = Sections.findOne();
     return initiative;
+  },
+
+  noSuggestedValue: function(){
+    if (Template.instance().data.noSuggestedValue == 'true'){
+      return false;
+    }
+    else {
+        return true;
+    }
+
   },
 
   stepEquals: function(step){

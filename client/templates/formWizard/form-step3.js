@@ -22,7 +22,20 @@ Template.formStep3.onRendered(function() {
         format: 'DD/MM/YYYY',
     });
 
+    if(Session.get('suggestedValueOption') == undefined){
+      Session.set('suggestedValueOption', 'false');
+    }
 
+
+});
+
+Template.formStep3.helpers({
+  suggestedValueOption: function(){
+    if (Session.get('suggestedValueOption')) {
+      return false;
+    }
+    return true;
+  },
 });
 
 
@@ -68,6 +81,11 @@ Template.formStep3.events({
             Session.set('description', query);
         }, 500);
 
+    },
+
+    'change .hide-completed input': function(event, template) {
+          Session.set('suggestedValueOption', event.target.checked);
+          // console.log(Session.get('suggestedValueOption'));
     },
 
     'input #suggestedValue': function(event, template) {

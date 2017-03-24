@@ -60,6 +60,7 @@ Template.steps.events({
           date: Session.get('date'),
           location: Session.get('location'),
           suggestedValue: Session.get('suggestedValue'),
+          noSuggestedValue: Session.get('suggestedValueOption'),
           description: Session.get('description'),
           initiativeId: Session.get('selectedInitiativeId'),
           pictureURL: Session.get('pictureURL')

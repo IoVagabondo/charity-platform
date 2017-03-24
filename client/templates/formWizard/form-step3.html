@@ -21,9 +21,16 @@
                 <textarea id="description" class="form-control" name="text" rows="10" placeholder="Brilliant description"></textarea>
             </div>
             <div class="form-group">
+                <label class="hide-completed">
+                <input id="noSuggestedValue" type="checkbox" style="display: inline;"> No suggested value
+                </label>
+            </div>
+            {{#if suggestedValueOption}}
+            <div class="form-group">
                 <label for="suggestedValue">Suggested value</label>
                 <input type="text" class="form-control" id="suggestedValue" name="suggestedValue" placeholder="Your suggestion of the funding">
             </div>
+            {{/if}}
                 <div class="upload-area">
                     <label for="upload">Upload a picture of you or your event if you want</label>
                     <form id="upload">
