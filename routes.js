@@ -86,6 +86,11 @@ Router.map(function() {
         template: 'register'
     });
 
+    this.route('verifyEmail', {
+      path: '/verify-email/:token',
+      template: 'verifyEmail'
+    });
+
     this.route('AdminPanel', {
         path: '/admin',
         template: 'adminPanel'

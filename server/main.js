@@ -2,7 +2,8 @@ Meteor.startup(function(){
 
 	console.log('Server started');
 
-
+	process.env.MAIL_URL = "smtp://postmaster%40sandboxc73b665f63324f0d842b88a770d2a74e.mailgun.org:8ee0576232e1fae2e684ecd99e082c44@smtp.mailgun.org:587";
+	
 	// #Users and Permissions -> -> Creating the admin user
 	if(Meteor.users.find().count() === 0) {
 

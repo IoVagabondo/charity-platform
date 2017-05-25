@@ -1,13 +1,17 @@
 <template name="homescreen">
     <div class="appBody">
+      {{#unless currentUser.emails.[0].verified}}
+        <p class="alert alert-warning">You need to verify your email address before using Surprese. <a href="#" class="resend-verification-link">Resend verification link</a>.</p>
+      {{else}}
+
 
         <div class="row">
             <div class="col-md-6 text-left">
                 <h2>Painel de Impacto</h2>
             </div>
 
-            <div class="col-md-offset-4 col-md-2 text-right">
-                <button type="button" class="btn btn-primary newEvent">Create event</button>
+            <div class="col-md-offset-3 col-md-3 text-right">
+                <button type="button" class="btn btn-primary newEvent">Novo evento</button>
 
             </div>
         </div>
@@ -16,33 +20,28 @@
 
         <div class="row">
 
-            <div class="col-md-9">
+            <div class="col-md-8">
                   {{#each eventsList}} {{> eventListItem}} {{/each}}
-                  <button class="lazyload">Carregar mais eventos</button>
+                  <button class="lazyload btn btn-secondary">Carregar mais eventos</button>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title text-center"><strong>Sua conta</strong></h3>
+                        <h3 class="panel-title text-center"><strong>Oi! Esta é a sua conta</strong></h3>
+
                     </div>
                     <div class="panel-body">
-                        <p>Number of events: </p>
-                        <p>Total Funding: </p>
+                        <span style="margin-top: 10px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: #D3D3D3">Username</span>
+                        <p style="margin-top:0px;">{{currentUser.username}} </p>
+                        <span style="margin-top: 10px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: #D3D3D3">Email</span>
+                        <p style="margin-top:0px;">{{currentUser.emails.[0].address}} </p>
+
                     </div>
                 </div>
             </div>
           </div>
 
-        <div class="row">
-
-            <div class="col-md-9">
-                <h2 class="text-center">Past events</h2>
-            	<hr style="max-width: 80px">
-                {{#each eventsList}} {{> eventListItem}} {{/each}}
-                <button class="lazyload btn btn-secondary">Load more</button>
-            </div>
-
-        </div>
+    {{/unless}}
     </div>
 </template>

@@ -1,0 +1,10 @@
+<template name="verifyEmail">
+  <div class="appBody">
+    {{#unless currentUser.emails.[0].verified}}
+      <p class="alert alert-warning">You need to verify your email address before using Surprese. <a href="#" class="resend-verification-link">Resend verification link</a>.</p>
+    {{else}}
+      <h3>From all the way Downtown!</h3>
+      <img src="https://media.giphy.com/media/dpu95OTQ9rDPi/giphy.gif">
+    {{/unless}}
+  </div>
+</template>

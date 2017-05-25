@@ -226,6 +226,29 @@ Meteor.methods({
         }
     },
 
+    sendVerificationLink: function() {
+        let userId = Meteor.userId();
+        if ( userId ) {
+          return Accounts.sendVerificationEmail( userId );
+        }
+    },
+
+
+    setupUserAndSendVerificationLink: function(options) {
+        check(options, {
+            user: String,
+            role: String
+        });
+
+        try {
+            Roles.setUserRoles(options.user, [options.role]);
+        } catch (exception) {
+            return exception;
+        }
+        return Accounts.sendVerificationEmail( options.user );
+
+    },
+
     // ########### Begin section for paypal integration ##########
 
     // ########### get token from paypal ##########

@@ -34,6 +34,11 @@ Template.navbar.events({
         $('#loginModal').modal('show');
     },
 
+    'click #register': function(event, template) {
+        event.preventDefault();
+        $('#registerModal').modal('show');
+    },
+
     'click #createEvent': function(event, template) {
         Router.go('Create Event', {id: 0});
     },
